@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('username')->unique()->nullable();
-            $table->string('role')->default('Guest');
             $table->boolean('active')->default(true);
         });
     }
