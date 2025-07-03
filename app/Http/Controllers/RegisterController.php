@@ -14,6 +14,13 @@ class RegisterController extends Controller
     }
 
     public function actionregister(Request $request) {
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:4',
+            'role' => 'required',
+        ]);
+
         $user = User::create([
             'email' => $request->email,
             'username' => $request->username,
