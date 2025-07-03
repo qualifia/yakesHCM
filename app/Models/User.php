@@ -9,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     protected $table = 'users';
@@ -20,10 +19,45 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = [
+
+     protected $fillable = [
         'username',
         'email',
         'password',
         'role',
     ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    // 🔐 Role-checking helpers
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isHcm(): bool
+    {
+        return $this->role === 'hcm';
+    }
+
+    public function isEmployee(): bool
+    {
+        return $this->role === 'employee';
+    }
+
+    public function isBod(): bool
+    {
+        return $this->role === 'bod';
+    }
 }
