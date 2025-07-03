@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; /* untuk handle authentication */
+use Session; /* mengirim pesan error ke halaman form login */
 
 class LoginController extends Controller
 {
-    public funcition login() {
-        if (Auth::check()) {
+    public function login() {
+        if (Auth::check()) { /* cek user sudah login atau belom */
             return redirect('home');
         } else {
             return view('login');
