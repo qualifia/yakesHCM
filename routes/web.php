@@ -25,15 +25,10 @@ Route::get('/register', [RegisterController::class, 'register'])->name('register
 Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
 
 Route::middleware(['auth', 'role:admin,hcm'])->group(function () {
-Route::get('/recruitment', [RecruitmentController::class, 'index']);
+    Route::get('/recruitment', [RecruitmentController::class, 'index']);
 });
 
-<<<<<<< HEAD
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
-=======
 Route::middleware(['auth'])->group(function () {
-Route::resource('djms', DJMController::class); // CRUD DJM
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::resource('djms', DJMController::class); // CRUD DJM
 });
->>>>>>> 90d6453d53ba935e4b22b9be69f9aade873dbdf0
