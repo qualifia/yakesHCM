@@ -35,17 +35,8 @@ class LoginController extends Controller
         return redirect('/');
     }
 
-    protected function autheticated(Request $request, $user) {
-        if ($user->hasrole('admin')) {
-            return redirect('/admin/dashboard1');
-        } elseif ($user->hasRole('hcm')) {
-            return redirect('/hcm/dashboard2');
-        } elseif ($user->hasRole('employee')) {
-            return redirect('/employee/dashboard3');
-        } elseif ($user->hasRole('guest')) {
-            return redirect('/guest/dashboard4');
-        }    
-        return redirect('/login');
+    protected function authenticated(Request $request, $user) {
+        return redirect()->route('home');
     }
 
 }
