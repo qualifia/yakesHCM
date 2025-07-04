@@ -17,13 +17,10 @@ class LoginController extends Controller
     }
 
     public function actionLogin(Request $request) {
-        $data = [
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
-        ];
-
-        if (Auth::Attempt($data)) {
-            return redirect('home');
+        $credentials = $request->only('email', 'password');
+    
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('home');
         } else {
             Session::flash('error', 'Email atau Password Salah');
             return redirect('/');
