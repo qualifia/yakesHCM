@@ -28,6 +28,9 @@ Route::middleware(['auth', 'role:admin,hcm'])->group(function () {
     Route::get('/recruitment', [RecruitmentController::class, 'index']);
 });
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('djms', DJMController::class); // CRUD DJM
