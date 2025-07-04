@@ -45,7 +45,7 @@ class LoginController extends Controller
         } elseif ($user->hasRole('guest')) {
             return redirect('/guest/dashboard4');
         }    
-        return redirect('/home');
+        return redirect('/login');
     }
 
 }
