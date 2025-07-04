@@ -21,14 +21,6 @@ class RegisterController extends Controller
             'role' => 'required',
         ]);
 
-        $user = User::create([
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'role' => $request->role,
-            'active' => 1
-        ]);
-
         Session::flash('message', 'Register Berhasil. Akun Anda sudah aktif, silahkan Login menggunakan username dan password.');
         return redirect('register');
     }
