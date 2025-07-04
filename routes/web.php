@@ -26,6 +26,9 @@ Route::get('/register', [RegisterController::class, 'register'])->name('register
 Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
 
 Route::middleware(['auth', 'role:admin,hcm'])->group(function () {
-    Route::get('/recruitment', [RecruitmentController::class, 'index']);
+Route::get('/recruitment', [RecruitmentController::class, 'index']);
 });
 
+Route::middleware(['auth'])->group(function () {
+Route::resource('djms', DJMController::class); // CRUD DJM
+});
