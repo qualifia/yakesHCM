@@ -64,7 +64,7 @@
                 <b>Oopss!</b> {{session('error')}}
             </div>
             @endif
-            <form action="{{ route('actionlogin') }}" method="post">
+            <form method="POST" action="{{ route('actionlogin') }}">
             @csrf
                 <div class="form-group">
                     <label>Email</label>
@@ -82,3 +82,4 @@
     </div>
 </body>
 </html>
+
