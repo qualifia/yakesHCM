@@ -19,7 +19,6 @@ use App\Http\Controllers\RegisterController;
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
-Route::get('/login', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
@@ -28,4 +27,7 @@ Route::post('register/action', [RegisterController::class, 'actionregister'])->n
 Route::middleware(['auth', 'role:admin,hcm'])->group(function () {
     Route::get('/recruitment', [RecruitmentController::class, 'index']);
 });
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
