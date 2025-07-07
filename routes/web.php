@@ -32,3 +32,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('djms', DJMController::class); // CRUD DJM
 });
+
+Route::get('/', [LoginController::class, 'login'])->middleware('guest')->name('login');
+Route::post('/actionlogin', [LoginController::class, 'actionLogin'])->name('actionlogin');
+Route::post('/logout', [LoginController::class, 'actionLogout'])->name('logout');
+
+Route::middleware('auth')->get('home', function () {
+    return view('home');
+})->name('home');

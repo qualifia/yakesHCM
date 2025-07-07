@@ -7,6 +7,7 @@
     <title>Beranda HCM</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Home Page</title>
 </head>
 
 <body>
@@ -31,5 +32,10 @@
             <button class="btn btn-danger">Logout</button>
         </form>
     </div>
+    <h1>Selamat datang, </h1>
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
 </body>
 </html>
