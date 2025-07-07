@@ -63,7 +63,7 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid dark-nav">
+    <div class="container-fluid">
         <h1 class="text-center page-title"><br>Selamat datang di Sistem HCM</h1>
 
         <div class="alert alert-info">
@@ -77,7 +77,7 @@
                 </div>
             @endif
 
-        <a href="{{ route('djms.index') }}" class="btn btn-primary">Lihat Data DJM</a>
+        <a href="{{ route('home') }}" class="btn btn-primary">Lihat Data DJM</a>
 
         <form action="{{ route('logout') }}" method="POST" class="d-inline">
             @csrf
