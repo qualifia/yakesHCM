@@ -28,7 +28,6 @@ class LoginController extends Controller
             return view(view: 'home');
         }
         Session::flash('error', 'Email atau Password Salah');
-        //\Log::info('Login gagal:', $credentials); // Tambahkan log debug
             $request->session()->regenerate(); // ✅ Penting: simpan session login
             //return view(view: 'login');
             //return redirect()->intended('home'); // ✅ Redirect ke home
