@@ -24,8 +24,3 @@ class UserSeeder extends Seeder
     }
 }
 
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
