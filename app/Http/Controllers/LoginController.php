@@ -24,16 +24,16 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate(); // wajib agar session aman
-            return redirect()->intended(route('home'));
-        }
-
-        \Log::info('Login gagal:', $credentials); // Tambahkan log debug
-            $request->session()->regenerate(); // ✅ Penting: simpan session login
+            //return redirect()->intended(route('home'));
             return view(view: 'home');
-            //return redirect()->intended('home'); // ✅ Redirect ke home
         }
         Session::flash('error', 'Email atau Password Salah');
-        return redirect('/');
+        //\Log::info('Login gagal:', $credentials); // Tambahkan log debug
+            $request->session()->regenerate(); // ✅ Penting: simpan session login
+            //return view(view: 'login');
+            //return redirect()->intended('home'); // ✅ Redirect ke home
+            //Session::flash('error', 'Email atau Password Salah');
+            return redirect('/');
     }
     
 
