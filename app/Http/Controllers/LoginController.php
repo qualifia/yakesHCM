@@ -18,15 +18,21 @@ class LoginController extends Controller
         return view('login');
     } 
 
-
     public function actionlogin(Request $request) {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+<<<<<<< Updated upstream
             $request->session()->regenerate(); // wajib agar session aman
             //return redirect()->intended(route('home'));
             return view(view: 'home');
         }
+=======
+            $request->session()->regenerate(); // penting untuk keamanan
+            return redirect()->intended('home');
+        }
+
+>>>>>>> Stashed changes
         Session::flash('error', 'Email atau Password Salah');
             $request->session()->regenerate(); // ✅ Penting: simpan session login
             //return view(view: 'login');
@@ -34,7 +40,6 @@ class LoginController extends Controller
             //Session::flash('error', 'Email atau Password Salah');
             return redirect('/');
     }
-    
 
 
     public function actionlogout() {
