@@ -26,6 +26,7 @@ class LoginController extends Controller
             $request->session()->regenerate(); // wajib agar session aman
             //return redirect()->intended(route('home'));
             return view(view: 'home');
+            //return redirect(to: 'home');
         }
         Session::flash('error', 'Email atau Password Salah');
             $request->session()->regenerate(); // ✅ Penting: simpan session login
