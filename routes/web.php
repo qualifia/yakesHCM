@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DJMController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,7 @@ Route::get('/register', [RegisterController::class, 'register'])->name('register
 Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister'); */
 
 Route::middleware(['auth', 'role:admin,hcm'])->group(function () {
-    Route::get('/recruitment', [RecruitmentController::class, 'index']);
+    Route::get('/recruitment', [CheckRole::class, 'index']);
 });
 
 Route::middleware(['auth'])->group(function () {
