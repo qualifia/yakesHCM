@@ -60,16 +60,6 @@
             border-radius: 10px;
         }
 
-        .login-info {
-            font-size: 26px;
-            font-weight: 600;
-            color: #0c5460; /* Warna biru info */
-            background-color: #d1ecf1; /* Warna latar alert-info */
-            border: 1px solid #bee5eb;
-            border-radius: 10px;
-            padding: 20px;
-        }
-
     </style>
 </head>
 <body>
@@ -78,7 +68,7 @@
 
         <div class="alert alert-info">
             @if(Auth::check())
-                <div class="alert alert-info login-info">
+                <div class="alert alert-info">
                     Anda login sebagai <strong>{{ Auth::user()->role }}</strong> - <strong>{{ Auth::user()->email }}</strong>
                 </div>
             @else
