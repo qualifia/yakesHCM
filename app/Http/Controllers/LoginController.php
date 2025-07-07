@@ -10,7 +10,6 @@ use Session;
 
 class LoginController extends Controller
 {
-
     public function login() {
         if (Auth::check()) { /* cek user sudah login atau belom */
             return redirect('home');
@@ -31,18 +30,15 @@ class LoginController extends Controller
             //return redirect()->intended('home');
         
         Session::flash('error', 'Email atau Password Salah.');
-            $request->session()->regenerate(); // ✅ Penting: simpan session login
+        $request->session()->regenerate(); // ✅ Penting: simpan session login
             //return view(view: 'login');
             //return redirect()->intended('home'); // ✅ Redirect ke home
             //Session::flash('error', 'Email atau Password Salah');
-            return redirect('/');
+        return redirect('/');
     }
 
-
     public function actionlogout() {
-       Auth::logout();
-        request()->session()->invalidate();      // ✅ Tambahan untuk keamanan
-        request()->session()->regenerateToken(); // ✅ Regenerate CSRF token
+        Auth::logout();
         return redirect('/');
     }
 
