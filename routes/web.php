@@ -41,3 +41,8 @@ Route::post('/logout', [LoginController::class, 'actionLogout'])->name('logout')
 Route::middleware('auth')->get('home', function () {
     return view('home');
 })->name('home');
+
+Route::get('/home', function () {
+    \Log::info('User di /home:', ['user' => Auth::user()]);
+    return view('home');
+})->middleware('auth')->name('home');
