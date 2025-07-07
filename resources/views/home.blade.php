@@ -63,7 +63,7 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid dark-nav">
         <h1 class="text-center page-title"><br>Selamat datang di Sistem HCM</h1>
 
         <div class="alert alert-info">
