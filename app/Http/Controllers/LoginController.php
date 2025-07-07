@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; /* untuk handle authentication */
 use Session; /* mengirim pesan error ke halaman form login */
 
+
+
 class LoginController extends Controller
 {
+
     public function login() {
         if (Auth::check()) { /* cek user sudah login atau belom */
             return redirect('home');
@@ -16,15 +19,17 @@ class LoginController extends Controller
         }
     }
 
-    public function actionLogin(Request $request) {
+    public function actionlogin(Request $request) {
         $credentials = $request->only('email', 'password');
-    
+
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
-        } else {
-            Session::flash('error', 'Email atau Password Salah');
-            return redirect('/');
+            $request->session()->regenerate(); // wajib agar session aman
+            return redirect()->intended(route('home'));
         }
+
+        \Log::info('Login gagal:', $credentials); // Tambahkan log debug
+        Session::flash('error', 'Email atau Password Salah');
+        return redirect('/');
     }
 
     public function actionlogout() {
