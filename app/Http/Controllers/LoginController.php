@@ -3,37 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; /* untuk handle authentication */
-use Session; /* mengirim pesan error ke halaman form login */
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class LoginController extends Controller
 {
     public function login() {
         if (Auth::check()) { /* cek user sudah login atau belom */
             return redirect('home');
-        } else {
-            return view('login');
         }
-    }
+        return view('login');
+    } 
+
 
     public function actionLogin(Request $request) {
         $credentials = $request->only('email', 'password');
     
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
-        } else {
-            Session::flash('error', 'Email atau Password Salah');
-            return redirect('/');
+            $request->session()->regenerate(); // ✅ Penting: simpan session login
+            return view(view: 'home');
+            //return redirect()->intended('home'); // ✅ Redirect ke home
         }
+        Session::flash('error', 'Email atau Password Salah');
+        return redirect('/');
     }
+    
+
 
     public function actionlogout() {
-        Auth::logout();
+       Auth::logout();
+        request()->session()->invalidate();      // ✅ Tambahan untuk keamanan
+        request()->session()->regenerateToken(); // ✅ Regenerate CSRF token
         return redirect('/');
     }
 
     protected function authenticated(Request $request, $user) {
         return redirect()->route('home');
     }
-
 }
