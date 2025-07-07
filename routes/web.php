@@ -21,8 +21,9 @@ Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actio
 
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
+/*
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
+Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister'); */
 
 Route::middleware(['auth', 'role:admin,hcm'])->group(function () {
     Route::get('/recruitment', [RecruitmentController::class, 'index']);
