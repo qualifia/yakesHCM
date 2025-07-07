@@ -65,7 +65,7 @@
             </div>
             @endif
             <form method="POST" action="{{ route('actionlogin') }}">
-            @csrf
+                @csrf
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" name="email" class="form-control" placeholder="Email" required="">
