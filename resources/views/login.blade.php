@@ -76,7 +76,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block custom-btn">Log In</button>
                 <hr>
-                <p class="text-center">Belum punya akun? <a href="/register">Register</a> sekarang!</p>
+                {{-- <p class="text-center">Belum punya akun? <a href="/register">Register</a> sekarang!</p> --}}
             </form>
         </div>
     </div>
