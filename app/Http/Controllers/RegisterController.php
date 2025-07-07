@@ -22,6 +22,6 @@ class RegisterController extends Controller
         ]);
 
         Session::flash('message', 'Register Berhasil. Akun Anda sudah aktif, silahkan Login menggunakan username dan password.');
-        return redirect('register');
+        return redirect('login');
     }
 }
