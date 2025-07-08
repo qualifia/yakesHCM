@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DJMController;
+use App\Http\Controllers\TMController;
 
 
 /*
@@ -48,3 +49,10 @@ Route::get('/home', function () {
     \Log::info('User di /home:', ['user' => Auth::user()]);
     return view('home');
 })->middleware('auth')->name('home');
+
+Route::get('/employees', [TMController::class, 'index'])->name('employees.index');
+Route::get('/employees/{id}', [TMController::class, 'show'])->name('employees.show');
+Route::get('/employees/{id}/edit', [TMController::class, 'edit'])->name('employees.edit');
+Route::put('/employees/{id}', [TMController::class, 'update'])->name('employees.update');
+Route::get('/employees/{id}/download-payslip', [TMController::class, 'downloadPayslip'])->name('employees.downloadPayslip');
+
