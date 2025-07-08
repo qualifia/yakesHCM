@@ -71,6 +71,22 @@
         }
 
         
+        .form-control {
+            font-size: 20px;
+            height: 60px;        /* Memperbesar tinggi box */
+            padding: 15px 20px;  /* Menambah ruang dalam box */
+            border-radius: 10px;
+        }
+
+        .custom-btn {
+            height: 70px;                 /* Tinggi tombol */
+            font-size: 22px;              /* Ukuran font */
+            display: flex;
+            align-items: center;
+            justify-content: center;     /* Horizontal center */
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -79,7 +95,7 @@
 
         <div class="alert alert-info">
             @if(Auth::check())
-                <div class="alert alert-info login-info">
+                <div class="alert alert-info">
                     Anda login sebagai <strong>{{ Auth::user()->role }}</strong> - <strong>{{ Auth::user()->email }}</strong>
                 </div>
             @else
