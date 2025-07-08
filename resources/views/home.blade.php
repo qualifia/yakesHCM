@@ -15,8 +15,7 @@
             padding: 100px 0;
             text-align: center;
         }
-     
-    <style>
+    
         body, html {
             font-family: 'Poppins', sans-serif;
             font-size: 25px;
@@ -31,33 +30,12 @@
             height: 100%;
         }
 
-        .form-box {
-            width: 100%;
-            max-width: 700px;
-        }
-
         .page-title {
             font-size: 32px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
             word-wrap: break-word;
-        }
-
-        .form-control {
-            font-size: 20px;
-            height: 60px;        /* Memperbesar tinggi box */
-            padding: 15px 20px;  /* Menambah ruang dalam box */
-            border-radius: 10px;
-        }
-
-        .custom-btn {
-            height: 70px;                 /* Tinggi tombol */
-            font-size: 22px;              /* Ukuran font */
-            display: flex;
-            align-items: center;
-            justify-content: center;     /* Horizontal center */
-            border-radius: 10px;
         }
 
         .login-info {
@@ -70,6 +48,29 @@
             padding: 20px;
         }
 
+        .btn-primary {
+            width: 250px;
+            height: 50px;
+            /* align-items: center; */
+            /* justify-content: center; */
+            font-size: 20px;
+        }
+
+        .btn-danger {
+            width: 250px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        .btn-tm {
+            background-color: #DB7093;
+            color: white;
+            width: 350px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -93,6 +94,16 @@
             @csrf
             <button class="btn btn-danger">Logout</button>
         </form>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4>Talent Management</h4>
+                <p>Kelola data seluruh karyawan Yakes Telkom di sini.</p>
+                <a href="{{ route('employees.index') }}" class="btn btn-primary">Lihat Data Karyawan</a>
+            </div>
+        </div>
     </div>
+    
+
 </body>
+
 </html>
