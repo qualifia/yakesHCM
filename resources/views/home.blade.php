@@ -9,7 +9,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
-        /* Tambahkan beberapa gaya kustom jika diperlukan */
         .hero-section {
             background-color: #f8f9fa;
             padding: 100px 0;
@@ -51,8 +50,6 @@
         .btn-primary {
             width: 250px;
             height: 50px;
-            /* align-items: center; */
-            /* justify-content: center; */
             font-size: 20px;
         }
 
