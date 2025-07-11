@@ -13,7 +13,7 @@ body {
   position: fixed;
   top: 0;
   left: 300px;
-  width: calc(100% - 300px); /* Supaya tidak menabrak sidebar */
+  width: calc(100% - 300px); 
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@ body {
 }
 
 .navbar-name {
-  font-size: 13px; /* Membuat nama lebih tebal */
+  font-size: 13px; 
   font-family: Poppins, sans-serif;
   color: #080808;
 }
@@ -230,7 +230,10 @@ ul li a:hover:not(.active) {
     margin-top: 10px;
     font-family: Poppins, sans-serif;
     font-weight: bolder;
+    margin-right: 20px;
+    margin-left: 1px;
 }
+
 .first, .sec, .third {
     display: inline-block;
     font-weight: bold;
@@ -255,18 +258,275 @@ ul li a:hover:not(.active) {
 
 
 /* OFFSET UNTUK KONTEN */
-.content-area {
+.content-header-flex {
     background-color: white;
     padding: 40px;
     padding-top: 40px;
     margin-left: 260px;
     margin-right: 1px;
     border-radius: 20px;
-    width: 1100px;
     margin-top: 140px;
     min-height: calc(100vh - 100px); /* Biar tetap tinggi meski tanpa isi */
     position: relative;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between; /* Memberi jarak antara konten dan tombol */
+    align-items: flex-start; /* Menyelaraskan elemen di bagian atas */
+    max-width: 100%;
+    width: 1100px; /* Sidebar width + padding */
+    box-sizing: border-box;
+    flex-wrap: wrap;
 }
+
+/* .content-header-flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+} */
+
+.left-section {
+  flex: 1;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stat-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Toolbar (Search, Export, Filters) */
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 8px;
+  left: 18px;
+  color: #888;
+}
+
+.search-bar {
+  padding: 8px 5px 5px 30px;
+  border: none;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #F5F5F5;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  padding-left: 40px;
+  padding-top: 7px;
+}
+
+.export-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #696969;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #0000CD;
+  background-color: #FFFFFF;
+  color: mediumblue;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 18px;
+  font-weight: bold;
+}
+
+.export-btn:hover {
+  background-color: #2F4F4F;
+}
+
+.filter-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Filter Modal Styles */
+.filter-modal {
+  display: none;
+  position: absolute;
+  right: 40px;
+  top: 80px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  z-index: 999;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #A9A9A9;
+  font-family: Poppins, sans-serif;
+  color: #2F4F4F;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+  font-family: Poppins, sans-serif;
+  color: #2F4F4F;
+
+}
+
+.filter-section label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.filter-section .clear-link {
+  float: right;
+  font-size: 12px;
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.filter-section select {
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+  color: #2F4F4F;
+}
+
+.reset-btn, .apply-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reset-btn {
+  background-color: white;
+  border: 1px solid #0000CD;
+  font-size: 12px;
+  color: mediumblue;
+  font-family: Poppins, sans-serif;
+}
+
+.apply-btn {
+  background-color: #0000CD;
+  color: white;
+  border: none;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #A9A9A9; 
+  padding: 0;
+  margin: 0;
+  line-height: 2;
+}
+
+.stat-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.stat-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 6px;
+  min-width: 180px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  max-width: 200px;
+}
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  margin-right: 12px;
+}
+
+.purple {
+  background-color: #5c47fb;
+}
+
+.cyan {
+  background-color: #1cc7d0;
+}
+
+.pink {
+  background-color: #f73ab7;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 12px;
+  color: #222;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #555;
+}
+
+
+
 </style>
 
 <div class="navbar">
@@ -311,11 +571,97 @@ ul li a:hover:not(.active) {
 
 
 <!-- KONTEN UTAMA -->
-<div class="content-area">
-    <h2 class="page-title">Talent Management</h2>
+<div class="content-header-flex">
+  <div class="left-section">
+      <h2 class="page-title">Talent Management</h2>
+  </div>
 
-    <table id="customers">
-      <tr>
+  <div class="right-section">
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" placeholder="Search by Name" class="search-bar" />
+    </div>
+    <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
+    <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-filter"></i> Filters</button>
+  </div>
+
+  <!-- FILTER MODAL -->
+  <div class="filter-modal" id="filterModal">
+    <div class="filter-header">
+      <span>Filter</span>
+      <button class="close-btn" onclick="toggleFilter()">&times;</button>
+    </div>
+    <div class="filter-section">
+      <label>Filter Name</label>
+      <a href="#" class="clear-link">Clear</a>
+      <select>
+        <option>Select one from filter</option>
+        <option>Option A</option>
+        <option>Option B</option>
+      </select>
+    </div>
+    <div class="filter-section">
+      <label>Filter Name</label>
+      <a href="#" class="clear-link">Clear</a>
+      <select>
+        <option>Select one from filter</option>
+        <option>Option A</option>
+        <option>Option B</option>
+      </select>
+    </div>
+    <div class="filter-footer">
+      <button class="reset-btn">Reset</button>
+      <button class="apply-btn">Apply</button>
+    </div>
+  </div>
+
+  <!-- STATISTIK -->
+  <div class="stat-boxes">
+    <div class="stat-box">
+      <div class="icon-circle purple"><i class="fas fa-briefcase"></i></div>
+      <div class="stat-info">
+        <div class="stat-value">2.890</div>
+        <div class="stat-label">Total Karyawan</div>
+      </div>
+    </div>
+
+    <div class="stat-box">
+      <div class="icon-circle cyan"><i class="fas fa-user-tie"></i></div>
+      <div class="stat-info">
+        <div class="stat-value">Band V (302)</div>
+        <div class="stat-label">Top Band Posisi</div>
+      </div>
+    </div>
+
+    <div class="stat-box">
+      <div class="icon-circle purple"><i class="fas fa-building"></i></div>
+      <div class="stat-info">
+        <div class="stat-value">Yakes Jakarta (2.008)</div>
+        <div class="stat-label">Top Kantor Penempatan</div>
+      </div>
+    </div>
+
+    <div class="stat-box">
+      <div class="icon-circle pink"><i class="fas fa-user"></i></div>
+      <div class="stat-info">
+        <div class="stat-value">30</div>
+        <div class="stat-label">On-Boarding 2025</div>
+      </div>
+    </div>
+
+    <div class="stat-box">
+      <div class="icon-circle pink"><i class="fas fa-user"></i></div>
+      <div class="stat-info">
+        <div class="stat-value">20</div>
+        <div class="stat-label">Akan Pensiun 2026</div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <table id="customers" style="margin-top: 20px;">
+    <tr>
         <th>No</th>
         <th>NIK</th>
         <th>Nama</th>
@@ -494,7 +840,17 @@ ul li a:hover:not(.active) {
             </div>
           </td>
       </tr>
-    </table>
+    </table>    
+
+    
 </div>
 
 @endsection
+
+<script>
+function toggleFilter() {
+  const modal = document.getElementById("filterModal");
+  modal.style.display = modal.style.display === "block" ? "none" : "block";
+}
+</script>
+
