@@ -165,6 +165,7 @@ ul li a:hover:not(.active) {
   font-family: Poppins, sans-serif;  
   border-collapse: collapse;
   width: 100%;
+  margin-top: 10px;
 }
 
 #customers td, #customers th {
@@ -260,35 +261,23 @@ ul li a:hover:not(.active) {
 /* OFFSET UNTUK KONTEN */
 .content-header-flex {
     background-color: white;
-    padding: 40px;
+    padding: 24px 32px;
     padding-top: 40px;
     margin-left: 260px;
     margin-right: 1px;
     border-radius: 20px;
-    margin-top: 140px;
-    min-height: calc(100vh - 100px); /* Biar tetap tinggi meski tanpa isi */
+    margin-top: 100px;
+    min-height: unset; /* Biar tetap tinggi meski tanpa isi */
     position: relative;
     display: flex; 
     flex-direction: column;
-    justify-content: space-between; /* Memberi jarak antara konten dan tombol */
+    justify-content: flex-start; /* Memberi jarak antara konten dan tombol */
     align-items: flex-start; /* Menyelaraskan elemen di bagian atas */
     max-width: 100%;
     width: 1100px; /* Sidebar width + padding */
     box-sizing: border-box;
     flex-wrap: wrap;
 }
-
-/* .content-header-flex {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-} */
 
 .left-section {
   flex: 1;
@@ -305,7 +294,7 @@ ul li a:hover:not(.active) {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 16px;
+  margin-top: 1px;
 }
 
 /* Toolbar (Search, Export, Filters) */
@@ -469,7 +458,7 @@ ul li a:hover:not(.active) {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 20px;
+  margin-top: 1px;
 }
 
 .stat-box {
@@ -572,19 +561,17 @@ ul li a:hover:not(.active) {
 
 <!-- KONTEN UTAMA -->
 <div class="content-header-flex">
-  <div class="left-section">
-      <h2 class="page-title">Talent Management</h2>
-  </div>
-
-  <div class="right-section">
-    <div class="search-container">
-      <i class="fas fa-search search-icon"></i>
-      <input type="text" placeholder="Search by Name" class="search-bar" />
+  <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+    <h2 class="page-title">Talent Management</h2>
+    <div class="right-section">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search by Name" class="search-bar" />
+      </div>
+      <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
+      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-filter"></i> Filters</button>
     </div>
-    <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
-    <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-filter"></i> Filters</button>
   </div>
-
   <!-- FILTER MODAL -->
   <div class="filter-modal" id="filterModal">
     <div class="filter-header">
@@ -656,11 +643,9 @@ ul li a:hover:not(.active) {
         <div class="stat-label">Akan Pensiun 2026</div>
       </div>
     </div>
-  </div>
+  </div>  
 
-  
-
-  <table id="customers" style="margin-top: 20px;">
+  <table id="customers" style="margin-top: 10px;">
     <tr>
         <th>No</th>
         <th>NIK</th>
@@ -671,180 +656,38 @@ ul li a:hover:not(.active) {
         <th>Regional/Direktorat</th>
         <th>Nama Posisi</th>
         <th>Actions</th>
-      </tr>
-
-      <tr>
-        <td>1</td>
-        <td>879002</td>
-        <td>Satria Hadi</td>
-        <td>08 Agustus 1987</td>
-        <td>Health Care Staffs</td>
-        <td>879002@mail.com</td>
-        <td>Health Care</td>
-        <td><div class="first">Organik Yakes</div></td>
-        <td>
-          <div class="dropdown-action">
-            <button class="horizontal-dots">&#x22EF;</button>
-            <div class="dropdown-action-content">
-                <a href="#">Detail</a><br>
-                <a href="#">Edit</a><br>
-            </div>
+    </tr>
+    @foreach($employees as $employee)
+    <tr>
+      <td>{{ $loop->iteration }}</td>
+      <td>{{ $employee->nik }}</td>
+      <td>{{ $employee->name }}</td>
+      <td>{{ \Carbon\Carbon::parse($employee->tanggal_lahir)->translatedFormat('d F Y') }}</td>
+      <td>{{ $employee->posisi }}</td> <!-- Nama Posisi -->
+      <td>{{ $employee->email }}</td>
+      <td>{{ $employee->direktorat }}</td> <!-- Regional/Direktorat -->
+      <td>
+        @if ($employee->status_karyawan == 'Organik Yakes')
+          <div class="first">{{ $employee->status_karyawan }}</div>
+        @elseif ($employee->status_karyawan == 'TKWT')
+          <div class="sec">{{ $employee->status_karyawan }}</div>
+        @else
+          <div class="third">{{ $employee->status_karyawan }}</div>
+        @endif
+      </td>
+      <td>
+        <div class="dropdown-action">
+          <button class="horizontal-dots">&#x22EF;</button>
+          <div class="dropdown-action-content">
+            <a href="{{ route('employees.show', $employee->id) }}">Detail</a><br>
+            <a href="{{ route('employees.edit', $employee->id) }}">Edit</a><br>
           </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td>2</td>
-          <td>879002</td>
-          <td>Satria Hadi</td>
-          <td>08 Agustus 1987</td>
-          <td>Health Care Staffs</td>
-          <td>879002@mail.com</td>
-          <td>Health Care</td>
-          <td>
-              <div class="sec">TKWT</div>
-          </td>
-          <td>
-            <div class="dropdown-action">
-              <button class="horizontal-dots">&#x22EF;</button>
-              <div class="dropdown-action-content">
-                  <a href="#">Detail</a><br>
-                  <a href="#">Edit</a><br>
-              </div>
-            </div>
-          </td>
-      </tr>
-      <tr>
-        <td>3</td>
-          <td>879002</td>
-          <td>Satria Hadi</td>
-          <td>08 Agustus 1987</td>
-          <td>Health Care Staffs</td>
-          <td>879002@mail.com</td>
-          <td>Health Care</td>
-          <td>
-              <div class="sec">TKWT</div>
-          </td>
-          <td>
-            <div class="dropdown-action">
-              <button class="horizontal-dots">&#x22EF;</button>
-              <div class="dropdown-action-content">
-                  <a href="#">Detail</a><br>
-                  <a href="#">Edit</a><br>
-              </div>
-            </div>
-          </td>
-      </tr>
-      <tr>
-        <td>4</td>
-          <td>879002</td>
-          <td>Satria Hadi</td>
-          <td>08 Agustus 1987</td>
-          <td>Health Care Staffs</td>
-          <td>879002@mail.com</td>
-          <td>Health Care</td>
-          <td>
-              <div class="first">Organik Yakes</div>
-          </td>
-          <td>
-            <div class="dropdown-action">
-              <button class="horizontal-dots">&#x22EF;</button>
-              <div class="dropdown-action-content">
-                  <a href="#">Detail</a><br>
-                  <a href="#">Edit</a><br>
-              </div>
-            </div>
-          </td>
-      </tr>
-      <tr>
-        <td>5</td>
-          <td>879002</td>
-          <td>Satria Hadi</td>
-          <td>08 Agustus 1987</td>
-          <td>Health Care Staffs</td>
-          <td>879002@mail.com</td>
-          <td>Health Care</td>
-          <td>
-              <div class="first">Organik Yakes</div>
-          </td>
-          <td>
-            <div class="dropdown-action">
-              <button class="horizontal-dots">&#x22EF;</button>
-              <div class="dropdown-action-content">
-                  <a href="#">Detail</a><br>
-                  <a href="#">Edit</a><br>
-              </div>
-            </div>
-          </td>
-      </tr>
-      <tr>
-        <td>6</td>
-          <td>879002</td>
-          <td>Satria Hadi</td>
-          <td>08 Agustus 1987</td>
-          <td>Health Care Staffs</td>
-          <td>879002@mail.com</td>
-          <td>Health Care</td>
-          <td>
-              <div class="first">Organik Yakes</div>
-          </td>
-          <td>
-            <div class="dropdown-action">
-              <button class="horizontal-dots">&#x22EF;</button>
-              <div class="dropdown-action-content">
-                  <a href="#">Detail</a><br>
-                  <a href="#">Edit</a><br>
-              </div>
-            </div>
-          </td>
-      </tr>
-      <tr>
-        <td>7</td>
-          <td>879002</td>
-          <td>Satria Hadi</td>
-          <td>08 Agustus 1987</td>
-          <td>Health Care Staffs</td>
-          <td>879002@mail.com</td>
-          <td>Health Care</td>
-          <td>
-              <div class="third">Talent Mobility</div>
-          </td>
-          <td>
-            <div class="dropdown-action">
-              <button class="horizontal-dots">&#x22EF;</button>
-              <div class="dropdown-action-content">
-                  <a href="#">Detail</a><br>
-                  <a href="#">Edit</a><br>
-              </div>
-            </div>
-          </td>
-      </tr>
-      <tr>
-        <td>8</td>
-          <td>879002</td>
-          <td>Satria Hadi</td>
-          <td>08 Agustus 1987</td>
-          <td>Health Care Staffs</td>
-          <td>879002@mail.com</td>
-          <td>Health Care</td>
-          <td>
-              <div class="third">Talent Mobility</div>
-          </td>
-          <td>
-            <div class="dropdown-action">
-              <button class="horizontal-dots">&#x22EF;</button>
-              <div class="dropdown-action-content">
-                  <a href="#">Detail</a><br>
-                  <a href="#">Edit</a><br>
-              </div>
-            </div>
-          </td>
-      </tr>
-    </table>    
-
-    
+        </div>
+      </td>
+    </tr>
+    @endforeach
+  </table>      
 </div>
-
 @endsection
 
 <script>
