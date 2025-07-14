@@ -12,8 +12,7 @@ class TMController extends Controller
         return view('employee.index', compact ('employees'));
     }
 
-    public function show($id) {
-        $employee = Employee::findOrFail($id);
+    public function show(Employee $employee) {
         return view('employee.show', compact ('employee'));
     }
 
