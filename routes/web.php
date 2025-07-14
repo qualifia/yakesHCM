@@ -51,8 +51,11 @@ Route::get('/home', function () {
 })->middleware('auth')->name('home');
 
 Route::get('/employees', [TMController::class, 'index'])->name('employees.index');
-Route::get('/employees/{id}', [TMController::class, 'show'])->name('employees.show');
+Route::get('/employees/{employee}', [TMController::class, 'show'])->name('employees.show');
 Route::get('/employees/{id}/edit', [TMController::class, 'edit'])->name('employees.edit');
 Route::put('/employees/{id}', [TMController::class, 'update'])->name('employees.update');
 Route::get('/employees/{id}/download-payslip', [TMController::class, 'downloadPayslip'])->name('employees.downloadPayslip');
+
+
+Route::resource('employees', TMController::class);
 
