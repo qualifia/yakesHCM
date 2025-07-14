@@ -13,10 +13,9 @@ class Employee extends Model
         'nik', 
         'name', 
         'tanggal_lahir', 
-        'nama_posisi', 
         'email', 
-        'regional_direktorat', 
-        'posisi_karyawan', 
-        'payslip_file',
+        'posisi',
+        'direktorat', 
+        'status_karyawan', 
     ];
 }
