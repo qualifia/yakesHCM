@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->id();
             $table->string('nik')->unique();
             $table->string('name');
             $table->date('tanggal_lahir');
@@ -20,8 +19,6 @@ return new class extends Migration
             $table->string('posisi');
             $table->string('direktorat');
             $table->string('status_karyawan');
-            $table->string('payslip_file')->nullable();
-            $table->timestamps();
         });
         
     }
