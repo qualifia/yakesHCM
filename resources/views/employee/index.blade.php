@@ -279,6 +279,51 @@ ul li a:hover:not(.active) {
     flex-wrap: wrap;
 }
 
+.btn-home {
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    margin-bottom: 8px;
+    color: #696969;
+}
+
+.btn-home:hover {
+    color: #808080;
+}
+
+.breadcrumb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb-arrow {
+  margin-bottom: 8px;
+  padding: 2px 6px;
+  color: #696969;
+  font-size: 14px;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.breadcrumb-text {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 4px;
+  padding: 2px 6px;
+}
+
+.breadcrumb-text:hover {
+  color: #808080;
+}
+
+
 .left-section {
   flex: 1;
 }
@@ -288,6 +333,7 @@ ul li a:hover:not(.active) {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  padding-top: 20px;
 }
 
 .stat-boxes {
@@ -457,8 +503,10 @@ ul li a:hover:not(.active) {
 .stat-boxes {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 10px;
   margin-top: 1px;
+  margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 .stat-box {
@@ -468,10 +516,32 @@ ul li a:hover:not(.active) {
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 6px;
-  min-width: 180px;
+  min-width: 220px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   flex: 1;
-  max-width: 200px;
+  max-width: 240px;
+  height: 80px;
+}
+
+.double-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 6px;
+  min-width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  max-width: 400px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sub-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .icon-circle {
@@ -507,11 +577,13 @@ ul li a:hover:not(.active) {
   font-weight: bold;
   font-size: 12px;
   color: #222;
+  font-family: Poppins, sans-serif;
 }
 
 .stat-label {
   font-size: 12px;
   color: #555;
+  font-family: Poppins, sans-serif;
 }
 
 
@@ -562,7 +634,19 @@ ul li a:hover:not(.active) {
 <!-- KONTEN UTAMA -->
 <div class="content-header-flex">
   <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-    <h2 class="page-title">Talent Management</h2>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <!-- Baris 1: Home & Breadcrumb -->
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <div class="breadcrumb-row">
+          <a href="{{ route('home') }}" class="btn-home" style="padding: 0; color: #696969;">
+            <i class="fas fa-house"></i>
+          </a>
+          <i class="fas fa-chevron-right breadcrumb-arrow"></i>
+          <a href="{{ url()->current() }}" class="breadcrumb-text">Talent Management</a>
+        </div> 
+      </div>
+      <h2 class="page-title">Talent Management</h2>
+    </div>
     <div class="right-section">
       <div class="search-container">
         <i class="fas fa-search search-icon"></i>
@@ -628,21 +712,22 @@ ul li a:hover:not(.active) {
       </div>
     </div>
 
-    <div class="stat-box">
-      <div class="icon-circle pink"><i class="fas fa-user"></i></div>
-      <div class="stat-info">
-        <div class="stat-value">30</div>
-        <div class="stat-label">On-Boarding 2025</div>
+    <div class="double-box">
+      <div class="sub-box">
+        <div class="icon-circle pink"><i class="fas fa-user"></i></div>
+        <div class="stat-info">
+          <div class="stat-value">30</div>
+          <div class="stat-label">On-Boarding 2025</div>
+        </div>
       </div>
+      <div class="sub-box">
+        <div class="stat-info">
+          <div class="stat-value">20</div>
+          <div class="stat-label">Akan Pensiun 2026</div>
+        </div>
     </div>
+</div>
 
-    <div class="stat-box">
-      <div class="icon-circle pink"><i class="fas fa-user"></i></div>
-      <div class="stat-info">
-        <div class="stat-value">20</div>
-        <div class="stat-label">Akan Pensiun 2026</div>
-      </div>
-    </div>
   </div>  
 
   <table id="customers" style="margin-top: 10px;">
