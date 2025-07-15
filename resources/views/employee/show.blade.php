@@ -167,6 +167,16 @@ ul li a:hover:not(.active) {
   font-family: Poppins, sans-serif;
 }
 
+.badge-profile, .badge-keluarga {
+  background-color: rgba(245, 40, 145, 0.15);
+  color: deeppink;
+}
+
+.badge-pelatihan, .badge-payroll, .badge-karir, .badge-dokumen {
+  background-color: rgb(124, 252, 0, 0.15); 
+  color: LimeGreen;
+}
+
 .position, .directorate {
   font-size: 14px;
   color: #444;
@@ -385,8 +395,6 @@ ul li a:hover:not(.active) {
   display: flex;
 }
 
-
-
 .left-content {
     margin-top: 10px;
     margin-left: 20px;
@@ -410,11 +418,6 @@ ul li a:hover:not(.active) {
     padding-top: 15px;
 }
 
-.content-info {
-    font-size: 14px;
-    font-weight: bold;
-}
-
 .info1 {
     gap: 5px;
     margin-top: 20px;
@@ -427,7 +430,7 @@ ul li a:hover:not(.active) {
     text-align: left;
 }
 
-.content1, .content2 {
+.content1, .content2, .content6 {
   display: flex;
   width: 100%;
   border-bottom: 1px solid #A9A9A9;
@@ -444,13 +447,13 @@ ul li a:hover:not(.active) {
     gap: 20px;
 }
 
-.content-info2, .content-info3 {
+.content-info, .content-info2, .content-info3, .content-info4, .content-info6 {
     font-size: 14px;
     font-weight: bold;
     padding-top: 20px;
 }
 
-.left-content2, .left-content3 {
+.left-content2, .left-content3, .left-content6 {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -463,7 +466,7 @@ ul li a:hover:not(.active) {
     margin-left: 20px;
 }
 
-.right-content2, .right-content3 {
+.right-content2, .right-content3, .right-content6 {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -506,6 +509,302 @@ ul li a:hover:not(.active) {
   padding-right: 90px;
   justify-content: space-between;
   gap: 20px;
+}
+
+/* TABLE */
+#customers {
+  font-family: Poppins, sans-serif;  
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#customers td, #customers th {
+  border: none;
+  font-size: 12px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  border-bottom: 1px solid #A9A9A9;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 12px;
+  text-align: left;
+  background-color: rgba(242, 235, 251, 0.8);
+  color: #080808;
+  font-weight: normal;
+}
+
+#customers td {
+  border-bottom: 1px solid #A9A9A9;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 12px;
+  text-align: left;
+  background-color: white;
+  color: #2F4F4F;
+}
+
+.left-section {
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-family: Poppins, sans-serif;
+    font-weight: bolder;
+    margin-right: 20px;
+    margin-left: 1px;
+}
+
+.right-section1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-left: 400px;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 8px;
+  left: 18px;
+  color: #888;
+}
+
+.search-bar {
+  padding: 8px 5px 5px 30px;
+  border: none;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #F5F5F5;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  padding-left: 40px;
+  padding-top: 7px;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #0000CD;
+  background-color: #FFFFFF;
+  color: mediumblue;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 18px;
+  font-weight: bold;
+}
+
+.export-btn:hover {
+  background-color: #2F4F4F;
+}
+
+.filter-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Filter Modal Styles */
+.filter-modal {
+  display: none;
+  position: absolute;
+  right: 40px;
+  top: 80px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  z-index: 999;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #A9A9A9;
+  font-family: Poppins, sans-serif;
+  color: #2F4F4F;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+  font-family: Poppins, sans-serif;
+  color: #2F4F4F;
+
+}
+
+.filter-section label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.filter-section .clear-link {
+  float: right;
+  font-size: 12px;
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.filter-section select {
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+  color: #2F4F4F;
+}
+
+.reset-btn, .apply-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reset-btn {
+  background-color: white;
+  border: 1px solid #0000CD;
+  font-size: 12px;
+  color: mediumblue;
+  font-family: Poppins, sans-serif;
+}
+
+.apply-btn {
+  background-color: #0000CD;
+  color: white;
+  border: none;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #A9A9A9; 
+  padding: 0;
+  margin: 0;
+  line-height: 2;
+}
+
+.horizontal-dots {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: mediumblue;
+    font-weight: bold;
+}
+
+.dropdown-action {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-action-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.dropdown-action:hover .dropdown-action-content {
+  background-color: white;
+  border-radius: 6px;
+  color: #000;
+  display: block;
+}
+
+.status {
+  display: inline-block;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: center;
+  background-color: rgb(124, 252, 0, 0.15); 
+  color: LimeGreen;
+}
+
+#customers1 {
+  font-family: Poppins, sans-serif;  
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#customers1 td, #customers1 th {
+  border: none;
+  font-size: 12px;
+}
+
+#customers1 tr:nth-child(even){background-color: #f2f2f2;}
+#customers1 tr:hover {background-color: #ddd;}
+
+#customers1 th {
+  border-bottom: 1px solid #A9A9A9;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 12px;
+  text-align: left;
+  background-color: rgba(242, 235, 251, 0.8);
+  color: #080808;
+  font-weight: normal;
+}
+
+#customers1 td {
+  border-bottom: 1px solid #A9A9A9;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 12px;
+  text-align: left;
+  background-color: white;
+  color: #2F4F4F;
+}
+
+.sertifikat-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.ktp-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 
@@ -568,7 +867,7 @@ ul li a:hover:not(.active) {
         <div class="left-profile">
             <div class="profile-employee">
                 <h3 class="employee-name">Satria Hadi</h3>
-                <span class="badge-status">Organik Yakes</span>
+                <span class="badge-status" id="badgeStatus">Organik Yakes</span>
             </div>
             <p class="position">Health Care Staffs • 879002</p>
             <p class="directorate">Directorate Health Care</p>
@@ -690,8 +989,8 @@ ul li a:hover:not(.active) {
             <p class="info1">Alamat Rumah Sesuai KTP</p>
             <p class="info2">Puri 11 Blok Y-00 Jl. Boulevard Residential, RT.004/RW.001, Pd. Pucung, Karang Tengah, Tangerang Selatan, Banten</p>
         </div>
-        <div class="right-content">
-            <h4 class="content-info"></h4>
+        <div class="right-content4">
+            <h4 class="content-info4"></h4>
             <p class="info1">Tempat, Tanggal Lahir</p>
             <p class="info2">Palembang, 30 November 1988</p>
             <p class="info1">Agama</p>
@@ -704,11 +1003,85 @@ ul li a:hover:not(.active) {
             <p class="info2">Sama dengan Alamat KTP</p>
         </div>
     </div>
+    <table id="customers" style="margin-top: 10px;">
+      <tr>
+        <th>No</th>
+        <th>Nama Lengkap</th>
+        <th>Jenis Kelamin</th>
+        <th>Tempat, Tanggal Lahir</th>
+        <th>Pendidikan Saat Ini</th>
+        <th>Status Anak</th>
+        <th>Urutan Anak</th>
+        <th>Keterangan</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Rayan Arka</td>
+        <td>Laki-Laki</td>
+        <td>Jakarta, 18 Agustus 2009</td>
+        <td>SD</td>
+        <td>Kandung</td>
+        <td>Anak ke-1</td>
+        <td>Ditanggung</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Aurelia Zahra</td>
+        <td>Perempuan</td>
+        <td>Jakarta, 2 Juli 2013</td>
+        <td>SD</td>
+        <td>Kandung</td>
+        <td>Anak ke-2</td>
+        <td>Ditanggung</td>
+      </tr>
+    </table>
   </div>
 
   <div class="tab-content" id="pelatihan" style="display: none;">
-    <h7>Histori Pelatihan</h7>
-    <p>Isi data pelatihan ditampilkan di sini.</p>
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+      <h2 class="left-section">List History Pelatihan</h2>
+      <div class="right-section1">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Search by Name" class="search-bar" />
+        </div>
+        <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
+      </div>
+    </div>
+    <table id="customers1" style="margin-top: 10px;">
+      <tr>
+        <th>No</th>
+        <th>Nama Training</th>
+        <th>Pelaksana</th>
+        <th>Tanggal Mulai</th>
+        <th>Tanggal Akhir</th>
+        <th>Status</th>
+        <th>Sertifikat</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Effective Communication Skills</td>
+        <td>Learning Centre</td>
+        <td>29 June 2025</td>
+        <td>29 June 2025</td>
+        <td>
+          <div class="status">Selesai</div>
+        </td>
+        <td><a href="#" class="sertifikat-link">Klik untuk Melihat</a></td>
+        <td class="actions-cell">
+          <div class="dropdown-action">
+            <button class="horizontal-dots">&#x22EF;</button>
+            <div class="dropdown-action-content">
+              <a href="#">Detail</a><br>
+              <a href="#">Edit</a><br>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    
   </div>
 
   <div class="tab-content" id="payroll" style="display: none;">
@@ -722,8 +1095,34 @@ ul li a:hover:not(.active) {
   </div>
 
   <div class="tab-content" id="dokumen" style="display: none;">
-    <h7>Histori Pelatihan</h7>
-    <p>Isi data pelatihan ditampilkan di sini.</p>
+    <div class="content6" >
+      <div class="left-content6">
+        <h4 class="content-info6">Dokumen Personal</h4>
+        <p class="info1">KTP</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+        <p class="info1">NIK</p>
+        <p class="info2">32748258800001</p>
+        <p class="info1">Status Pernikahan</p>
+        <p class="info2">Kawin</p>
+        <p class="info1">Pendidikan Terakhir</p>
+        <p class="info2">DIV/S1</p>
+        <p class="info1">Alamat Rumah Sesuai KTP</p>
+        <p class="info2">Puri 11 Blok Y-00 Jl. Boulevard Residential, RT.004/RW.001, Pd. Pucung, Karang Tengah, Tangerang Selatan, Banten</p>
+      </div>
+      <div class="right-content6">
+        <h4 class="content-info6"></h4>
+        <p class="info1">Tempat, Tanggal Lahir</p>
+        <p class="info2">Palembang, 30 November 1988</p>
+        <p class="info1">Agama</p>
+        <p class="info2">Islam</p>
+        <p class="info1">Pekerjaan Pasangan</p>
+        <p class="info2">Pegawai Swasta</p>
+        <p class="info1">Nomor Telepon</p>
+        <p class="info2">+62872847168092</p>
+        <p class="info1">Alamat Domisili</p>
+        p class="info2">Sama dengan Alamat KTP</p>
+      </div>
+    </div>
   </div>
 
       
@@ -745,5 +1144,41 @@ function showTab(tabId) {
 
   // Tambahkan kelas aktif ke tombol yang diklik
   event.currentTarget.classList.add('active');
+
+  const badge = document.getElementById('badgeStatus');
+  if (badge) {
+    // Reset class dulu
+    badge.className = 'badge-status';
+
+    switch (tabId) {
+      case 'profile':
+        badge.textContent = 'Organik Yakes';
+        badge.classList.add('badge-profile');
+        break;
+      case 'keluarga':
+        badge.textContent = 'Organik Yakes';
+        badge.classList.add('badge-keluarga');
+        break;
+      case 'pelatihan':
+        badge.textContent = 'Permanent';
+        badge.classList.add('badge-pelatihan');
+        break;
+      case 'payroll':
+        badge.textContent = 'Permanent';
+        badge.classList.add('badge-payroll');
+        break;
+      case 'karir':
+        badge.textContent = 'Permanent';
+        badge.classList.add('badge-karir');
+        break;
+      case 'dokumen':
+        badge.textContent = 'Permanent';
+        badge.classList.add('badge-dokumen');
+        break;
+      default:
+        badge.textContent = 'Organik Yakes';
+        badge.classList.add('badge-profile');
+    }
+  }
 }
 </script>
