@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class DJMController extends Controller
 {
     public function index() {
-        $djms = DJM::all();
-        return view('djm.index', compact('djms'));
+        $d_j_m_s = DJM::all();
+
+        return view('djm.index', compact('d_j_m_s'));
     }
 
     public function create() {
@@ -17,43 +18,65 @@ class DJMController extends Controller
     }
 
     public function store(Request $request) {
+
+        // Validasi (opsional tapi disarankan)
         $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'namaPosisi' => 'required',
+            'regionalDirektorat' => 'required',
+            'unitSub' => 'required',
+            'supervisor' => 'required',
+            'posisi' => 'required',
+            'kodeDJM' => 'required',
+            'position_specification' => 'required',
+            'position_objective' => 'required',
+            'responsibilities' => 'required',
+            'success_indicators' => 'required',
         ]);
 
-        // generate kode unik
-        $code = 'DJM-' . strtoupper(uniqid());
-
-        DJM::create([
-            'code' => $code,
-            'title' => $request->title,
-            'description' => $request->description,
+        // Simpan ke database dan ambil objeknya
+        $djm = DJM::create([
+            'namaPosisi' => $request->namaPosisi,
+            'regionalDirektorat' => $request->regionalDirektorat,
+            'unitSub' => $request->unitSub,
+            'supervisor' => $request->supervisor,
+            'posisi' => $request->posisi,
+            'kodeDJM' => $request->kodeDJM,
+            'position_specification' => $request->position_specification,
+            'position_objective' => $request->position_objective,
+            'responsibilities' => $request->responsibilities,
+            'success_indicators' => $request->success_indicators,
         ]);
 
-        return redirect()->route('djms.index')->with('success', 'DJM berhasil ditambahkan');
+        // Redirect ke halaman detail (show)
+        return redirect()->route('djm.show', $djm->id);
     }
 
-    public function show(DJM $djm) {
+    public function show($id) {
+        $djm = DJM::findOrFail($id);
         return view('djm.show', compact('djm'));
     }
 
-    public function edit(DJM $djm) {
+    public function edit($id) {
+        $djm = DJM::findOrFail($id);
         return view('djm.edit', compact('djm'));
     }
 
-    public function update(Request $request, DJM $djm) {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
+    public function update(Request $request, $id) {
+        $djm = DJM::findOrFail($id);
 
-        $djm->update($request->only('title', 'description'));
-        return redirect()->route('djms.index')->with('success', 'DJM berhasil diubah');
+        $djm->update($request->all()); // pastikan field diisi sesuai dengan fillable
+
+        return redirect()->route('djm.index')->with('success', 'Data berhasil diperbarui.');
+    
     }
 
-    public function destroy(DJM $djm) {
+    public function destroy($id) {
+        $djm = DJM::findOrFail($id);
         $djm->delete();
-        return redirect()->route('djms.index')->with('success', 'DJM berhasil dihapus');
+
+        return redirect()->route('djm.index')->with('success', 'Data berhasil dihapus.');
+        
     }
+
+    
 }
