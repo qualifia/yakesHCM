@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 
 <style>
@@ -167,7 +168,7 @@ ul li a:hover:not(.active) {
   font-family: Poppins, sans-serif;
 }
 
-.badge-profile, .badge-keluarga {
+.badge-profile, .badge-keluarga, .badge-cluster {
   background-color: rgba(245, 40, 145, 0.15);
   color: deeppink;
 }
@@ -204,7 +205,7 @@ ul li a:hover:not(.active) {
 .page-title {
     font-size: 20px;
     margin-bottom: 20px;
-    margin-top: 10px;
+    margin-top: 1px;
     font-family: Poppins, sans-serif;
     font-weight: bolder;
     margin-right: 20px;
@@ -235,6 +236,7 @@ ul li a:hover:not(.active) {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  margin-top: 60px;
 }
 
 .stat-boxes {
@@ -366,7 +368,7 @@ ul li a:hover:not(.active) {
 }
 
 .tab-button {
-    padding: 8px 50px;
+    padding: 8px 37px;
     border: none;
     background: none;
     font-size: 12px;
@@ -430,7 +432,7 @@ ul li a:hover:not(.active) {
     text-align: left;
 }
 
-.content1, .content2, .content6 {
+.content1, .content2 {
   display: flex;
   width: 100%;
   border-bottom: 1px solid #A9A9A9;
@@ -447,13 +449,43 @@ ul li a:hover:not(.active) {
     gap: 20px;
 }
 
-.content-info, .content-info2, .content-info3, .content-info4, .content-info6 {
+.content7 {
+  display: flex;
+  width: 100%;
+  padding-right: 90px;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.content8 {
+  display: flex;
+  width: 100%;
+  padding-right: 90px;
+  gap: 20px;
+}
+
+.content6 {
+  display: flex;
+  width: 100%;
+  padding-right: 0px;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 2px solid #A9A9A9;
+}
+
+.content-info, .content-info2, .content-info3, .content-info4, .content-info7 {
     font-size: 14px;
     font-weight: bold;
     padding-top: 20px;
 }
 
-.left-content2, .left-content3, .left-content6 {
+.content-info6 {
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.left-content2, .left-content3, .left-content6, .left-content8 {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -464,9 +496,10 @@ ul li a:hover:not(.active) {
     padding-top: 15px;
     margin-top: 10px;
     margin-left: 20px;
+    margin-bottom: 30px;
 }
 
-.right-content2, .right-content3, .right-content6 {
+.right-content2, .right-content3 {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -476,8 +509,66 @@ ul li a:hover:not(.active) {
     word-wrap: break-word;
     padding-top: 15px;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 50px;
 }
+
+.right-content6 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    padding-top: 15px;
+    margin-top: 55px;
+    margin-left: 500px;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.right-content8 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    padding-top: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 80px;
+}
+
+.left-content7 {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    padding-top: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+
+
+.right-content7 {
+  display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    padding-top: 15px;
+    margin-top: 55px;
+    margin-left: 500px;
+    min-width: 180px;
+    max-width: 220px;
+}
+
 
 .left-content4 {
     margin-top: 10px;
@@ -606,9 +697,21 @@ ul li a:hover:not(.active) {
   font-weight: bold;
 }
 
-.export-btn:hover {
-  background-color: #2F4F4F;
+.filter-btn1 {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #0000CD;
+  background-color: #FFFFFF;
+  color: mediumblue;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 10px;
+  font-weight: bold;
 }
+
 
 .filter-btn:hover {
   background-color: #f0f0f0;
@@ -728,13 +831,25 @@ ul li a:hover:not(.active) {
 .dropdown-action-content {
     display: none;
     position: absolute;
-    background-color: white;
-    min-width: 100px;
+    background: white;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    z-index: 1;
+    z-index: 999;
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 10px;
     text-decoration: none;
+    width: 120px;
+    text-decoration: normal
+/*
+  display: none;
+  position: absolute;
+  right: 40px;
+  top: 80px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  z-index: 999; */
 }
 
 .dropdown-action:hover .dropdown-action-content {
@@ -805,9 +920,532 @@ ul li a:hover:not(.active) {
   text-decoration: underline;
   cursor: pointer;
   font-weight: 500;
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.sertif-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.breadcrumb-row {
+  padding: 20px 0;
+  font-family: Poppins, sans-serif;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-arrow {
+  margin-bottom: 8px;
+  padding: 2px 6px;
+  color: #696969;
+  font-size: 14px;
+  gap: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.breadcrumb-text {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 4px;
+  padding: 2px 6px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.right-section2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-left: 460px;
+}
+
+.payslip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+.payslip-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.payslip-card:hover {
+    transform: translateY(-3px);
+}
+
+.pdf-icon {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.payslip-text {
+    font-size: 13px;
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007BFF;
+    font-weight: 500;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.right-section3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-left: 350px;
+}
+
+.feedback1-btn {
+    cursor: pointer;
+    font-size: 12px;
+    font-family: Poppins, sans-serif;
+    text-decoration: none;
+    color: #555;
+}
+
+.feedback-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: rgba(16, 15, 16, 0.8);
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 35px;
+    width: 170px;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+}
+
+.feedback-btn:hover {
+    background-color: #2F4F4F;
+}
+
+/* Modal title dan deskripsi */
+#feedbackModal .modal-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+#feedbackModal .modal-body p {
+    font-size: 15px;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 
+
+/* Skala pertanyaan */
+#feedbackModal .form-label {
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#feedbackModal .btn-check:checked + .btn-outline-primary {
+    background-color: #4e73df;
+    color: white;
+    border-color: #4e73df;
+}
+
+#feedbackModal .btn-outline-primary {
+    width: 36px;
+    padding: 5px 0;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+/* Textarea */
+#feedbackModal textarea.form-control {
+    resize: vertical;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+    width: 750px;
+}
+
+/* Footer buttons */
+#feedbackModal .modal-footer .btn {
+    min-width: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.emoji-select-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  gap: 10px;
+  height: 120px;
+  weight: 250px;
+  margin-left: 10px;
+  
+}
+
+.emoji-option {
+  border: 2px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  width: 240px;
+  text-align: center;
+  font-size: 40px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.emoji-option:hover {
+  background-color: #f0f0f0;
+}
+
+.emoji-label {
+  font-size: 14px;
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Highlight border saat dipilih */
+input[type="radio"]:checked + .emoji-option {
+  border-color: #4e73df;
+  background-color: #e7ecff;
+}
+
+.plus-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #0000CD;
+  background-color: #0000CD;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  height: 37px;
+  width: 90px;
+  margin-left: 400px;
+}
+
+.plus-btn:hover {
+  background-color: #191970;
+}
+
+.left-section9 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    padding-top: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.right-section9 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-left: 400px;
+}
+
+.content9 {
+  display: flex;
+  width: 100%;
+  padding-right: 90px;
+  gap: 20px;
+}
+
+.left-section10 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    padding-top: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.right-section10 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-left: 100px;
+}
+
+.timeline-container {
+  position: relative;
+  margin: 30px 0;
+  padding-left: 40px;
+  margin-left: 20px;
+  border-bottom: 2px solid #A9A9A9;
+  width: 100%;
+}
+
+.timeline-container1 {
+  position: relative;
+  margin: 30px 0;
+  padding-left: 40px;
+  margin-left: 20px;
+}
+
+.timeline-group {
+  position: relative;
+  padding-left: 60px;
+  border-left: 3px solid #d1d5db; /* Warna garis abu */
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  margin-right: 50px;
+}
+
+.timeline-year {
+  position: absolute;
+  left: -130px;
+  top: 8px;
+  background-color: #4F46E5; /* biru ungu untuk 2023 */
+  color: white;
+  padding: 2px 9px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.timeline-year1 {
+  position: absolute;
+  left: -130px;
+  top: 8px;
+  background-color: #DCDCDC; 
+  color: black;
+  padding: 2px 9px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: -108px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-left: 37px;
+  margin-top: 5px;
+}
+
+.timeline-item.new::after {
+  border: 4px solid rgb(100, 149, 237); /* Sesuaikan warna per tahun */
+  background-color: #0000FF;
+
+}
+
+.timeline-item.old::after {
+  border: 4px solid rgb(220, 220, 220);
+  background-color: #A9A9A9	;
+}
+
+
+.timeline-content {
+  background-color: #fff;
+  padding: 10px 0px;
+  margin-left: -60px;
+}
+
+
+.role-title {
+  color: #1D4ED8;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+.role-title1 {
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+.sub-info {
+  font-size: 12px;
+  color: #444;
+  margin: 0 0 4px;
+}
+
+.promo-date {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 6px;
+}
+
+.description {
+  font-size: 12px;
+  color: #333;
+}
+
+.btn-home {
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    margin-bottom: 8px;
+    color: #696969;
+}
+
+.btn-home:hover {
+    color: #808080;
+}
+
+.breadcrumb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: -10px;
+}
+
+.breadcrumb-arrow {
+  margin-bottom: 8px;
+  padding: 2px 6px;
+  color: #696969;
+  font-size: 14px;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.breadcrumb-text {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 8px;
+  padding: 2px 6px;
+}
+
+.breadcrumb-text:hover {
+  color: #808080;
+}
+
+.dropdown-action-detail {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+}
+
+.right-section11 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-left: 389px;
+}
+
+.search-container1 {
+  position: relative;
+}
+
+.search-bar1 {
+  padding: 8px 5px 5px 30px;
+  border: none;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #F5F5F5;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  padding-left: 40px;
+  padding-top: 7px;
+}
+
+.filter-btn1 {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #0000CD;
+  background-color: #FFFFFF;
+  color: mediumblue;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  margin-right: 1px;
+}
+
+.filter-btn1:hover {
+  background-color: #f0f0f0;
+}
+
+.plus-btn1 {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #0000CD;
+  background-color: #0000CD;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  height: 32px;
+  width: 90px;
+}
+
+.plus-btn1:hover {
+  background-color: #191970;
+}
+  
 
 </style>
 
@@ -855,7 +1493,20 @@ ul li a:hover:not(.active) {
 <!-- KONTEN UTAMA -->
 <div class="content-header-flex">
   <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-    <h2 class="page-title">Employee Profile</h2>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <div class="breadcrumb-row">
+          <a href="{{ route('home') }}" class="btn-home" style="padding: 0; color: #696969;">
+            <i class="fas fa-house"></i>
+          </a>
+          <i class="fas fa-chevron-right breadcrumb-arrow"></i>
+          <a href="{{ route('employees.index') }}" class="breadcrumb-text">Talent Management</a>
+          <i class="fas fa-chevron-right breadcrumb-arrow"></i>
+          <a href="{{ url()->current() }}" class="breadcrumb-text">Employee Profile</a>
+        </div> 
+      </div>
+      <h2 class="page-title">Employee Profile</h2>
+  </div>
     <div class="right-section">
         <button class="edit-btn"><i class="fas fa-pen"></i>Edit</button>
         <button class="export-btn"><i class="fas fa-upload"></i>Export</button>
@@ -885,6 +1536,7 @@ ul li a:hover:not(.active) {
   <div class="tab-buttons">
     <button class="tab-button active" onclick="showTab('profile')">Profile</button>
     <button class="tab-button" onclick="showTab('keluarga')">Data Keluarga</button>
+    <button class="tab-button" onclick="showTab('cluster')">Talent Cluster</button>
     <button class="tab-button" onclick="showTab('pelatihan')">Histori Pelatihan</button>
     <button class="tab-button" onclick="showTab('payroll')">Data Payroll</button>
     <button class="tab-button" onclick="showTab('karir')">Aktivitas Karir</button>
@@ -1037,6 +1689,28 @@ ul li a:hover:not(.active) {
     </table>
   </div>
 
+  <div class="tab-content" id="cluster" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+      <h2 class="left-section">Talent Cluster</h2>
+      <div class="right-section11">
+        <div class="search-container1">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Cari berdasarkan nama" class="search-bar" />
+        </div>
+        <button class="filter-btn1" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
+        <button class="plus-btn1" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
+      </div>
+    </div>
+    <table id="customers1" style="margin-top: 10px;">
+      <tr>
+        <th>No</th>
+        <th>Periode</th>
+        <th>Year</th>
+        <th>Cluster</th>
+      </tr>
+    </table>
+  </div>
+
   <div class="tab-content" id="pelatihan" style="display: none;">
     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
       <h2 class="left-section">List History Pelatihan</h2>
@@ -1073,25 +1747,159 @@ ul li a:hover:not(.active) {
           <div class="dropdown-action">
             <button class="horizontal-dots">&#x22EF;</button>
             <div class="dropdown-action-content">
-              <a href="#">Detail</a><br>
-              <a href="#">Edit</a><br>
+              <a href="#" class="dropdown-action-detail" onclick="showPelatihanDetail()">Detail</a><br>
+              <a class="feedback1-btn" data-bs-toggle="modal" data-bs-target="#feedbackModal">Input Feedback</a>
             </div>
           </div>
         </td>
       </tr>
     </table>
+  </div>
 
+  <div class="tab-content" id="pelatihan-detail" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+          <div class="left-section">
+            <div class="breadcrumb-row">
+              <i href="#" onclick="backToPelatihan()" class="fas fa-arrow-left breadcrumb-arrow"></i>
+              <div class="breadcrumb-text">Histori Pelatihan: Effective Communication Skills</div>
+            </div>
+          </div>
+          <div class="right-section3">
+            <div class="feedback-container">
+              <button type="button" class="feedback-btn" data-bs-toggle="modal" data-bs-target="#feedbackModal"><i class="fas fa-message"></i>Input Feedback</button>
+            </div>
+          </div>
+    </div>
+    <div class="content8" >
+        <div class="left-content8">
+            <p class="info1">Training ID</p>
+            <p class="info2">TR12345</p>
+            <p class="info1">Deskripsi Training</p>
+            <p class="info2">This is the description of training digital literacy 29 May 2025</p>
+            <p class="info1">Pelaksana</p>
+            <p class="info2">Learning Centre</p>
+            <p class="info1">Tanggal Mulai</p>
+            <p class="info2">29 June 2025 10:00:00</p>
+            <p class="info1">Lokasi</p>
+            <p class="info2">Gedung ABC Jl. Merah Putih No. 30 Bandung</p>
+            <p class="info1">Status</p>
+            <p class="info2">Selesai</p>
+        </div>
+        <div class="right-content8">
+            <p class="info1">Nama Training</p>
+            <p class="info2">Effective Communication Skills</p>
+            <p class="info1">Tipe Training</p>
+            <p class="info2">Internal</p>
+            <p class="info1">Durasi</p>
+            <p class="info2">1 Day</p>
+            <p class="info1">Tanggal Selesai</p>
+            <p class="info2">29 June 2025 14:00:00</p>
+            <p class="info1">Metode Pelatihan</p>
+            <p class="info2">Offline</p>
+            <p class="info1">Sertifikat</p>
+            <a href="#" class="sertif-link">Klik untuk Melihat</a>
+        </div>
+    </div>
     
   </div>
 
   <div class="tab-content" id="payroll" style="display: none;">
-    <h7>Histori Pelatihan</h7>
-    <p>Isi data pelatihan ditampilkan di sini.</p>
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+        <h2 class="left-section">List Data Payroll</h2>
+        <div class="right-section2">
+          <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Search by Name" class="search-bar" />
+          </div>
+          <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
+        </div>
+    </div>
+    @if(isset($payslips) && is_array($payslips))
+    <div class="payslip-grid">
+        @foreach($payslips as $payslip)
+            <div class="payslip-card">
+                <img src="{{ asset('assets/pdf-icon.png') }}" alt="PDF" class="pdf-icon">
+                <div class="payslip-text">
+                <strong>{{ $payslip['filename'] }}</strong><br>
+                <span>{{ $payslip['date'] }}</span><br>
+                <a href="{{ route('employees.payslip.download', ['filename' => $payslip['filename']]) }}" class="download-link">Klik untuk Download</a>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    @else
+      <p>Tidak ada data payslip.</p>
+    @endif
   </div>
 
   <div class="tab-content" id="karir" style="display: none;">
-    <h7>Histori Pelatihan</h7>
-    <p>Isi data pelatihan ditampilkan di sini.</p>
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+        <h2 class="left-section9">Aktivitas Karir</h2>
+        <div class="right-section9">
+          <button class="plus-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
+        </div>
+    </div>
+    <div class="timeline-container">
+      <div class="timeline-group">
+        <div class="timeline-item new">
+          <div class="timeline-year">2023</div>
+            <div class="timeline-content">
+              <h4 class="role-title">Nama Role Sekarang</h4>
+              <p class="sub-info">Maret 2023 - Sekarang (3 Tahun 1 Bulan) • Nama Direktorat • Band Level V</p>
+              <p class="promo-date">Tanggal Promosi: 1 Maret 2023</p>
+              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
+        <div class="timeline-item old">
+          <div class="timeline-year1">2020</div>
+          <div class="timeline-content">
+            <h4 class="role-title1">PJ Role ABC</h4>
+            <p class="sub-info">Januari 2020 - Februari 2023 (3 Tahun 2 Bulan) • Nama Direktorat • Band Level V</p>
+            <p class="promo-date">Tanggal Menjadi PJ: 3 Feb 2021</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          </div>
+        </div>
+        <div class="timeline-item old">
+          <div class="timeline-year1">2011</div>
+          <div class="timeline-content">
+            <h4 class="role-title1">Staff Posisi ABC</h4>
+            <p class="sub-info">Januari 2011 - Desember 2020 (8 Tahun 11 Bulan) • Nama Direktorat • Band Level V</p>
+            <p class="promo-date">Tanggal Karyawan Tetap: 1 Januari 2011</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+        <h2 class="left-section10">Histori Pekerjaan Sebelumnya</h2>
+        <div class="right-section10">
+          <button class="plus-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
+        </div>
+    </div>
+    <div class="timeline-container1">
+      <div class="timeline-group">
+        <div class="timeline-item old">
+          <div class="timeline-year1">2010</div>
+          <div class="timeline-content">
+            <h4 class="role-title1">Role Pekerjaan Sebelumnya</h4>
+            <p class="sub-info">PT Nama Perusahaan</p>
+            <p class="promo-date">April 2010 - Desember 2010 (9 Bulan)</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          </div>
+        </div>
+        <div class="timeline-item old">
+          <div class="timeline-year1">2010</div>
+          <div class="timeline-content">
+            <h4 class="role-title1">Role Pekerjaan Sebelumnya</h4>
+            <p class="sub-info">PT Nama Perusahaan</p>
+            <p class="promo-date">Januari 2010 - Maret 2010 (3 Bulan)</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
   </div>
 
   <div class="tab-content" id="dokumen" style="display: none;">
@@ -1100,32 +1908,109 @@ ul li a:hover:not(.active) {
         <h4 class="content-info6">Dokumen Personal</h4>
         <p class="info1">KTP</p>
         <a href="#" class="ktp-link">Klik untuk Melihat</a>
-        <p class="info1">NIK</p>
-        <p class="info2">32748258800001</p>
-        <p class="info1">Status Pernikahan</p>
-        <p class="info2">Kawin</p>
-        <p class="info1">Pendidikan Terakhir</p>
-        <p class="info2">DIV/S1</p>
-        <p class="info1">Alamat Rumah Sesuai KTP</p>
-        <p class="info2">Puri 11 Blok Y-00 Jl. Boulevard Residential, RT.004/RW.001, Pd. Pucung, Karang Tengah, Tangerang Selatan, Banten</p>
+        <p class="info1">BPJS Kesehatan</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+        <p class="info1">NPWP</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
       </div>
       <div class="right-content6">
-        <h4 class="content-info6"></h4>
-        <p class="info1">Tempat, Tanggal Lahir</p>
-        <p class="info2">Palembang, 30 November 1988</p>
-        <p class="info1">Agama</p>
-        <p class="info2">Islam</p>
-        <p class="info1">Pekerjaan Pasangan</p>
-        <p class="info2">Pegawai Swasta</p>
-        <p class="info1">Nomor Telepon</p>
-        <p class="info2">+62872847168092</p>
-        <p class="info1">Alamat Domisili</p>
-        p class="info2">Sama dengan Alamat KTP</p>
+        <p class="info1">Kartu Keluarga</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+        <p class="info1">BPJS Ketenagakerjaan</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+        <p class="info1">Nota Dinas</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+      </div>
+    </div>
+    <div class="content7" >
+      <div class="left-content7">
+        <h4 class="content-info7">Dokumen Lainnya</h4>
+        <p class="info1">Hasil Psikotest</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+        <p class="info1">Hasil Assessment 02</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+      </div>
+      <div class="right-content7">
+        <p class="info1">Hasil Assessment 01</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+        <p class="info1">Hasil Assessment 03</p>
+        <a href="#" class="ktp-link">Klik untuk Melihat</a>
       </div>
     </div>
   </div>
+  
+  <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <form action="{{ route('feedback.store') }}" methode="POST">
+                  @csrf
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Bantu Kami Lebih Baik!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
 
-      
+                  <div class="modal-body">
+                    <p>Terima Kasih telah mengikuti pelatihan ini. Silahkan berikan umpan balik agar kami dapat terus melakukan perbaikan.</p>
+                    <div class="d-flex justify-content-between mb-4">
+                      <div class="emoji-select-group text-center">
+                        <input type="radio" name="emoji_feedback" id="emoji1" value="Sangat Suka" hidden>
+                        <label for="emoji1" class="emoji-option">
+                          🥰
+                          <div class="emoji-label">Sangat Suka</div>
+                        </label>
+
+                        <input type="radio" name="emoji_feedback" id="emoji2" value="Cukup Baik" hidden>
+                        <label for="emoji2" class="emoji-option">
+                          😀 
+                          <div class="emoji-label">Cukup Baik</div>
+                        </label>
+
+                        <input type="radio" name="emoji_feedback" id="emoji3" value="Kurang Baik" hidden>
+                        <label for="emoji3" class="emoji-option">
+                          😔 
+                          <div class="emoji-label">Kurang Baik</div>
+                        </label>
+                      </div>
+                    </div>
+
+                    @php
+                      $questions = [
+                        "Hasil pelatihan yang saya ikuti, menambah pengetahuan dan keterampilan saya",
+                        "Saya mudah mengimplementasikan hasil pelatihan dalam tugas/pekerjaan saya",
+                        "Hasil pelatihan yang didapat mempercpat/mempermudah penyelesaian tugas/pekerjaan saya",
+                        "Saya menerapkan secara konsisten hasil pelatihan pada tugas/pekerjaan saya",
+                        "Hasil pelatihan yang saya ikuti meningkatkan kinerja/performance di unit saya saat ini"
+                      ];
+                    @endphp
+
+                    @foreach($questions as $index => $question)
+                      <div class="mb-3">
+                        <label class="form-label">{{ $question }} <span class="text-danger">*</span></label>
+                        <div class="d-flex gap-2 flex-wrap">
+                          @for($i =1; $i <= 10; $i++)
+                            <div>
+                              <input type="radio" class="btn-check" name="q{{ $index+1 }}" id="q{{ $index+1 }}_{{ $i }}" value="{{ $i }}" required>
+                              <label class="btn btn-outline-primary btn-sm" for="q{{ $index+1 }}_{{ $i }}">{{ $i }}</label>
+                            </div>
+                          @endfor
+                        </div>
+                      </div>
+                    @endforeach
+
+                    <div class="mb-3">
+                      <label class="form-label">Beritahu kami bagaimana kami bisa memperbaiki pelatihan ini <span class="text-danger">*</span></label>
+                      <textarea class="form-control" name="saran" rows="3" required></textarea>
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+  </div>
 </div>
 @endsection
 
@@ -1159,6 +2044,10 @@ function showTab(tabId) {
         badge.textContent = 'Organik Yakes';
         badge.classList.add('badge-keluarga');
         break;
+      case 'cluster':
+        badge.textContent = 'Organik Yakes';
+        badge.classList.add('badge-keluarga');
+        break;
       case 'pelatihan':
         badge.textContent = 'Permanent';
         badge.classList.add('badge-pelatihan');
@@ -1182,3 +2071,67 @@ function showTab(tabId) {
   }
 }
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.tab-content');
+  const tabButtons = document.querySelectorAll('.tab-button');
+
+  // Sembunyikan semua tab dulu
+  tabs.forEach(tab => tab.style.display = 'none');
+
+  // Ambil hash dari URL
+  let hash = window.location.hash || '#profile';
+  let activeTab = document.querySelector(hash);
+  
+  if (activeTab) {
+    activeTab.style.display = 'block';
+  }
+
+  // Optional: jika pakai tombol tab (tab-button class), tandai yang aktif
+  tabButtons.forEach(btn => {
+    const target = btn.getAttribute('href');
+    if (target === hash) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+});
+</script>
+
+<script>
+  function showPelatihanDetail() {
+    document.getElementById('pelatihan').style.display = 'none';
+    document.getElementById('pelatihan-detail').style.display = 'block';
+  }
+
+  function backToPelatihan() {
+    event.preventDefault(); // agar tidak reload halaman
+    document.getElementById('pelatihan-detail').style.display = 'none';
+    document.getElementById('pelatihan').style.display = 'block';
+  }
+</script>
+
+<script>
+  function openFeedbackModal() {
+    document.getElementById('feedbackModal').style.display = 'block';
+  }
+
+  function closeFeedbackModal() {
+    document.getElementById('feedbackModal').style.display = 'none';
+  }
+
+  // Tutup jika klik di luar konten
+  window.onclick = function(event) {
+    const modal = document.getElementById('feedbackModal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  function openFeedbackModal() {
+    document.getElementById("feedbackModal").style.display = "block";
+  }
+</script>
+
