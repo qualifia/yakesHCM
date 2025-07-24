@@ -219,6 +219,23 @@ ul li a:hover:not(.active) {
     z-index: 1;
     border: 1px solid #ccc;
     padding: 5px;
+    border-radius: 5px;
+}
+
+.dropdown-action-detail {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+}
+
+.dropdown-action-edit {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
 }
 
 .dropdown-action:hover .dropdown-action-content {
@@ -619,8 +636,8 @@ ul li a:hover:not(.active) {
       <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
       <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
       <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
-      <li><a href="#trm"><i class="fas fa-chart-line"></i>Training Management</a></li>
-      <li><a href="#djm"><i class="fas fa-folder"></i>DJM Management</a></li>
+      <li><a href="{{ route('training.index') }}"><i class="fas fa-chart-line"></i>Training Management</a></li>
+      <li><a href="{{ route('djm.index') }}"><i class="fas fa-folder"></i>DJM Management</a></li>
       <h2 class="config">Configuration</h2>
       <li><a href="#user"><i class="fas fa-user"></i>User</a></li>
       <li><a href="#role"><i class="fas fa-gear"></i>Role</a></li>
@@ -653,7 +670,7 @@ ul li a:hover:not(.active) {
         <input type="text" placeholder="Search by Name" class="search-bar" />
       </div>
       <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
-      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-filter"></i> Filters</button>
+      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
     </div>
   </div>
   <!-- FILTER MODAL -->
@@ -728,8 +745,6 @@ ul li a:hover:not(.active) {
     </div>
 </div>
 
-  </div>  
-
   <table id="customers" style="margin-top: 10px;">
     <tr>
         <th>No</th>
@@ -764,8 +779,8 @@ ul li a:hover:not(.active) {
         <div class="dropdown-action">
           <button class="horizontal-dots">&#x22EF;</button>
           <div class="dropdown-action-content">
-            <a href="{{ route('employees.show', $employee->id) }}">Detail</a><br>
-            <a href="{{ route('employees.edit', $employee->id) }}">Edit</a><br>
+            <a href="{{ route('employees.show', $employee->id) }}" class="dropdown-action-detail">Detail</a><br>
+            <a href="{{ route('employees.edit', $employee->id) }}" class="dropdown-action-edit">Edit</a><br>
           </div>
         </div>
       </td>
