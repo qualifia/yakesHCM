@@ -10,8 +10,8 @@ class TrainingController extends Controller
     // Tampilkan semua data training
     public function index()
     {
-        $trainings = Training::all(); // Atau pakai paginate()
-        return view('training.index', compact('trainings'));
+        $training = Training::all(); // Atau pakai paginate()
+        return view('training.index', compact('training'));
     }
 
     // Tampilkan form tambah training
@@ -24,18 +24,46 @@ class TrainingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'type' => 'required',
-            'organizer' => 'required',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
-            'duration' => 'required|string',
-            'participants' => 'required|integer',
+            'id_training' => 'required|string|max:255',
+            'nama_training' => 'required',
+            'deskripsi_training' => 'required',
+            'tipe_training' => 'required|string',
+            'penyelenggara' => 'required',
+            'durasi' => 'required|string',
+            'tanggal_mulai' => 'required|date',
+            'tanggal_selesai' => 'required|date|after_or_equal:start_date',
+            'lokasi' => 'required',
+            'metode_pelatihan' => 'required|string',
+            'partisipan' => 'required|integer',
+            'status' => 'required',
+            'biaya' => 'required|string',
+            'total_biaya' => 'required|string',
         ]);
 
-        Training::create($request->all());
+        $training = Training::create([
+            'id_training' => $request->id_training,
+            'nama_training' => $request->nama_training,
+            'deskripsi_training' => $request->deskripsi_training,
+            'tipe_training' => $request->tipe_training,
+            'penyelenggara' => $request->penyelenggara,
+            'durasi' => $request->durasi,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'lokasi' => $request->lokasi,
+            'metode_pelatihan' => $request->metode_pelatihan,
+            'partisipan' => $request->partisipan,
+            'status' => $request->status,
+            'biaya' => $request->biaya,
+            'total_biaya' => $request->total_biaya,
+        ]);
+
 
         return redirect()->route('training.index')->with('success', 'Training berhasil ditambahkan.');
+    }
+
+    public function show($id) {
+        $training = Training::findOrFail($id);
+        return view('training.show', compact('training'));
     }
 
     // Tampilkan form edit
@@ -58,7 +86,7 @@ class TrainingController extends Controller
     // Hapus training
     public function destroy($id)
     {
-        $training = Training::findOrFail($id);
+        $trainings = Training::findOrFail($id);
         $training->delete();
 
         return redirect()->route('training.index')->with('success', 'Training berhasil dihapus.');
