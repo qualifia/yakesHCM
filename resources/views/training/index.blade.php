@@ -387,6 +387,7 @@ ul li a:hover:not(.active) {
   align-items: center;
   gap: 6px;
   font-weight: bold;
+  font-family: Poppins, sans-serif;
 }
 
 .filter-btn {
@@ -400,8 +401,8 @@ ul li a:hover:not(.active) {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-right: 18px;
   font-weight: bold;
+  font-family: Poppins, sans-serif;
 }
 
 .export-btn:hover {
@@ -410,6 +411,26 @@ ul li a:hover:not(.active) {
 
 .filter-btn:hover {
   background-color: #f0f0f0;
+}
+
+.create-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #0000CD;
+  background-color: #0000CD;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+  text-decoration: none;
+}
+
+.create-btn:hover {
+  background-color: #00008B;
 }
 
 /* Filter Modal Styles */
@@ -524,7 +545,7 @@ ul li a:hover:not(.active) {
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 6px;
-  min-width: 220px;
+  min-width: 300px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   flex: 1;
   max-width: 240px;
@@ -535,11 +556,11 @@ ul li a:hover:not(.active) {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 6px;
-  min-width: 300px;
+  padding: 10px;
+  min-width: 400px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   flex: 1;
-  max-width: 400px;
+  max-width: 600px;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -564,8 +585,12 @@ ul li a:hover:not(.active) {
   margin-right: 12px;
 }
 
-.purple {
+.blue {
   background-color: #5c47fb;
+}
+
+.purple {
+  background-color: #8A2BE2;
 }
 
 .cyan {
@@ -594,6 +619,18 @@ ul li a:hover:not(.active) {
   font-family: Poppins, sans-serif;
 }
 
+.dropdown-action-hapus {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: red;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+  margin-left: -1px;
+  padding: 0;
+  margin-bottom: -10px;
+}
 
 
 </style>
@@ -625,10 +662,10 @@ ul li a:hover:not(.active) {
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
       <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
-      <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
+      <li><a href="{{ route('employees.index') }}"><i class="fas fa-users"></i>Talent Management</a></li>
       <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
-      <li><a href="#trm"><i class="fas fa-chart-line"></i>Training Management</a></li>
-      <li><a href="#djm"><i class="fas fa-folder"></i>DJM Management</a></li>
+      <li><a class="active" href="#trm"><i class="fas fa-chart-line"></i>Training Management</a></li>
+      <li><a href="{{ route('djm.index') }}"><i class="fas fa-folder"></i>DJM Management</a></li>
       <h2 class="config">Configuration</h2>
       <li><a href="#user"><i class="fas fa-user"></i>User</a></li>
       <li><a href="#role"><i class="fas fa-gear"></i>Role</a></li>
@@ -661,7 +698,8 @@ ul li a:hover:not(.active) {
         <input type="text" placeholder="Search by Name" class="search-bar" />
       </div>
       <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
-      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-filter"></i> Filters</button>
+      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
+      <a href="{{ route('training.create') }}" class="create-btn" onclick="toggleCreate()"><i class="fas fa-plus"></i> Create</a>
     </div>
   </div>
   <!-- FILTER MODAL -->
@@ -697,41 +735,33 @@ ul li a:hover:not(.active) {
   <!-- STATISTIK -->
   <div class="stat-boxes">
     <div class="stat-box">
-      <div class="icon-circle purple"><i class="fas fa-briefcase"></i></div>
+      <div class="icon-circle blue"><i class="fas fa-user-group"></i></div>
       <div class="stat-info">
-        <div class="stat-value">2.890</div>
-        <div class="stat-label">Total Karyawan</div>
+        <div class="stat-value">102</div>
+        <div class="stat-label">Total Partisipan Berjalan</div>
       </div>
     </div>
 
     <div class="stat-box">
-      <div class="icon-circle cyan"><i class="fas fa-user-tie"></i></div>
+      <div class="icon-circle cyan"><i class="fas fa-building"></i></div>
       <div class="stat-info">
-        <div class="stat-value">Band V (302)</div>
-        <div class="stat-label">Top Band Posisi</div>
-      </div>
-    </div>
-
-    <div class="stat-box">
-      <div class="icon-circle purple"><i class="fas fa-building"></i></div>
-      <div class="stat-info">
-        <div class="stat-value">Yakes Jakarta (2.008)</div>
-        <div class="stat-label">Top Kantor Penempatan</div>
+        <div class="stat-value">3 Direktorat</div>
+        <div class="stat-label">Total Direktorat Aktif</div>
       </div>
     </div>
 
     <div class="double-box">
       <div class="sub-box">
-        <div class="icon-circle pink"><i class="fas fa-user"></i></div>
+        <div class="icon-circle purple"><i class="fas fa-file-lines"></i></div>
         <div class="stat-info">
-          <div class="stat-value">30</div>
-          <div class="stat-label">On-Boarding 2025</div>
+          <div class="stat-value">5 Pelatihan</div>
+          <div class="stat-label">Jumlah Pelatihan Online</div>
         </div>
       </div>
       <div class="sub-box">
         <div class="stat-info">
-          <div class="stat-value">20</div>
-          <div class="stat-label">Akan Pensiun 2026</div>
+          <div class="stat-value">5 Pelatihan</div>
+          <div class="stat-label">Jumlah Pelatihan Offline</div>
         </div>
     </div>
 </div>
@@ -741,15 +771,41 @@ ul li a:hover:not(.active) {
   <table id="customers" style="margin-top: 10px;">
     <tr>
         <th>No</th>
-        <th>NIK</th>
         <th>Nama</th>
-        <th>Tanggal Lahir</th>
-        <th>Nama Posisi</th>
-        <th>Email</th>
-        <th>Regional/Direktorat</th>
-        <th>Nama Posisi</th>
+        <th>Tipe Training</th>
+        <th>Penyelenggara</th>
+        <th>Tanggal Mulai</th>
+        <th>Tanggal Selesai</th>
+        <th>Durasi</th>
+        <th>Partisipan</th>
         <th>Actions</th>
     </tr>
+    @foreach($training as $training)
+    <tr>
+      <td>{{ $loop->iteration }}</td>
+      <td>{{ $training->nama_training }}</td>
+      <td>{{ $training->tipe_training }}</td>
+      <td>{{ $training->penyelenggara }}</td>
+      <td>{{ \Carbon\Carbon::parse($training->tanggal_mulai)->translatedFormat('d F Y') }}</td>
+      <td>{{ \Carbon\Carbon::parse($training->tanggal_selesai)->translatedFormat('d F Y') }}</td>
+      <td>{{ $training->durasi }}</td> <!-- Nama Posisi -->
+      <td>{{ $training->partisipan }}</td>
+      <td>
+        <div class="dropdown-action">
+          <button class="horizontal-dots">&#x22EF;</button>
+          <div class="dropdown-action-content">
+            <a href="{{ route('training.show', $training->id) }}" class="dropdown-action-detail">Detail</a><br>
+            <a href="{{ route('training.edit', $training->id) }}" class="dropdown-action-edit">Edit</a><br>
+            <form action="{{ route('training.destroy', $training->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="dropdown-action-hapus">Hapus</button>
+            </form>
+          </div>
+        </div>
+      </td>
+    </tr>
+    @endforeach
   </table>      
 </div>
 @endsection
