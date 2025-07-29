@@ -14,13 +14,20 @@ return new class extends Migration
 
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('type');
-            $table->string('organizer');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->string('duration');
-            $table->integer('participants');
+            $table->string('id_training');
+            $table->string('nama_training');
+            $table->string('deskripsi_training');
+            $table->string('tipe_training');
+            $table->string('penyelenggara');
+            $table->string('durasi');
+            $table->dateTime('tanggal_mulai');
+            $table->dateTime('tanggal_selesai');
+            $table->string('lokasi');
+            $table->string('metode_pelatihan');
+            $table->integer('partisipan');
+            $table->string('status');
+            $table->integer('biaya');
+            $table->integer('total_biaya');
             $table->timestamps();
         });
     }
