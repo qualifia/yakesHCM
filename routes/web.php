@@ -8,6 +8,8 @@ use App\Http\Controllers\DJMController;
 use App\Http\Controllers\TMController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\KehadiranController;
+
 
 
 
@@ -46,6 +48,8 @@ Route::post('/logout', [LoginController::class, 'actionLogout'])->name('logout')
 Route::get('/employees/payslip/download/{filename}', [TMController::class, 'downloadPayslip'])->name('employees.payslip.download');
 
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::post('/kehadiran', [KehadiranController::class, 'store'])->name('kehadiran.store');
+
 
 
 Route::middleware('auth')->get('home', function () {
@@ -76,6 +80,11 @@ Route::put('/employees/{employee}', [TMController::class, 'update'])->name('empl
 
 
 Route::get('/training', [TrainingController::class, 'index'])->name('training.index');
+Route::get('/training/create', [TrainingController::class, 'create'])->name('training.create');
+Route::post('/training', [TrainingController::class, 'store'])->name('training.store');
+Route::get('training/{id}', [TrainingController::class, 'show'])->name('training.show');
+Route::get('/training/{id}/edit', [TrainingController::class, 'edit'])->name('training.edit');
+Route::get('/training/{id}/destroy', [TrainingController::class, 'destroy'])->name('training.destroy');
 
 
 
