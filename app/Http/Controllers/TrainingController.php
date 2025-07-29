@@ -86,7 +86,7 @@ class TrainingController extends Controller
     // Hapus training
     public function destroy($id)
     {
-        $trainings = Training::findOrFail($id);
+        $training = Training::findOrFail($id);
         $training->delete();
 
         return redirect()->route('training.index')->with('success', 'Training berhasil dihapus.');
