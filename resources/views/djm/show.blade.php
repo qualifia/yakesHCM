@@ -402,6 +402,7 @@ ul li a:hover:not(.active) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
+    font-family: Poppins, sans-serif;
 }
 
 .form-grid h4 {
@@ -430,6 +431,7 @@ ul li a:hover:not(.active) {
 .form-group {
   display: flex;
   flex-direction: column;
+
 }
 
 .full-width {
@@ -447,14 +449,36 @@ ul li a:hover:not(.active) {
     font-family: Poppins, sans-serif;
 }
 
-.section-title ol li {
-    font-size: 12px;
-    font-weight: 600;
-    margin: 0;
-    color: #000;
-    margin-left: -10px;
-    margin-bottom: 5px;
+.section-title ol {
+  list-style-type: decimal;     /* angka 1, 2, 3 untuk level pertama */
+  font-family: 'Poppins', sans-serif;
+  padding-left: 18px;      /* Lebih sempit dari 20px agar seperti contoh */
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 8px;
 }
+
+.section-title ol > li {
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.section-title ol > li > ol {
+  list-style-type: lower-alpha; /* a, b, c untuk level kedua */
+  padding-left: 18px;
+  margin-top: 4px;
+}
+
+.section-title ol > li > ol > li {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
 
 </style>
 
@@ -469,7 +493,7 @@ ul li a:hover:not(.active) {
 <!-- SIDEBAR -->
 <div class="sidebar">
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Solid_blue.svg" alt="logo-picture">
+    <img src="https://d1nxzqpcg2bym0.cloudfront.net/google_play/com.yakes.medrec/a48efce6-1b26-11e7-a318-1938b92725fa/128x128" alt="logo-picture">
     <div class="logo-info">
       <div class="logo-name">HRIS Yakes</div>
     </div>
@@ -524,7 +548,7 @@ ul li a:hover:not(.active) {
   </div>
   <div class="form-grid">
     <div class="form-group">
-        <h4>Position Name</h4>
+        <h4>Nama Posisi</h4>
         <p>{{ $djm->namaPosisi }}</p>
     </div>
     
@@ -539,17 +563,22 @@ ul li a:hover:not(.active) {
     </div>
 
     <div class="form-group">
-        <h4>Direct Supervisor</h4>
-        <p>{{ $djm->supervisor }}</p>
+        <h4>Job Family/Job Function</h4>
+        <p>{{ $djm->job }}</p>
     </div>
 
     <div class="form-group">
-        <h4>Band Position</h4>
+        <h4>Atasan Langsung</h4>
+        <p>{{ $djm->atasanLangsung }}</p>
+    </div>
+
+    <div class="form-group">
+        <h4>Band Posisi</h4>
         <p>{{ $djm->posisi }}</p>
     </div>
 
     <div class="form-group">
-        <h4>DJM Code</h4>
+        <h4>Kode DJM</h4>
         <p>{{ $djm->kodeDJM }}</p>
     </div>
 
@@ -576,31 +605,31 @@ ul li a:hover:not(.active) {
     <hr class="divider">
 
     <div class="section-title">
-        <h4>Competencies</h4>
-        <ol type="1">
-            <li><strong>LEADERSHIP</strong>
-                <ol type="a">
-                    <li><strong>DIGITAL LEADERSHIP</strong> (1)</li>
-                    <li><strong>GLOBAL BUSINESS SAVVY</strong> (1)</li>
-                    <li><strong>CUSTOMER FOCUS</strong> (1)</li>
-                    <li><strong>BUILDING STRATEGIC PARTNERSHIP</strong> (1)</li>
-                    <li><strong>STRATEGIC ORIENTATION</strong> (1)</li>
-                    <li><strong>DRIVING EXECUTION</strong> (1)</li>
-                    <li><strong>DRIVING INNOVATION</strong> (1)</li>
-                    <li><strong>DEVELOPING ORGANIZATIONAL CAPABILITIES</strong> (1)</li>
-                    <li><strong>LEADING CHANGE</strong> (1)</li>
-                    <li><strong>MANAGING DIVERSITY</strong> (1)</li>
-                </ol>
-            </li>
-            <li><strong>PROFESSIONAL</strong>
-                <ol type="a">
-                    <li><strong>TEST PLANNING</strong> (1)</li>
-                    <li><strong>TEST EXECUTION</strong> (1)</li>
-                    <li><strong>TECHNICAL AND FUNCTIONAL CAPACITY</strong> (1)</li>
-                </ol>
-            </li>
-        </ol>
-    </div> 
+      <h4>Kompetensi</h4>
+      <ol type="1">
+        <li>LEADERSHIP
+          <ol type="a">
+            <li>DIGITAL LEADERSHIP (1)</li>
+            <li>GLOBAL BUSINESS SAVVY (1)</li>
+            <li>CUSTOMER FOCUS (1)</li>
+            <li>BUILDING STRATEGIC PARTNERSHIP (1)</li>
+            <li>STRATEGIC ORIENTATION (1)</li>
+            <li>DRIVING EXECUTION (1)</li>
+            <li>DRIVING INNOVATION (1)</li>
+            <li>DEVELOPING ORGANIZATIONAL CAPABILITIES (1)</li>
+            <li>LEADING CHANGE (1)</li>
+            <li>MANAGING DIVERSITY (1)</li>
+          </ol>
+        </li>
+        <li>PROFESSIONAL
+          <ol type="a">
+            <li>TEST PLANNING (1)</li>
+            <li>TEST EXECUTION (1)</li>
+            <li>TECHNICAL AND FUNCTIONAL CAPACITY (1)</li>
+          </ol>
+        </li>
+      </ol>
+    </div>
   </div>
 </div>
 @endsection

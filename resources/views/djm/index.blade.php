@@ -220,8 +220,7 @@ ul li a:hover:not(.active) {
     z-index: 1;
     border: 1px solid #ccc;
     padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 0px;
+    border-radius: 8px;
 }
 
 .dropdown-action-detail {
@@ -230,6 +229,7 @@ ul li a:hover:not(.active) {
   font-size: 12px;
   color: #555;
   text-decoration: none;
+  margin-left: 8px;
 }
 
 .dropdown-action-edit {
@@ -238,17 +238,18 @@ ul li a:hover:not(.active) {
   font-size: 12px;
   color: #555;
   text-decoration: none;
+  margin-left: 8px;
 }
 
 .dropdown-action-hapus {
   font-family: Poppins, sans-serif;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 12px;
   color: red;
   text-decoration: none;
   border: none;
   background-color: white;
-  margin-left: -1px;
+  margin-left: 8px;
   padding: 0;
   margin-bottom: -10px;
 }
@@ -479,6 +480,22 @@ ul li a:hover:not(.active) {
   border-radius: 8px;
 }
 
+.btn-upload {
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  min-width: 150px;
+  text-align: left;
+}
+
+.btn-upload:hover {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
 
 .export-btn:hover {
   background-color: #2F4F4F;
@@ -670,6 +687,74 @@ ul li a:hover:not(.active) {
   font-family: Poppins, sans-serif;
 }
 
+/* Modal Wrapper */
+#uploadModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+}
+
+/* Modal Box */
+#uploadModal .modal-content {
+  background: white;
+  width: 700px;
+  height: 350px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+}
+
+/* Close Button */
+#uploadModal .close-button {
+  position: absolute;
+  top: 15px;
+  right: 50px;
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+
+/* Form Layout */
+#uploadModal form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+#uploadModal .form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#uploadModal .form-buttons button {
+  padding: 10px 20px;
+}
+
+#uploadModal .form-buttons .cancel {
+  border: 1px solid #ccc;
+  background: #eee;
+}
+
+#uploadModal .form-buttons .submit {
+  border: none;
+  background: #0000CD;
+  color: white;
+}
+
+.content7 {
+  display: flex;
+  width: 100%;
+  padding-right: 90px;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 
 </style>
 
@@ -684,7 +769,7 @@ ul li a:hover:not(.active) {
 <!-- SIDEBAR -->
 <div class="sidebar">
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Solid_blue.svg" alt="logo-picture">
+    <img src="https://d1nxzqpcg2bym0.cloudfront.net/google_play/com.yakes.medrec/a48efce6-1b26-11e7-a318-1938b92725fa/128x128" alt="logo-picture">
     <div class="logo-info">
       <div class="logo-name">HRIS Yakes</div>
     </div>
@@ -741,7 +826,7 @@ ul li a:hover:not(.active) {
         <button class="create-btn" onclick="toggleCreate()"><i class="fas fa-plus"></i> Create</button>
         <div class="dropdown-menu" id="dropdownMenu">
           <a href="{{ route('djm.create') }}">Forms</a>
-          <a href="{{ route('djm.export_excel') }}">Excel</a>
+          <a href="#" onclick="openUploadModal()">Upload File</a>
         </div>
       </div>
     </div>
@@ -803,14 +888,40 @@ ul li a:hover:not(.active) {
               <form action="{{ route('djm.destroy', $djm->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="dropdown-action-hapus">Hapus</button>
+                  <button type="submit" class="dropdown-action-hapus">Delete</button>
               </form>
             </div>
           </div>
         </td>
       </tr>
     @endforeach
-  </table>      
+  </table>
+
+  <!-- Modal Upload File -->
+  <div id="uploadModal">
+    <div class="modal-content">
+      <div class="content1">
+        <div class="left-content1">
+          <h3>Tambah Data DJM</h3>
+        </div>
+        <div class="right-content1">
+          <button onclick="closeUploadModal()" class="close-button">&times;</button>
+        </div>
+      </div>
+      <form action="{{ route('djm.upload') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="file" required>
+        <div class="form-buttons">
+          <button type="button" class="cancel" onclick="closeUploadModal()">Cancel</button>
+          <button type="submit" class="submit">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  
+
 </div>
 @endsection
 
@@ -851,5 +962,16 @@ $(document).ready(function () {
     });
 });
 </script>
+
+<script>
+  function openUploadModal() {
+    document.getElementById("uploadModal").style.display = "block";
+  }
+  function closeUploadModal() {
+    document.getElementById("uploadModal").style.display = "none";
+  }
+</script>
+
+
 
 

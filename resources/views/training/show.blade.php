@@ -636,7 +636,7 @@ input[type="radio"]:checked + .emoji-option {
 <!-- SIDEBAR -->
 <div class="sidebar">
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Solid_blue.svg" alt="logo-picture">
+    <img src="https://d1nxzqpcg2bym0.cloudfront.net/google_play/com.yakes.medrec/a48efce6-1b26-11e7-a318-1938b92725fa/128x128" alt="logo-picture">
     <div class="logo-info">
       <div class="logo-name">HRIS Yakes</div>
     </div>
@@ -719,6 +719,18 @@ input[type="radio"]:checked + .emoji-option {
         <h4>Durasi</h4>
         <p>{{ $training->durasi }}</p>
     </div>
+
+    <div class="form-group">
+        <h4>Sertifikat Partisipasi</h4>
+        <p>{{ $training->sertifikat_partisipasi }}</p>
+    </div>
+
+    <div class="form-group">
+        <h4>Sertifikat Pelatihan</h4>
+        <p>{{ $training->sertifikat_pelatihan }}</p>
+    </div>
+
+    <hr class="divider">
 
     <div class="form-group">
         <h4>Tanggal Mulai</h4>

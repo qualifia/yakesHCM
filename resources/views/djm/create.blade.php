@@ -335,6 +335,9 @@ ul li a:hover:not(.active) {
   display: grid;
   grid-template-columns: repeat(2, 500px);
   gap: 24px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .form-group {
@@ -344,11 +347,19 @@ ul li a:hover:not(.active) {
 
 label {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: normal;
   margin-bottom: 6px;
 }
 
 .form-control {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.form-control1 {
   padding: 12px;
   font-size: 14px;
   border-radius: 8px;
@@ -526,7 +537,7 @@ textarea.form-control {
 <!-- SIDEBAR -->
 <div class="sidebar">
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Solid_blue.svg" alt="logo-picture">
+    <img src="https://d1nxzqpcg2bym0.cloudfront.net/google_play/com.yakes.medrec/a48efce6-1b26-11e7-a318-1938b92725fa/128x128" alt="logo-picture">
     <div class="logo-info">
       <div class="logo-name">HRIS Yakes</div>
     </div>
@@ -597,19 +608,18 @@ textarea.form-control {
 
       <div class="form-group">
         <label>Regional / Directorate *</label>
-        <select name="regionalDirektorat" class="form-control" required>
-            <option value="">-- Pilih Regional --</option>
+        <select name="regionalDirektorat" class="form-control1" required>
+            <option disabled selected value=""></option>
             <option value="Direktorat Layanan Kesehatan">Direktorat Layanan Kesehatan</option>
             <option value="Direktorat Keuangan">Direktorat Keuangan</option>
             <option value="Direktorat SDM & Umum">Direktorat SDM & Umum</option>
-            <!-- Tambahkan opsi lainnya -->
         </select>
       </div>
 
       <div class="form-group">
         <label>Unit / Sub Directorate *</label>
-        <select name="unitSub" class="form-control" required>
-            <option value="">-- Pilih Unit/Sub --</option>
+        <select name="unitSub" class="form-control1" required>
+            <option disabled selected value=""></option>
             <option value="Digital Healthcare / CEDX">Digital Healthcare / CEDX</option>
             <option value="Health Service Development">Health Service Development</option>
             <option value="Business Planning">Business Planning</option>
@@ -618,20 +628,19 @@ textarea.form-control {
       </div>
 
       <div class="form-group">
-        <label>Direct Supervisor *</label>
-        <select name="supervisor" class="form-control" required>
-            <option value="">-- Pilih Supervisor --</option>
-            <option value="OSM Digital Healthcare">OSM Digital Healthcare</option>
-            <option value="Manager Keuangan">Manager Keuangan</option>
-            <option value="Kepala Divisi IT">Kepala Divisi IT</option>
-            <!-- Tambahkan opsi lainnya -->
+        <label>Job Family/Job Function *</label>
+        <select name="job" class="form-control1" required>
+            <option disabled selected value=""></option>
+            <option value="Digital & ICT/1.2 Information Technology">Digital & ICT/1.2 Information Technology</option>
+            <option value="bbbb">blablabla</option>
+            <option value="cccc">claclacla</option>
         </select>
       </div>
 
       <div class="form-group">
         <label>Band Position *</label>
-        <select name="posisi" class="form-control" required>
-            <option value="">-- Pilih Band --</option>
+        <select name="posisi" class="form-control1" required>
+            <option disabled selected value=""></option>
             <option value="VII - V">VII - V</option>
             <option value="VIII - VI">VIII - VI</option>
             <option value="IX - VII">IX - VII</option>
@@ -640,8 +649,13 @@ textarea.form-control {
       </div>
 
       <div class="form-group">
-        <label>DJM Code *</label>
-        <input type="text" name="kodeDJM" class="form-control-read" required>
+        <label>Atasan Langsung *</label>
+        <select name="atasanLangsung" class="form-control1" required>
+            <option disabled selected value=""></option>
+            <option value="OSM Digital Healthcare">OSM Digital Healthcare</option>
+            <option value="Manager Keuangan">Manager Keuangan</option>
+            <option value="Kepala Divisi IT">Kepala Divisi IT</option>
+        </select>
       </div>
     </div>
 

@@ -16,6 +16,8 @@ class Training extends Model
         'nama_training',
         'deskripsi_training',
         'tipe_training',
+        'sertifikat_partisipasi',
+        'sertifikat_pelatihan',
         'penyelenggara',
         'durasi',
         'tanggal_mulai',

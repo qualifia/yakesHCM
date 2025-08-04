@@ -219,6 +219,7 @@ ul li a:hover:not(.active) {
     z-index: 1;
     border: 1px solid #ccc;
     padding: 5px;
+    border-radius: 8px;
 }
 
 .dropdown-action-detail {
@@ -227,6 +228,16 @@ ul li a:hover:not(.active) {
   font-size: 12px;
   color: #555;
   text-decoration: none;
+  margin-left: 8px;
+}
+
+.dropdown-action-edit {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+  margin-left: 8px;
 }
 
 .dropdown-action:hover .dropdown-action-content {
@@ -619,7 +630,7 @@ ul li a:hover:not(.active) {
   font-family: Poppins, sans-serif;
 }
 
-.dropdown-action-hapus {
+.dropdown-action-delete {
   font-family: Poppins, sans-serif;
   font-weight: normal;
   font-size: 12px;
@@ -627,9 +638,10 @@ ul li a:hover:not(.active) {
   text-decoration: none;
   border: none;
   background-color: white;
-  margin-left: -1px;
+  margin-left: 8px;
   padding: 0;
   margin-bottom: -10px;
+  font-weight: bold;
 }
 
 
@@ -646,7 +658,7 @@ ul li a:hover:not(.active) {
 <!-- SIDEBAR -->
 <div class="sidebar">
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Solid_blue.svg" alt="logo-picture">
+    <img src="https://d1nxzqpcg2bym0.cloudfront.net/google_play/com.yakes.medrec/a48efce6-1b26-11e7-a318-1938b92725fa/128x128" alt="logo-picture">
     <div class="logo-info">
       <div class="logo-name">HRIS Yakes</div>
     </div>
@@ -786,8 +798,8 @@ ul li a:hover:not(.active) {
       <td>{{ $training->nama_training }}</td>
       <td>{{ $training->tipe_training }}</td>
       <td>{{ $training->penyelenggara }}</td>
-      <td>{{ \Carbon\Carbon::parse($training->tanggal_mulai)->translatedFormat('d F Y') }}</td>
-      <td>{{ \Carbon\Carbon::parse($training->tanggal_selesai)->translatedFormat('d F Y') }}</td>
+      <td>{{ \Carbon\Carbon::parse($training->tanggal_mulai)->setTimezone('Asia/Jakarta')->format('d F Y H:i:s') }}</td>
+      <td>{{ \Carbon\Carbon::parse($training->tanggal_selesai)->setTimezone('Asia/Jakarta')->format('d F Y H:i:s') }}</td>
       <td>{{ $training->durasi }}</td> <!-- Nama Posisi -->
       <td>{{ $training->partisipan }}</td>
       <td>
@@ -799,7 +811,7 @@ ul li a:hover:not(.active) {
             <form action="{{ route('training.destroy', $training->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
               @csrf
               @method('DELETE')
-              <button type="submit" class="dropdown-action-hapus">Hapus</button>
+              <button type="submit" class="dropdown-action-delete">Delete</button>
             </form>
           </div>
         </div>

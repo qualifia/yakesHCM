@@ -536,7 +536,7 @@ textarea.form-control {
 <!-- SIDEBAR -->
 <div class="sidebar">
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Solid_blue.svg" alt="logo-picture">
+    <img src="https://d1nxzqpcg2bym0.cloudfront.net/google_play/com.yakes.medrec/a48efce6-1b26-11e7-a318-1938b92725fa/128x128" alt="logo-picture">
     <div class="logo-info">
       <div class="logo-name">HRIS Yakes</div>
     </div>
@@ -631,6 +631,24 @@ textarea.form-control {
         <div class="form-group">
             <label>Durasi *</label>
             <input type="text" name="durasi" class="form-control-read" required>
+        </div>
+
+        <div class="form-group">
+            <label>Sertifikat Partisipasi</label>
+            <select name="sertifikat_partisipasi" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="Ada">Ada</option>
+                <option value="Tidak">Tidak Ada</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Sertifikat Pelatihan</label>
+            <select name="sertifikat_pelatihan" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="Ada">Ada</option>
+                <option value="Tidak">Tidak Ada</option>
+            </select>
         </div>
         
         <div class="form-group">

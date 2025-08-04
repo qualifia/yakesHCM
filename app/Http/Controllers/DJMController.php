@@ -24,9 +24,9 @@ class DJMController extends Controller
             'namaPosisi' => 'required',
             'regionalDirektorat' => 'required',
             'unitSub' => 'required',
-            'supervisor' => 'required',
+            'job' => 'required',
             'posisi' => 'required',
-            'kodeDJM' => 'required',
+            'atasanLangsung' => 'required',
             'position_specification' => 'required',
             'position_objective' => 'required',
             'responsibilities' => 'required',
@@ -38,9 +38,9 @@ class DJMController extends Controller
             'namaPosisi' => $request->namaPosisi,
             'regionalDirektorat' => $request->regionalDirektorat,
             'unitSub' => $request->unitSub,
-            'supervisor' => $request->supervisor,
+            'job' => $request->job,
             'posisi' => $request->posisi,
-            'kodeDJM' => $request->kodeDJM,
+            'atasanLangsung' => $request->atasanLangsung,
             'position_specification' => $request->position_specification,
             'position_objective' => $request->position_objective,
             'responsibilities' => $request->responsibilities,
@@ -79,4 +79,26 @@ class DJMController extends Controller
     }
 
     
+
+    public function upload(Request $request) {
+        $request->validate([
+            'file' => 'required|file|mimes:xlsx,xls,csv,pdf,docx|max:2048'
+        ]);
+
+        $file = $request->file('file');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $path = $file->storeAs('uploads/djm', $filename, 'public');
+
+        // Simpan ke database (pastikan kamu punya tabel/files model)
+        DB::table('djm_files')->insert([
+            'filename' => $filename,
+            'path' => $path,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->back()->with('success', 'File berhasil diupload.');
+    }
+
+
 }

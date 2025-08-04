@@ -28,6 +28,8 @@ class TrainingController extends Controller
             'nama_training' => 'required',
             'deskripsi_training' => 'required',
             'tipe_training' => 'required|string',
+            'sertifikat_partisipasi' => 'string',
+            'sertifikat_pelatihan' => 'string',
             'penyelenggara' => 'required',
             'durasi' => 'required|string',
             'tanggal_mulai' => 'required|date',
@@ -45,6 +47,8 @@ class TrainingController extends Controller
             'nama_training' => $request->nama_training,
             'deskripsi_training' => $request->deskripsi_training,
             'tipe_training' => $request->tipe_training,
+            'sertifikat_partisipasi' => $request->sertifikat_partisipasi,
+            'sertifikat_pelatihan' => $request->sertifikat_pelatihan,
             'penyelenggara' => $request->penyelenggara,
             'durasi' => $request->durasi,
             'tanggal_mulai' => $request->tanggal_mulai,
@@ -86,7 +90,7 @@ class TrainingController extends Controller
     // Hapus training
     public function destroy($id)
     {
-        $trainings = Training::findOrFail($id);
+        $training = Training::findOrFail($id);
         $training->delete();
 
         return redirect()->route('training.index')->with('success', 'Training berhasil dihapus.');

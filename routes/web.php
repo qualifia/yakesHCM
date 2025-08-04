@@ -84,17 +84,18 @@ Route::get('/training/create', [TrainingController::class, 'create'])->name('tra
 Route::post('/training', [TrainingController::class, 'store'])->name('training.store');
 Route::get('training/{id}', [TrainingController::class, 'show'])->name('training.show');
 Route::get('/training/{id}/edit', [TrainingController::class, 'edit'])->name('training.edit');
-Route::get('/training/{id}/destroy', [TrainingController::class, 'destroy'])->name('training.destroy');
+Route::delete('/training/{id}/destroy', [TrainingController::class, 'destroy'])->name('training.destroy');
 
 
 
 Route::get('/djm', [DJMController::class, 'index'])->name('djm.index');
 Route::get('/djm/create', [DJMController::class, 'create'])->name('djm.create');
-Route::get('/djm/export_excel', [DJMController::class, 'exportExcel'])->name('djm.export_excel');
 Route::post('/djm', [DJMController::class, 'store'])->name('djm.store');
 Route::get('/djm/{id}', [DJMController::class, 'show'])->name('djm.show');
 Route::get('/djm/{id}/edit', [DJMController::class, 'edit'])->name('djm.edit');
-Route::get('/djm/{id}/destroy', [DJMController::class, 'destroy'])->name('djm.destroy');
+Route::delete('/djm/{id}/destroy', [DJMController::class, 'destroy'])->name('djm.destroy');
+Route::post('/djm/upload', [DJMController::class, 'upload'])->name('djm.upload');
+
 
 /*
 Route::resource('djm', DJMController::class);
