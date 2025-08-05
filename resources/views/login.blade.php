@@ -1,85 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login - Aplikasi Sistem HCM Yayasan Kesehatan Telkom</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-    <style>
-        body, html {
-            font-family: 'Poppins', sans-serif;
-            font-size: 25px;
-            height: 100%;
-            margin: 0;
-        }
-
-        .center-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .form-box {
-            width: 100%;
-            max-width: 700px;
-        }
-
-        .page-title {
-            font-size: 32px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            word-wrap: break-word;
-        }
-
-        .form-control {
-            font-size: 20px;
-            height: 60px;        /* Memperbesar tinggi box */
-            padding: 15px 20px;  /* Menambah ruang dalam box */
-            border-radius: 10px;
-        }
-
-        .custom-btn {
-            height: 70px;                 /* Tinggi tombol */
-            font-size: 22px;              /* Ukuran font */
-            display: flex;
-            align-items: center;
-            justify-content: center;     /* Horizontal center */
-            border-radius: 10px;
-        }
-
-    </style>
+    <title>Login - Akses Sistem</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container"><br>
-        <div class="col-md-4 col-md-offset-4">
-        <h2 class="text-center page-title"><br>Aplikasi Sistem HCM Yayasan Kesehatan Telkom</h2>
-            <hr>
-            @if(session('error'))
-            <div class="alert alert-danger">
-                <b>Login gagal!</b> {{session('error')}}
+<body class="bg-white">
+    <div class="h-screen flex items-center">
+        <div class="flex flex-col md:flex-row bg-white shadow-none rounded-lg overflow-visible w-full">
+
+            <!-- Left Side (Image) -->
+            <div class="hidden md:flex w-1/2 bg-white items-center">
+                <img src="{{ asset('img/loginPage.svg') }}" alt="Login Illustration" class="w-full object-contain">
             </div>
-            @endif
-            <form method="POST" action="{{ route('actionlogin') }}">
-                @csrf
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Email" required="">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password" required="">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block custom-btn">Log In</button>
-                <hr>
-                {{-- <p class="text-center">Belum punya akun? <a href="/register">Register</a> sekarang!</p> --}}
-            </form>
+
+            <!-- Right Side (Form) -->
+            <div class="w-full md:w-1/2 p-10 flex-items-center">
+                <h2 class="text-4xl font-bold mb-4 text-black-800">Selamat Datang</h2>
+                <p class="text-grey-600 mb-6">Silakan login menggunakan NIK dan Kata Sandi Anda untuk melanjutkan akses</p>
+
+                @if(Session::has('error'))
+                    <div class="mb-4 text-red-600 text-sm">
+                        {{ Session::get('error') }}
+                    </div>
+                @endif
+
+                <form method="POST" action="{{ url('actionlogin') }}">
+                    @csrf
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">NIK/Username</label>
+                        <input type="text" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan NIK/Username Anda">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Kata Sandi</label>
+                        <input type="password" name="password" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Kata Sandi Anda">
+                    </div>
+
+                    <div class="flex items-center justify-between mb-6">
+                        <label class="flex items-center text-sm">
+                            <input type="checkbox" class="form-checkbox text-blue-800 mr-2">
+                            Ingat Saya
+                        </label>
+                        <a href="#" class="text-sm text-black-600 hover:underline">Lupa Kata Sandi?</a>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-900 transition">
+                        Masuk
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
 </html>
-
