@@ -397,6 +397,13 @@ ul li a:hover:not(.active) {
   display: flex;
 }
 
+.divider {
+    grid-column: 1 / -1;
+    margin: 30px 0;
+    border-top: 3px solid #A9A9A9;
+    margin-bottom: 10px;
+}
+
 .left-content {
     margin-top: 10px;
     margin-left: 20px;
@@ -435,7 +442,6 @@ ul li a:hover:not(.active) {
 .content1, .content2 {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #A9A9A9;
   padding-right: 90px;
   justify-content: space-between;
   gap: 20px;
@@ -467,10 +473,9 @@ ul li a:hover:not(.active) {
 .content6 {
   display: flex;
   width: 100%;
-  padding-right: 0px;
+  padding-right: 90px;
   justify-content: space-between;
   gap: 20px;
-  border-bottom: 2px solid #A9A9A9;
 }
 
 .content-info, .content-info2, .content-info3, .content-info4, .content-info7 {
@@ -596,7 +601,6 @@ ul li a:hover:not(.active) {
 .content4 {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #A9A9A9;
   padding-right: 90px;
   justify-content: space-between;
   gap: 20px;
@@ -1218,7 +1222,6 @@ input[type="radio"]:checked + .emoji-option {
   margin: 30px 0;
   padding-left: 40px;
   margin-left: 20px;
-  border-bottom: 2px solid #A9A9A9;
   width: 100%;
 }
 
@@ -1508,7 +1511,7 @@ input[type="radio"]:checked + .emoji-option {
       <h2 class="page-title">Employee Profile</h2>
   </div>
     <div class="right-section">
-        <button class="edit-btn"><i class="fas fa-pen"></i>Edit</button>
+        <a href="{{ route('employees.edit', $employee->id) }}" class="edit-btn"><i class="fas fa-pen"></i>Edit</a>
         <button class="export-btn"><i class="fas fa-upload"></i>Export</button>
     </div>
   </div>
@@ -1518,7 +1521,7 @@ input[type="radio"]:checked + .emoji-option {
         <div class="left-profile">
             <div class="profile-employee">
                 <h3 class="employee-name">Satria Hadi</h3>
-                <span class="badge-status" id="badgeStatus">Organik Yakes</span>
+                <span class="badge-status" id="badgeStatus">Karyawan Tetap</span>
             </div>
             <p class="position">Health Care Staffs • 879002</p>
             <p class="directorate">Directorate Health Care</p>
@@ -1570,6 +1573,9 @@ input[type="radio"]:checked + .emoji-option {
             <p class="info2">Sama dengan Alamat KTP</p>
         </div>
     </div>
+
+    <hr class="divider">
+
     <div class="content2" >
         <div class="left-content2">
             <h4 class="content-info2">Informasi Pekerjaan</h4>
@@ -1610,6 +1616,9 @@ input[type="radio"]:checked + .emoji-option {
             <p class="info2">Non-Medis</p>
         </div>
     </div>
+
+    <hr class="divider">
+
     <div class="content3" >
         <div class="left-content3">
             <h4 class="content-info3">Informasi Pendidikan</h4>
@@ -1655,6 +1664,9 @@ input[type="radio"]:checked + .emoji-option {
             <p class="info2">Sama dengan Alamat KTP</p>
         </div>
     </div>
+
+    <hr class="divider">
+
     <table id="customers" style="margin-top: 10px;">
       <tr>
         <th>No</th>
@@ -1870,6 +1882,9 @@ input[type="radio"]:checked + .emoji-option {
         </div>
       </div>
     </div>
+
+    <hr class="divider">
+
     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
         <h2 class="left-section10">Histori Pekerjaan Sebelumnya</h2>
         <div class="right-section10">
@@ -1898,8 +1913,6 @@ input[type="radio"]:checked + .emoji-option {
         </div>
       </div>
     </div>
-    
-
   </div>
 
   <div class="tab-content" id="dokumen" style="display: none;">
@@ -1922,6 +1935,9 @@ input[type="radio"]:checked + .emoji-option {
         <a href="#" class="ktp-link">Klik untuk Melihat</a>
       </div>
     </div>
+
+    <hr class="divider">
+
     <div class="content7" >
       <div class="left-content7">
         <h4 class="content-info7">Dokumen Lainnya</h4>
@@ -2037,15 +2053,15 @@ function showTab(tabId) {
 
     switch (tabId) {
       case 'profile':
-        badge.textContent = 'Organik Yakes';
+        badge.textContent = 'Karyawan Tetap';
         badge.classList.add('badge-profile');
         break;
       case 'keluarga':
-        badge.textContent = 'Organik Yakes';
+        badge.textContent = 'Karyawan Tetap';
         badge.classList.add('badge-keluarga');
         break;
       case 'cluster':
-        badge.textContent = 'Organik Yakes';
+        badge.textContent = 'Karyawan Tetap';
         badge.classList.add('badge-keluarga');
         break;
       case 'pelatihan':
@@ -2065,7 +2081,7 @@ function showTab(tabId) {
         badge.classList.add('badge-dokumen');
         break;
       default:
-        badge.textContent = 'Organik Yakes';
+        badge.textContent = 'Karyawan Tetap';
         badge.classList.add('badge-profile');
     }
   }

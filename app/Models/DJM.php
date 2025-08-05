@@ -11,6 +11,7 @@ class DJM extends Model
 
     protected $table = 'd_j_m_s';
     protected $fillable = [
+        'kode_djm',
         'namaPosisi',
         'regionalDirektorat',
         'unitSub',

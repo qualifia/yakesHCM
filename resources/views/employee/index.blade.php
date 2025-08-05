@@ -214,32 +214,26 @@ ul li a:hover:not(.active) {
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 100px;
+    width: 100px;
+    height: 60px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     z-index: 1;
     border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 5px;
+    border-radius: 8px;
+    margin-left: -65px;
+    padding: 10px;
+    margin-top: -10px;
 }
 
-.dropdown-action-detail {
+.dropdown-action-content a {
+  display: block;
   font-family: Poppins, sans-serif;
   font-weight: normal;
   font-size: 12px;
   color: #555;
   text-decoration: none;
-}
-
-.dropdown-action-edit {
-  font-family: Poppins, sans-serif;
-  font-weight: normal;
-  font-size: 12px;
-  color: #555;
-  text-decoration: none;
-}
-
-.dropdown-action:hover .dropdown-action-content {
-    display: block;
+  margin-left: 8px;
+  margin-bottom: -13px; /* Atur jarak antar baris */
 }
 
 .page-title {
@@ -433,6 +427,8 @@ ul li a:hover:not(.active) {
   padding: 20px;
   width: 400px;
   z-index: 999;
+  margin-right: 10px;
+  margin-top: 30px;
 }
 
 .filter-header {
@@ -533,10 +529,10 @@ ul li a:hover:not(.active) {
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 6px;
-  min-width: 220px;
+  min-width: 100px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   flex: 1;
-  max-width: 240px;
+  max-width: 220px;
   height: 80px;
 }
 
@@ -670,7 +666,7 @@ ul li a:hover:not(.active) {
         <input type="text" placeholder="Search by Name" class="search-bar" />
       </div>
       <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
-      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
+      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filter</button>
     </div>
   </div>
   <!-- FILTER MODAL -->
@@ -763,11 +759,11 @@ ul li a:hover:not(.active) {
       <td>{{ $employee->nik }}</td>
       <td>{{ $employee->name }}</td>
       <td>{{ \Carbon\Carbon::parse($employee->tanggal_lahir)->translatedFormat('d F Y') }}</td>
-      <td>{{ $employee->posisi }}</td> <!-- Nama Posisi -->
+      <td>{{ $employee->posisi }}</td> 
       <td>{{ $employee->email }}</td>
-      <td>{{ $employee->direktorat }}</td> <!-- Regional/Direktorat -->
+      <td>{{ $employee->direktorat }}</td> 
       <td>
-        @if ($employee->status_karyawan == 'Organik Yakes')
+        @if ($employee->status_karyawan == 'Karyawan Tetap')
           <div class="first">{{ $employee->status_karyawan }}</div>
         @elseif ($employee->status_karyawan == 'TKWT')
           <div class="sec">{{ $employee->status_karyawan }}</div>
@@ -777,8 +773,8 @@ ul li a:hover:not(.active) {
       </td>
       <td>
         <div class="dropdown-action">
-          <button class="horizontal-dots">&#x22EF;</button>
-          <div class="dropdown-action-content">
+          <button class="horizontal-dots" onclick="toggleActions()">&#x22EF;</button>
+          <div class="dropdown-action-content" id="dropdownActions">
             <a href="{{ route('employees.show', $employee->id) }}" class="dropdown-action-detail">Detail</a><br>
             <a href="{{ route('employees.edit', $employee->id) }}" class="dropdown-action-edit">Edit</a><br>
           </div>
@@ -797,3 +793,9 @@ function toggleFilter() {
 }
 </script>
 
+<script>
+function toggleActions() {
+  const menu = document.getElementById("dropdownActions");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>

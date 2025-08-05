@@ -345,10 +345,20 @@ ul li a:hover:not(.active) {
   flex-direction: column;
 }
 
+.label-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 label {
   font-size: 14px;
   font-weight: normal;
   margin-bottom: 6px;
+}
+
+.bintang {
+  color: red;
 }
 
 .form-control {
@@ -601,85 +611,113 @@ textarea.form-control {
   <form action="{{ route('djm.store') }}" method="POST">
     @csrf
     <div class="form-grid">
-      <div class="form-group">
-        <label>Position Name *</label>
-        <input type="text" name="namaPosisi" class="form-control" required>
-      </div>
+        <div class="form-group">
+            <div class="label-group">
+              <label>Nama Posisi</label>
+              <label class="bintang">*</label>
+            </div>
+            <input type="text" name="namaPosisi" class="form-control" required>
+        </div>
 
-      <div class="form-group">
-        <label>Regional / Directorate *</label>
-        <select name="regionalDirektorat" class="form-control1" required>
-            <option disabled selected value=""></option>
-            <option value="Direktorat Layanan Kesehatan">Direktorat Layanan Kesehatan</option>
-            <option value="Direktorat Keuangan">Direktorat Keuangan</option>
-            <option value="Direktorat SDM & Umum">Direktorat SDM & Umum</option>
-        </select>
-      </div>
+        <div class="form-group">
+            <div class="label-group">
+              <label>Regional / Directorate</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="regionalDirektorat" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="Direktorat Layanan Kesehatan">Direktorat Layanan Kesehatan</option>
+                <option value="Direktorat Keuangan">Direktorat Keuangan</option>
+                <option value="Direktorat SDM & Umum">Direktorat SDM & Umum</option>
+            </select>
+        </div>
 
-      <div class="form-group">
-        <label>Unit / Sub Directorate *</label>
-        <select name="unitSub" class="form-control1" required>
-            <option disabled selected value=""></option>
-            <option value="Digital Healthcare / CEDX">Digital Healthcare / CEDX</option>
-            <option value="Health Service Development">Health Service Development</option>
-            <option value="Business Planning">Business Planning</option>
-            <!-- Tambahkan opsi lainnya -->
-        </select>
-      </div>
+        <div class="form-group">
+            <div class="label-group">
+              <label>Unit / Sub Directorate</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="unitSub" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="Digital Healthcare / CEDX">Digital Healthcare / CEDX</option>
+                <option value="Health Service Development">Health Service Development</option>
+                <option value="Business Planning">Business Planning</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <div class="label-group">
+              <label>Job Family/Job Function</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="job" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="Digital & ICT/1.2 Information Technology">Digital & ICT/1.2 Information Technology</option>
+                <option value="bbbb">blablabla</option>
+                <option value="cccc">claclacla</option>
+            </select>
+        </div>
 
-      <div class="form-group">
-        <label>Job Family/Job Function *</label>
-        <select name="job" class="form-control1" required>
-            <option disabled selected value=""></option>
-            <option value="Digital & ICT/1.2 Information Technology">Digital & ICT/1.2 Information Technology</option>
-            <option value="bbbb">blablabla</option>
-            <option value="cccc">claclacla</option>
-        </select>
-      </div>
+        <div class="form-group">
+            <div class="label-group">
+              <label>Posisi Band</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="posisi" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="VII - V">VII - V</option>
+                <option value="VIII - VI">VIII - VI</option>
+                <option value="IX - VII">IX - VII</option>
+            </select>
+        </div>
 
-      <div class="form-group">
-        <label>Band Position *</label>
-        <select name="posisi" class="form-control1" required>
-            <option disabled selected value=""></option>
-            <option value="VII - V">VII - V</option>
-            <option value="VIII - VI">VIII - VI</option>
-            <option value="IX - VII">IX - VII</option>
-            <!-- Tambahkan opsi lainnya -->
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Atasan Langsung *</label>
-        <select name="atasanLangsung" class="form-control1" required>
-            <option disabled selected value=""></option>
-            <option value="OSM Digital Healthcare">OSM Digital Healthcare</option>
-            <option value="Manager Keuangan">Manager Keuangan</option>
-            <option value="Kepala Divisi IT">Kepala Divisi IT</option>
-        </select>
-      </div>
+        <div class="form-group">
+            <div class="label-group">
+              <label>Atasan Langsung</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="atasanLangsung" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="OSM Digital Healthcare">OSM Digital Healthcare</option>
+                <option value="Manager Keuangan">Manager Keuangan</option>
+                <option value="Kepala Divisi IT">Kepala Divisi IT</option>
+            </select>
+        </div>
     </div>
 
     <hr class="divider">
 
-      <div class="form-group full-width">
-        <label>Position Specification *</label>
+    <div class="form-group full-width">
+        <div class="label-group">
+            <label>Spesifikasi Posisi</label>
+            <label class="bintang">*</label>
+        </div>
         <textarea name="position_specification" class="form-control" rows="4" required></textarea>
-      </div>
+    </div>
 
-      <div class="form-group full-width">
-        <label>Position Objective *</label>
+    <div class="form-group full-width">
+        <div class="label-group">
+            <label>Tujuan Posisi</label>
+            <label class="bintang">*</label>
+        </div>
         <textarea name="position_objective" class="form-control" rows="4" required></textarea>
-      </div>
+    </div>
 
-      <div class="form-group full-width">
-        <label>Responsibilities and Accountabilities *</label>
+    <div class="form-group full-width">
+        <div class="label-group">
+            <label>Tanggung Jawab Posisi</label>
+            <label class="bintang">*</label>
+        </div>
         <textarea name="responsibilities" class="form-control" rows="4" required></textarea>
-      </div>
+    </div>
 
-      <div class="form-group full-width">
-        <label>Success Indicators *</label>
+    <div class="form-group full-width">
+        <div class="label-group">
+            <label>Indikator Keberhasilan</label>
+            <label class="bintang">*</label>
+        </div>
         <textarea name="success_indicators" class="form-control" rows="4" required></textarea>
-      </div>
+    </div>
  
       <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
         <h2 class="left-section">Competencies</h2>

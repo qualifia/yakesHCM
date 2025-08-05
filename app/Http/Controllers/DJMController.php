@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DJM;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str; 
+
 
 class DJMController extends Controller
 {
@@ -33,8 +35,11 @@ class DJMController extends Controller
             'success_indicators' => 'required',
         ]);
 
+        $kode_djm = mt_rand(10000000000, 99999999999);
+
         // Simpan ke database dan ambil objeknya
         $djm = DJM::create([
+            'kode_djm' => $kode_djm, 
             'namaPosisi' => $request->namaPosisi,
             'regionalDirektorat' => $request->regionalDirektorat,
             'unitSub' => $request->unitSub,
@@ -62,12 +67,24 @@ class DJMController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $djm = DJM::findOrFail($id);
-
-        $djm->update($request->all()); // pastikan field diisi sesuai dengan fillable
-
-        return redirect()->route('djm.index')->with('success', 'Data berhasil diperbarui.');
+        $validated = $request->validate([
+            'namaPosisi' => 'required',
+            'regionalDirektorat' => 'required',
+            'unitSub' => 'required',
+            'posisi' => 'required',
+            'job' => 'required',
+            'atasanLangsung' => 'required',
+            'position_specification' => 'required',
+            'position_objective' => 'required',
+            'responsibilities' => 'required',
+            'success_indicators' => 'required',
+            // kode_djm tidak divalidasi
+        ]);
     
+        $djm = DJM::findOrFail($id);
+        $djm->update($validated); // tidak mengubah kode_djm
+    
+        return redirect()->route('djm.index')->with('success', 'Data berhasil diupdate!');    
     }
 
     public function destroy($id) {

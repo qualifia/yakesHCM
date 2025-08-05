@@ -182,7 +182,7 @@ ul li a:hover:not(.active) {
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 15px;
-  padding-right: 12px;
+  padding-right: 20px;
   text-align: left;
   background-color: #E6E6FA;
   color: #080808;
@@ -192,7 +192,7 @@ ul li a:hover:not(.active) {
   border-bottom: 1px solid #A9A9A9;
   padding: 1px;
   padding-left: 15px;
-  padding-right: 12px;
+  padding-right: 20px;
   color: #2F4F4F;
   background-color: white;
 }
@@ -254,9 +254,6 @@ ul li a:hover:not(.active) {
   margin-bottom: -10px;
 }
 
-.dropdown-action:hover .dropdown-action-content {
-    display: block;
-}
 
 .page-title {
     font-size: 20px;
@@ -508,7 +505,6 @@ ul li a:hover:not(.active) {
 /* Filter Modal Styles */
 .filter-modal {
   display: none;
-  position: absolute;
   right: 40px;
   top: 80px;
   background: white;
@@ -517,6 +513,7 @@ ul li a:hover:not(.active) {
   padding: 20px;
   width: 400px;
   z-index: 999;
+  position: absolute; 
 }
 
 .filter-header {
@@ -697,13 +694,16 @@ ul li a:hover:not(.active) {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 2000;
+  font-family: Poppins, sans-serif;
+
 }
 
 /* Modal Box */
 #uploadModal .modal-content {
   background: white;
+  top: 90px;
   width: 700px;
-  height: 350px;
+  height: 380px;
   margin: 100px auto;
   padding: 30px;
   border-radius: 16px;
@@ -711,13 +711,36 @@ ul li a:hover:not(.active) {
   position: relative;
 }
 
+#uploadModal .left-content1 {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+
+#uploadModal .full-width {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: #D3D3D3;
+  margin-top: 40px;
+  border-radius: 15px;
+  width: 635px;
+  height: 200px;
+}
+
 /* Close Button */
 #uploadModal .close-button {
   position: absolute;
-  top: 15px;
-  right: 50px;
-  background: none;
-  border: none;
+  top: 30px;
+  right: 35px;
+  color: #696969;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
   font-size: 20px;
 }
 
@@ -727,24 +750,63 @@ ul li a:hover:not(.active) {
 }
 
 #uploadModal .form-buttons {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   gap: 20px;
+  font-size: 14px;
 }
 
 #uploadModal .form-buttons button {
-  padding: 10px 20px;
+  padding: 10px 125px;
+  border-radius: 10px;
 }
 
 #uploadModal .form-buttons .cancel {
   border: 1px solid #ccc;
   background: #eee;
+  background-color: #D3D3D3;
+  color: #696969;
+  font-weight: bold;
 }
 
 #uploadModal .form-buttons .submit {
   border: none;
-  background: #0000CD;
+  background-color: rgba(0, 0, 205, 0.7);
   color: white;
+  font-weight: bold;
+}
+
+.upload-icon {
+  position: absolute;
+  top: 130px;
+  right: 330px;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 205, 0.7);
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.label1 {
+  position: absolute;
+  top: 175px;
+  right: 295px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+}
+
+.label2 {
+  position: absolute;
+  top: 200px;
+  right: 200px;
+  text-align: center;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  color: #696969;
 }
 
 .content7 {
@@ -823,7 +885,7 @@ ul li a:hover:not(.active) {
       <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
       <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
       <div class="dropdown-container">
-        <button class="create-btn" onclick="toggleCreate()"><i class="fas fa-plus"></i> Create</button>
+        <button class="create-btn" onclick="toggleCreate()"><i class="fas fa-plus"></i> Tambah</button>
         <div class="dropdown-menu" id="dropdownMenu">
           <a href="{{ route('djm.create') }}">Forms</a>
           <a href="#" onclick="openUploadModal()">Upload File</a>
@@ -875,14 +937,14 @@ ul li a:hover:not(.active) {
     @foreach ($d_j_m_s as $djm)
       <tr>
         <td>{{ $loop->iteration }}</td>
-        <td>{{ $djm->kodeDJM }}</td>
+        <td>{{ $djm->kode_djm }}</td>
         <td>{{ $djm->namaPosisi }}</td>
         <td>{{ $djm->regionalDirektorat }}</td>
         <td>{{ $djm->posisi }}</td>
         <td>
           <div class="dropdown-action">
-            <button class="horizontal-dots">&#x22EF;</button>
-            <div class="dropdown-action-content">
+            <button class="horizontal-dots" onclick="toggleActions()">&#x22EF;</button>
+            <div class="dropdown-action-content" id="dropdownActions">
               <a href="{{ route('djm.show', $djm->id) }}" class="dropdown-action-detail">Detail</a><br>
               <a href="{{ route('djm.edit', $djm->id) }}" class="dropdown-action-edit">Edit</a><br>
               <form action="{{ route('djm.destroy', $djm->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
@@ -904,18 +966,33 @@ ul li a:hover:not(.active) {
         <div class="left-content1">
           <h3>Tambah Data DJM</h3>
         </div>
+      
         <div class="right-content1">
-          <button onclick="closeUploadModal()" class="close-button">&times;</button>
+          <button onclick="closeUploadModal()" class="close-button">
+            <i class="fas fa-circle-xmark"></i>
+          </button>
         </div>
       </div>
-      <form action="{{ route('djm.upload') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <input type="file" name="file" required>
-        <div class="form-buttons">
+      <div class="full-width">
+        <form action="{{ route('djm.upload') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+
+          <!-- Hidden file input -->
+          <input type="file" name="file" id="fileUpload" style="display: none;" required onchange="this.form.submit()">
+
+          <!-- Icon upload sebagai label -->
+          <label for="fileUpload" class="upload-icon">
+            <i class="fas fa-upload"></i>
+          </label>
+          <div class="label1">Upload Data DJM</div>
+          <div class="label2">Klik atau seret file ke area ini untuk mengunggah</div>
+        </form>
+      </div>
+
+      <div class="form-buttons">
           <button type="button" class="cancel" onclick="closeUploadModal()">Cancel</button>
           <button type="submit" class="submit">Tambah</button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 
@@ -935,6 +1012,13 @@ function toggleFilter() {
 <script>
 function toggleCreate() {
   const menu = document.getElementById("dropdownMenu");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
+
+<script>
+function toggleActions() {
+  const menu = document.getElementById("dropdownActions");
   menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 </script>

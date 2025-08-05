@@ -579,7 +579,7 @@ ul li a:hover:not(.active) {
 
     <div class="form-group">
         <h4>Kode DJM</h4>
-        <p>{{ $djm->kodeDJM }}</p>
+        <p>{{ $djm->kode_djm }}</p>
     </div>
 
     <hr class="divider">

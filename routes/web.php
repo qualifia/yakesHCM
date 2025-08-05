@@ -95,6 +95,7 @@ Route::get('/djm/{id}', [DJMController::class, 'show'])->name('djm.show');
 Route::get('/djm/{id}/edit', [DJMController::class, 'edit'])->name('djm.edit');
 Route::delete('/djm/{id}/destroy', [DJMController::class, 'destroy'])->name('djm.destroy');
 Route::post('/djm/upload', [DJMController::class, 'upload'])->name('djm.upload');
+Route::put('/djm/{id}', [DJMController::class, 'update'])->name('djm.update');
 
 
 /*

@@ -335,6 +335,9 @@ ul li a:hover:not(.active) {
   display: grid;
   grid-template-columns: repeat(2, 500px);
   gap: 24px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .form-group {
@@ -342,13 +345,31 @@ ul li a:hover:not(.active) {
   flex-direction: column;
 }
 
+.label-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 label {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: normal;
   margin-bottom: 6px;
 }
 
+.bintang {
+  color: red;
+}
+
 .form-control {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.form-control1 {
   padding: 12px;
   font-size: 14px;
   border-radius: 8px;
@@ -382,6 +403,9 @@ textarea.form-control {
   grid-column: span 2;
   gap: 6px; 
   margin-bottom: 10px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .left-section {
@@ -576,78 +600,121 @@ textarea.form-control {
     </div>
   </div>
 
-  <form action="{{ route('djms.update', $djm->id) }}" method="POST">
+  <form action="{{ route('djm.update', $djm->id) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="form-grid">
         <div class="form-group">
-            <label>Position Name *</label>
+            <div class="label-group">
+              <label>Nama Posisi</label>
+              <label class="bintang">*</label>
+            </div>
             <input type="text" name="namaPosisi" class="form-control" value="{{ $djm->namaPosisi }}" required>
         </div>
+
         <div class="form-group">
-            <label>Regional / Directorate *</label>
-            <select name="regionalDirektorat" class="form-control" value="{{ $djm->regionalDirektorat }}" required>
-                <option value="">-- Pilih Regional --</option>
+            <div class="label-group">
+              <label>Regional / Directorate</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="regionalDirektorat" class="form-control1" value="{{ $djm->regionalDirektorat }}" required>
+                <option disabled selected value=""></option>
                 <option value="Direktorat Layanan Kesehatan">Direktorat Layanan Kesehatan</option>
                 <option value="Direktorat Keuangan">Direktorat Keuangan</option>
                 <option value="Direktorat SDM & Umum">Direktorat SDM & Umum</option>
-                <!-- Tambahkan opsi lainnya -->
             </select>
         </div>
+
         <div class="form-group">
-            <label>Unit / Sub Directorate *</label>
-            <select name="unitSub" class="form-control" value="{{ $djm->unitSub }}" required>
-                <option value="">-- Pilih Unit/Sub --</option>
+            <div class="label-group">
+              <label>Unit / Sub Directorate</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="unitSub" class="form-control1" value="{{ $djm->unitSub }}" required>
+                <option disabled selected value=""></option>
                 <option value="Digital Healthcare / CEDX">Digital Healthcare / CEDX</option>
                 <option value="Health Service Development">Health Service Development</option>
                 <option value="Business Planning">Business Planning</option>
             </select>
         </div>
+        
         <div class="form-group">
-            <label>Direct Supervisor *</label>
-            <select name="supervisor" class="form-control" value="{{ $djm->supervisor }}" required>
-                <option value="">-- Pilih Supervisor --</option>
+            <div class="label-group">
+              <label>Job Family/Job Function</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="job" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="Digital & ICT/1.2 Information Technology">Digital & ICT/1.2 Information Technology</option>
+                <option value="bbbb">blablabla</option>
+                <option value="cccc">claclacla</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <div class="label-group">
+              <label>Posisi Band</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="posisi" class="form-control1" value="{{ $djm->posisi }}" required>
+                <option disabled selected value=""></option>
+                <option value="VII - V">VII - V</option>
+                <option value="VIII - VI">VIII - VI</option>
+                <option value="IX - VII">IX - VII</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <div class="label-group">
+              <label>Atasan Langsung</label>
+              <label class="bintang">*</label>
+            </div>
+            <select name="atasanLangsung" class="form-control1" required>
+                <option disabled selected value=""></option>
                 <option value="OSM Digital Healthcare">OSM Digital Healthcare</option>
                 <option value="Manager Keuangan">Manager Keuangan</option>
                 <option value="Kepala Divisi IT">Kepala Divisi IT</option>
             </select>
         </div>
+
         <div class="form-group">
-            <label>Band Position *</label>
-            <select name="posisi" class="form-control" value="{{ $djm->posisi }}" required>
-                <option value="">-- Pilih Band --</option>
-                <option value="VII - V">VII - V</option>
-                <option value="VIII - VI">VIII - VI</option>
-                <option value="IX - VII">IX - VII</option>
-                <!-- Tambahkan opsi lainnya -->
-            </select>
-        </div>
-        <div class="form-group">
-            <label>DJM Code *</label>
-            <input type="text" name="kodeDJM" class="form-control-read" required>
+            <label for="kode_djm">Kode DJM</label>
+            <input type="text" name="kode_djm" class="form-control-read" value="{{ $djm->kode_djm }}" readonly>
         </div>
     </div>
 
     <hr class="divider">
 
     <div class="form-group full-width">
-        <label>Position Specification *</label>
-        <textarea name="position_specification" class="form-control" rows="4" required></textarea>
+        <div class="label-group">
+            <label>Spesifikasi Posisi</label>
+            <label class="bintang">*</label>
+        </div>
+        <textarea name="position_specification" class="form-control" rows="4" value="{{ $djm->position_specification }}" required></textarea>
     </div>
 
     <div class="form-group full-width">
-        <label>Position Objective *</label>
-        <textarea name="position_objective" class="form-control" rows="4" required></textarea>
+        <div class="label-group">
+            <label>Tujuan Posisi</label>
+            <label class="bintang">*</label>
+        </div>
+        <textarea name="position_objective" class="form-control" rows="4" value="{{ $djm->position_objective }}" required></textarea>
     </div>
 
     <div class="form-group full-width">
-        <label>Responsibilities and Accountabilities *</label>
-        <textarea name="responsibilities" class="form-control" rows="4" required></textarea>
+        <div class="label-group">
+            <label>Tanggung Jawab Posisi</label>
+            <label class="bintang">*</label>
+        </div>
+        <textarea name="responsibilities" class="form-control" rows="4" value="{{ $djm->responsibilities }}" required></textarea>
     </div>
 
     <div class="form-group full-width">
-        <label>Success Indicators *</label>
-        <textarea name="success_indicators" class="form-control" rows="4" required></textarea>
+        <div class="label-group">
+            <label>Indikator Keberhasilan</label>
+            <label class="bintang">*</label>
+        </div>
+        <textarea name="success_indicators" class="form-control" rows="4" value="{{ $djm->success_indicators }}" required></textarea>
     </div>
  
     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
