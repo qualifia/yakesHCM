@@ -51,7 +51,6 @@ Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.s
 Route::post('/kehadiran', [KehadiranController::class, 'store'])->name('kehadiran.store');
 
 
-
 Route::middleware('auth')->get('home', function () {
     return view('home');
 })->name('home');

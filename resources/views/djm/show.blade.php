@@ -431,7 +431,6 @@ ul li a:hover:not(.active) {
 .form-group {
   display: flex;
   flex-direction: column;
-
 }
 
 .full-width {

@@ -40,6 +40,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function username() {
+        return 'username'; // field login Anda
+    }
+
+
     // 🔐 Role-checking helpers
     public function isAdmin(): bool
     {
