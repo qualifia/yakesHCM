@@ -9,6 +9,7 @@ use App\Http\Controllers\TMController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\RecruitmentController;
 
 
 
@@ -80,3 +81,6 @@ Route::delete('/djm/{id}/destroy', [DJMController::class, 'destroy'])->name('djm
 Route::post('/djm/upload', [DJMController::class, 'upload'])->name('djm.upload');
 Route::put('/djm/{id}', [DJMController::class, 'update'])->name('djm.update');
 
+Route::get('/recruitment', [RecruitmentController::class, 'index'])->name('recruitment.index');
+Route::get('/recruitment/create', [RecruitmentController::class, 'create'])->name('recruitment.create');
+Route::get('/recruitment/{id}', [RecruitmentController::class, 'show'])->name('recruitment.show');
