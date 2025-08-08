@@ -603,13 +603,13 @@ ul li a:hover:not(.active) {
 
 </style>
 
+
 <div class="navbar">
     <div class="left-info">
-        <div class="navbar-name" >Hello, Satria Hadi!</div>
+        <div class="navbar-name" >Hello, Satria Hadi</div>
         <div class="navbar-date">{{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}</div>
     </div>
 </div>
-
 
 <!-- SIDEBAR -->
 <div class="sidebar">
@@ -785,6 +785,7 @@ ul li a:hover:not(.active) {
   </table>      
 </div>
 @endsection
+
 
 <script>
 function toggleFilter() {

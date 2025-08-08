@@ -39,9 +39,22 @@ class TMController extends Controller
     }
 
     public function update(Request $request, $id) {
+
+        $validated = $request->validate([
+            'no_ktp' => 'required',
+            'jenis_kelamin' => 'required',
+            'ttl' => 'required',
+            'alamat_ktp' => 'required',
+            'no_npwp' => 'required',
+            'agama' => 'required',
+            'status_perkawinan' => 'required',
+            'alamat_domisili' => 'required',
+        ]);
+    
         $employee = Employee::findOrFail($id);
-        $employee->update($request->all());
-        return redirect()->route('employees.index')->with('success', 'Data Updated');
+        $employee->update($validated);
+    
+        return redirect()->route('employees.index')->with('success', 'Data berhasil diupdate!');   
     }
 
     public function downloadPayslip($filename) {

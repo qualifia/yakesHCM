@@ -231,718 +231,12 @@ ul li a:hover:not(.active) {
     flex-wrap: wrap;
 }
 
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 60px;
-}
-
-.stat-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 1px;
-}
-
-.export-btn {
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #696969;
-  color: white;
-  cursor: pointer;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: bold;
-  height: 37px;
-  width: 90px;
-}
-
-.edit-btn {
-  padding: 6px 20px;
-  border-radius: 8px;
-  border: 1px solid #0000CD;
-  background-color: #FFFFFF;
-  color: mediumblue;
-  cursor: pointer;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: bold;
-  height: 35px;
-  width: 90px;
-}
-
-.export-btn:hover {
-  background-color: #2F4F4F;
-}
-
-.edit-btn:hover {
-  background-color: #f0f0f0;
-}
-
-.left-profile {
-    margin-top: 10px;
-    margin-left: 20px;
-    display: flex;
-    gap: 3px;
-    align-items: left;
-    flex-direction: column;
-    font-family: Poppins, sans-serif;
-    margin-bottom: 10px;
-}
-
-.right-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-    border-left: 3px solid #A9A9A9;
-    padding-left: 50px;
-    margin-left: 300px;
-    text-align: left;
-}
-
-.contact-info {
-    color: #2F4F4F;
-    text-align: right;
-    gap: 29px;
-}
-
-.profile-employee {
-    display: flex;
-    align-items: center;
-    gap: 8px; 
-    font-family: Poppins, sans-serif;
-}
-
-.emprof {
-    display: flex;
-}
-
-.position {
-    font-family: Poppins, sans-serif;
-    font-size: 13px;
-    margin-top: 5px;
-}
-
-.directorate {
-    font-family: Poppins, sans-serif;
-    font-size: 13px;
-}
-
-.contact {
-    font-family: Poppins, sans-serif;
-    font-size: 12px;
-    text-align: left;
-    line-height: 25px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.email {
-    font-family: Poppins, sans-serif;
-    font-size: 12px;
-    text-align: left;
-    line-height: 25px;
-    margin-bottom: 5px;
-}
-
-.telp {
-    font-family: Poppins, sans-serif;
-    font-size: 12px;
-    text-align: left;
-    line-height: 25px;
-}
-
-.tab-buttons {
-  display: flex;
-  border-bottom: 1.5px solid #A9A9A9;
-  margin-top: 20px;
-  font-family: Poppins, sans-serif;
-  height: 40px;
-}
-
-.tab-button {
-    padding: 8px;
-    border: none;
-    background: none;
-    font-size: 12px;
-    cursor: pointer;
-    color: #A9A9A9;
-    border-bottom: 3px solid transparent;
-    transition: all 0.2s ease-in-out;
-    width: 208px;
-    font-weight: normal;
-}
-
-.tab-button:hover {
-  color: #0000CD;
-  font-weight: bold;
-}
-
-.tab-button.active {
-  color: #0000CD;
-  background-color: #e6e6fa;
-  border-radius: 0;
-  border-bottom: 3px solid #0000CD;
-  font-weight: bold;
-}
-
-.tab-content {
-  padding-top: 20px;
-  font-family: Poppins, sans-serif;
-  color: #444;
-  display: flex;
-}
-
-.left-content {
-    margin-top: 10px;
-    margin-left: 5px;
-    display: flex;
-    gap: 3px;
-    align-items: left;
-    flex-direction: column;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    width: 60%; 
-}
-
-.right-content {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-left: 0;
-    text-align: left;
-    padding-top: 15px;
-}
-
-.info1 {
-    gap: 5px;
-    margin-top: 20px;
-    font-size: 13px;
-}
-
-.info2 {
-    font-size: 13px;
-    font-weight: bold;
-    text-align: left;
-}
 
 .divider {
     grid-column: 1 / -1;
     margin: 30px 0;
     border-top: 3px solid #A9A9A9;
     margin-bottom: 10px;
-}
-
-
-.content1 {
-  display: flex;
-  width: 100%;
-  padding-right: 90px;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.content2 {
-  display: flex;
-  width: 100%;
-  padding-right: 90px;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.content3 {
-    display: flex;
-    width: 100%;
-    padding-right: 90px;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.content7 {
-  display: flex;
-  width: 100%;
-  padding-right: 90px;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.content8 {
-  display: flex;
-  width: 100%;
-  padding-right: 90px;
-  gap: 20px;
-}
-
-.content6 {
-  display: flex;
-  width: 100%;
-  padding-right: 0px;
-  justify-content: space-between;
-  gap: 20px;
-  border-bottom: 2px solid #A9A9A9;
-}
-
-.content-info, .content-info2, .content-info3, .content-info4, .content-info7 {
-    font-size: 14px;
-    font-weight: bold;
-    padding-top: 20px;
-}
-
-.content-info6 {
-    font-size: 14px;
-    font-weight: bold;
-    padding-top: 20px;
-}
-
-.left-content2, .left-content3, .left-content6, .left-content8 {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    padding-top: 15px;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 30px;
-}
-
-.right-content2, .right-content3 {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    padding-top: 15px;
-    margin-top: 10px;
-    margin-left: 50px;
-}
-
-.right-content6 {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    padding-top: 15px;
-    margin-top: 55px;
-    margin-left: 500px;
-    min-width: 280px;
-    max-width: 400px;
-}
-
-.right-content8 {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    padding-top: 15px;
-    margin-top: 10px;
-    margin-left: 20px;
-    padding-left: 80px;
-}
-
-.left-content7 {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    padding-top: 15px;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 30px;
-}
-
-
-
-.right-content7 {
-  display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    padding-top: 15px;
-    margin-top: 55px;
-    margin-left: 500px;
-    min-width: 180px;
-    max-width: 220px;
-}
-
-
-.left-content4 {
-    margin-top: 10px;
-    margin-left: 20px;
-    display: flex;
-    gap: 3px;
-    align-items: left;
-    flex-direction: column;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    width: 60%; 
-}
-
-.right-content4 {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-left: 0;
-    text-align: left;
-    padding-top: 15px;
-}
-
-.content4 {
-  display: flex;
-  width: 100%;
-  border-bottom: 1px solid #A9A9A9;
-  padding-right: 90px;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-/* TABLE */
-#customers {
-  font-family: Poppins, sans-serif;  
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 10px;
-}
-
-#customers td, #customers th {
-  border: none;
-  font-size: 12px;
-}
-
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-  border-bottom: 1px solid #A9A9A9;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 15px;
-  padding-right: 12px;
-  text-align: left;
-  background-color: rgba(242, 235, 251, 0.8);
-  color: #080808;
-  font-weight: normal;
-}
-
-#customers td {
-  border-bottom: 1px solid #A9A9A9;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 15px;
-  padding-right: 12px;
-  text-align: left;
-  background-color: white;
-  color: #2F4F4F;
-}
-
-.left-section {
-    font-size: 18px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-family: Poppins, sans-serif;
-    font-weight: bolder;
-    margin-right: 20px;
-    margin-left: 1px;
-}
-
-.right-section1 {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-left: 400px;
-}
-
-.search-container {
-  position: relative;
-}
-
-.search-icon {
-  position: absolute;
-  top: 8px;
-  left: 18px;
-  color: #888;
-}
-
-.search-bar {
-  padding: 8px 5px 5px 30px;
-  border: none;
-  border-radius: 8px;
-  width: 300px;
-  background-color: #F5F5F5;
-  font-size: 12px;
-  font-family: Poppins, sans-serif;
-  padding-left: 40px;
-  padding-top: 7px;
-}
-
-.filter-btn {
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid #0000CD;
-  background-color: #FFFFFF;
-  color: mediumblue;
-  cursor: pointer;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-right: 18px;
-  font-weight: bold;
-}
-
-.filter-btn1 {
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid #0000CD;
-  background-color: #FFFFFF;
-  color: mediumblue;
-  cursor: pointer;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-right: 10px;
-  font-weight: bold;
-}
-
-
-.filter-btn:hover {
-  background-color: #f0f0f0;
-}
-
-/* Filter Modal Styles */
-.filter-modal {
-  display: none;
-  position: absolute;
-  right: 40px;
-  top: 80px;
-  background: white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  border-radius: 12px;
-  padding: 20px;
-  width: 400px;
-  z-index: 999;
-}
-
-.filter-header {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #A9A9A9;
-  font-family: Poppins, sans-serif;
-  color: #2F4F4F;
-}
-
-.filter-section {
-  margin-bottom: 15px;
-  font-family: Poppins, sans-serif;
-  color: #2F4F4F;
-
-}
-
-.filter-section label {
-  display: block;
-  font-size: 12px;
-  margin-bottom: 4px;
-}
-
-.filter-section .clear-link {
-  float: right;
-  font-size: 12px;
-  color: blue;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.filter-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.filter-section select {
-  font-size: 12px;
-  font-family: Poppins, sans-serif;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  width: 300px;
-  color: #2F4F4F;
-}
-
-.reset-btn, .apply-btn {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.reset-btn {
-  background-color: white;
-  border: 1px solid #0000CD;
-  font-size: 12px;
-  color: mediumblue;
-  font-family: Poppins, sans-serif;
-}
-
-.apply-btn {
-  background-color: #0000CD;
-  color: white;
-  border: none;
-  font-size: 12px;
-  font-family: Poppins, sans-serif;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: #A9A9A9; 
-  padding: 0;
-  margin: 0;
-  line-height: 2;
-}
-
-.horizontal-dots {
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: mediumblue;
-    font-weight: bold;
-}
-
-.dropdown-action {
-    position: relative;
-    display: inline-block;
-}
-
-
-.dropdown-action-content {
-    display: none;
-    position: absolute;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    z-index: 999;
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-decoration: none;
-    width: 120px;
-    text-decoration: normal;
-}
-
-.dropdown-action:hover .dropdown-action-content {
-  background-color: white;
-  border-radius: 6px;
-  color: #000;
-  display: block;
-}
-
-.status {
-  display: inline-block;
-  font-weight: bold;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 12px;
-  text-align: center;
-  background-color: rgb(124, 252, 0, 0.15); 
-  color: LimeGreen;
-}
-
-#customers1 {
-  font-family: Poppins, sans-serif;  
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 10px;
-}
-
-#customers1 td, #customers1 th {
-  border: none;
-  font-size: 12px;
-}
-
-#customers1 tr:nth-child(even){background-color: #f2f2f2;}
-#customers1 tr:hover {background-color: #ddd;}
-
-#customers1 th {
-  border-bottom: 1px solid #A9A9A9;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 15px;
-  padding-right: 12px;
-  text-align: left;
-  background-color: rgba(242, 235, 251, 0.8);
-  color: #080808;
-  font-weight: normal;
-}
-
-#customers1 td {
-  border-bottom: 1px solid #A9A9A9;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 15px;
-  padding-right: 12px;
-  text-align: left;
-  background-color: white;
-  color: #2F4F4F;
-}
-
-.sertifikat-link {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.ktp-link {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 500;
-  font-family: Poppins, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.sertif-link {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 500;
-  font-family: Poppins, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  text-align: left;
 }
 
 .breadcrumb-row {
@@ -974,368 +268,6 @@ ul li a:hover:not(.active) {
   padding: 2px 6px;
   font-weight: bold;
   margin-top: 4px;
-}
-
-.right-section2 {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-left: 460px;
-}
-
-.payslip-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
-
-.payslip-card {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    text-align: center;
-    transition: transform 0.2s ease;
-}
-
-.payslip-card:hover {
-    transform: translateY(-3px);
-}
-
-.pdf-icon {
-    width: 50px;
-    margin-bottom: 10px;
-}
-
-.payslip-text {
-    font-size: 13px;
-}
-
-.download-link {
-    display: inline-block;
-    margin-top: 5px;
-    color: #007BFF;
-    font-weight: 500;
-    font-size: 12px;
-    text-decoration: underline;
-}
-
-.right-section3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding-left: 350px;
-}
-
-.feedback1-btn {
-    cursor: pointer;
-    font-size: 12px;
-    font-family: Poppins, sans-serif;
-    text-decoration: none;
-    color: #555;
-}
-
-.feedback-btn {
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    background-color: rgba(16, 15, 16, 0.8);
-    color: white;
-    cursor: pointer;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    height: 35px;
-    width: 170px;
-    font-family: Poppins, sans-serif;
-    font-weight: bold;
-}
-
-.feedback-btn:hover {
-    background-color: #2F4F4F;
-}
-
-/* Modal title dan deskripsi */
-#feedbackModal .modal-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    margin-left: 10px;
-}
-
-#feedbackModal .modal-body p {
-    font-size: 15px;
-    color: #555;
-    font-family: 'Poppins', sans-serif;
-    margin-left: 10px;
-    margin-right: 20px;
-}
-
-
-
-/* Skala pertanyaan */
-#feedbackModal .form-label {
-    margin-left: 10px;
-    font-weight: 500;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-}
-
-#feedbackModal .btn-check:checked + .btn-outline-primary {
-    background-color: #4e73df;
-    color: white;
-    border-color: #4e73df;
-}
-
-#feedbackModal .btn-outline-primary {
-    width: 36px;
-    padding: 5px 0;
-    font-size: 13px;
-    margin-left: 10px;
-}
-
-/* Textarea */
-#feedbackModal textarea.form-control {
-    resize: vertical;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    margin-left: 10px;
-    width: 750px;
-}
-
-/* Footer buttons */
-#feedbackModal .modal-footer .btn {
-    min-width: 100px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.emoji-select-group {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-  gap: 10px;
-  height: 120px;
-  weight: 250px;
-  margin-left: 10px;
-  
-}
-
-.emoji-option {
-  border: 2px solid #ddd;
-  padding: 10px;
-  border-radius: 10px;
-  width: 240px;
-  text-align: center;
-  font-size: 40px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.emoji-option:hover {
-  background-color: #f0f0f0;
-}
-
-.emoji-label {
-  font-size: 14px;
-  margin-top: 5px;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Highlight border saat dipilih */
-input[type="radio"]:checked + .emoji-option {
-  border-color: #4e73df;
-  background-color: #e7ecff;
-}
-
-.plus-btn {
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid #0000CD;
-  background-color: #0000CD;
-  color: white;
-  cursor: pointer;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: bold;
-  height: 37px;
-  width: 90px;
-  margin-left: 400px;
-}
-
-.plus-btn:hover {
-  background-color: #191970;
-}
-
-.left-section9 {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    padding-top: 15px;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 30px;
-    font-size: 14px;
-}
-
-.right-section9 {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-left: 400px;
-}
-
-.content9 {
-  display: flex;
-  width: 100%;
-  padding-right: 90px;
-  gap: 20px;
-}
-
-.left-section10 {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-family: Poppins, sans-serif;
-    word-break: break-word;
-    word-wrap: break-word;
-    padding-top: 15px;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 30px;
-    font-size: 14px;
-}
-
-.right-section10 {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-left: 100px;
-}
-
-.timeline-container {
-  position: relative;
-  margin: 30px 0;
-  padding-left: 40px;
-  margin-left: 20px;
-  border-bottom: 2px solid #A9A9A9;
-  width: 100%;
-}
-
-.timeline-container1 {
-  position: relative;
-  margin: 30px 0;
-  padding-left: 40px;
-  margin-left: 20px;
-}
-
-.timeline-group {
-  position: relative;
-  padding-left: 60px;
-  border-left: 3px solid #d1d5db; /* Warna garis abu */
-  margin-bottom: 40px;
-  margin-left: 30px;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
-  padding-left: 20px;
-  margin-right: 50px;
-}
-
-.timeline-year {
-  position: absolute;
-  left: -130px;
-  top: 8px;
-  background-color: #4F46E5; /* biru ungu untuk 2023 */
-  color: white;
-  padding: 2px 9px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 12px;
-}
-
-.timeline-year1 {
-  position: absolute;
-  left: -130px;
-  top: 8px;
-  background-color: #DCDCDC; 
-  color: black;
-  padding: 2px 9px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 12px;
-}
-
-.timeline-item::after {
-  content: "";
-  position: absolute;
-  left: -108px;
-  top: 6px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  margin-left: 37px;
-  margin-top: 5px;
-}
-
-.timeline-item.new::after {
-  border: 4px solid rgb(100, 149, 237); /* Sesuaikan warna per tahun */
-  background-color: #0000FF;
-
-}
-
-.timeline-item.old::after {
-  border: 4px solid rgb(220, 220, 220);
-  background-color: #A9A9A9	;
-}
-
-
-.timeline-content {
-  background-color: #fff;
-  padding: 10px 0px;
-  margin-left: -60px;
-}
-
-
-.role-title {
-  color: #1D4ED8;
-  font-weight: bold;
-  font-size: 14px;
-  margin: 0 0 4px;
-}
-
-.role-title1 {
-  color: black;
-  font-weight: bold;
-  font-size: 14px;
-  margin: 0 0 4px;
-}
-
-.sub-info {
-  font-size: 12px;
-  color: #444;
-  margin: 0 0 4px;
-}
-
-.promo-date {
-  font-size: 12px;
-  color: #666;
-  margin: 0 0 6px;
-}
-
-.description {
-  font-size: 12px;
-  color: #333;
 }
 
 .btn-home {
@@ -1383,58 +315,243 @@ input[type="radio"]:checked + .emoji-option {
   color: #808080;
 }
 
-.dropdown-action-detail {
+.tab-buttons {
+  display: flex;
+  border-bottom: 1.5px solid #A9A9A9;
+  margin-top: 20px;
+  font-family: Poppins, sans-serif;
+  color: #A9A9A9;
+}
+
+.tab-button {
+    /*
+    padding: 10px 68px;  */
+    width: 207px;
+    height: 35px;
+    max-width: 220px;
+    border: none;
+    background: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: #555;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease-in-out;
+    
+}
+
+.tab-button:hover {
+  color: #0000CD;
+  font-weight: bold;
+}
+
+.tab-button.active {
+  color: #0000CD;
+  background-color: #e6e6fa;
+  border-bottom: 3px solid #0000CD;
+  font-weight: bold;
+
+}
+
+.tab-content {
+  padding: 20px 0;
+  font-family: Poppins, sans-serif;
+  color: #444;
+  display: flex;
+}
+
+.content1, .content3, .content5, .content6 {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.left-content {
+    margin-top: 5px;
+    display: flex;
+    gap: 3px;
+    align-items: left;
+    flex-direction: column;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    width: 50%; 
+}
+
+.left-content1 {
+    margin-top: 5px;
+    display: flex;
+    gap: 3px;
+    align-items: left;
+    flex-direction: column;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    width: 50%; 
+}
+
+.right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 20px;
+    margin-left: 800px;
+}
+
+.right-content1 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 20px;
+    margin-left: 800px;
+}
+
+.right-content2 {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-left: 300px;
+}
+
+.right-content3 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 20px;
+    margin-left: 820px;
+}
+
+.content-info {
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-left: -50px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 500px);
+  gap: 24px;
   font-family: Poppins, sans-serif;
   font-weight: normal;
-  font-size: 12px;
-  color: #555;
-  text-decoration: none;
+  font-size: 14px;
+  padding-top: 35px;
 }
 
-.right-section11 {
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+
+.form-group1 {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  margin-right: 30px;
+
+}
+
+.label-group {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-left: 389px;
+  gap: 4px;
 }
 
-.search-container1 {
-  position: relative;
+label {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 6px;
 }
 
-.search-bar1 {
-  padding: 8px 5px 5px 30px;
-  border: none;
+.form-control {
+  padding: 12px;
+  font-size: 14px;
   border-radius: 8px;
-  width: 300px;
-  background-color: #F5F5F5;
-  font-size: 12px;
-  font-family: Poppins, sans-serif;
-  padding-left: 40px;
-  padding-top: 7px;
+  border: 1px solid #ccc;
+  background-color: white;
 }
 
-.filter-btn1 {
-  padding: 6px 12px;
+.form-control1 {
+  padding: 12px;
+  font-size: 14px;
   border-radius: 8px;
-  border: 1px solid #0000CD;
-  background-color: #FFFFFF;
-  color: mediumblue;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+
+.container {
+  position: relative; /* Penting untuk posisi konten */
+}
+
+.arrowDown-btn {
+  background-color: white;
+  border: 1px solid #0000CD	;
+  padding: 5px 7px;
   cursor: pointer;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: bold;
-  margin-right: 1px;
+  border-radius: 5px;
 }
 
-.filter-btn1:hover {
-  background-color: #f0f0f0;
+.arrowDown-btn1 {
+  background-color: white;
+  border: 1px solid #0000CD	;
+  padding: 5px 7px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.plus-btn1 {
+.fa-chevron-down {
+  font-size: 16px;
+  color: #0000CD;
+}
+
+.content2 {
+  display: none; /* Konten tersembunyi */
+  position: absolute; /* Posisi absolut terhadap kontainer */
+  top: 280px; /*  Letakkan di bawah tombol */
+  left: 0;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0px 32px;
+  max-width: 100%;
+  width: 1100px; /* Sidebar width + padding */
+  box-sizing: border-box;
+  min-height: unset; /* Biar tetap tinggi meski tanpa isi */
+  flex-wrap: wrap;
+  z-index: 1; /* Pastikan di atas elemen lain */
+}
+
+
+.content4 {
+  display: none; /* Konten tersembunyi */
+  position: absolute; /* Posisi absolut terhadap kontainer */
+  top: 370px; /*  Letakkan di bawah tombol */
+  left: 0;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0px 32px;
+  max-width: 100%;
+  width: 1100px; /* Sidebar width + padding */
+  box-sizing: border-box;
+  min-height: unset; /* Biar tetap tinggi meski tanpa isi */
+  flex-wrap: wrap;
+  z-index: 1; /* Pastikan di atas elemen lain */
+}
+
+
+/*  Gaya saat konten ditampilkan */
+.content2.show {
+  display: block;
+}
+
+.content4.show {
+  display: block;
+}
+
+.add-btn {
   padding: 6px 12px;
   border-radius: 8px;
   border: 1px solid #0000CD;
@@ -1450,10 +567,144 @@ input[type="radio"]:checked + .emoji-option {
   width: 90px;
 }
 
-.plus-btn1:hover {
+.add-btn:hover {
   background-color: #191970;
 }
-  
+
+.fa-plus {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+  align-items: center;
+}
+
+#customers {
+  font-family: Poppins, sans-serif;  
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#customers td, #customers th {
+  border: none;
+  font-size: 12px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  border-bottom: 1px solid #A9A9A9;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 12px;
+  text-align: left;
+  background-color: rgba(242, 235, 251, 0.8);
+  color: #080808;
+  font-weight: normal;
+}
+
+#customers td {
+  border-bottom: 1px solid #A9A9A9;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 12px;
+  text-align: left;
+  background-color: white;
+  color: #2F4F4F;
+}
+
+.horizontal-dots {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: mediumblue;
+    font-weight: bold;
+}
+
+.dropdown-action {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-action-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100px;
+    height: 60px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-left: -65px;
+    padding: 10px;
+    margin-top: -10px;
+}
+
+.dropdown-action-content a {
+  display: block;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+  margin-left: 8px;
+  margin-bottom: -13px; /* Atur jarak antar baris */
+}
+
+.right-section2 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 820px;
+  margin-top: 40px;
+}
+
+.save-btn {
+  padding: 14px 30px;
+  border-radius: 8px;
+  border: 1px solid;
+  background-color: rgb(0, 0, 205);
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+  text-decoration: none;
+}
+
+.cancel-btn {
+  padding: 14px 30px;
+  border-radius: 8px;
+  border: 1px solid #D3D3D3;
+  background-color: #D3D3D3;
+  color: #696969;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 15px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+  text-decoration: none;
+}
+
+.save-btn:hover {
+  background-color: #00008B;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #A9A9A9;
+}
 
 </style>
 
@@ -1529,284 +780,401 @@ input[type="radio"]:checked + .emoji-option {
 
   </div>
 
-    <!-- CONTENT AREA -->
   <div class="tab-content" id="profile">
     <div class="content1" >
         <div class="left-content">
             <h4 class="content-info">Informasi Pribadi</h4>
-            <p class="info1">Nomor KTP</p>
-            <p class="info2">3274819204900001</p>
-            <p class="info1">Jenis Kelamin</p>
-            <p class="info2">Laki-Laki</p>
-            <p class="info1">Tempat, Tanggal Lahir</p>
-            <p class="info2">Blitar, 18 September 1987</p>
-            <p class="info1">Alamat Rumah Sesuai KTP</p>
-            <p class="info2">Puri 11 Blok Y-00 Jl. Boulevard Residential, RT.004/RW.001, Pd. Pucung, Karang Tengah, Tangerang Selatan, Banten</p>
         </div>
         <div class="right-content">
-            <h4 class="content-info"></h4>
-            <p class="info1">Nomor NPWP</p>
-            <p class="info2">12.345.678.9.-012.000</p>
-            <p class="info1">Agama</p>
-            <p class="info2">Islam</p>
-            <p class="info1">Status Perkawinan</p>
-            <p class="info2">Kawin</p>
-            <p class="info1">Alamat Domisili</p>
-            <p class="info2">Sama dengan Alamat KTP</p>
+          <div class="container">
+            <button class="arrowDown-btn" onclick="toggleContent('myContent', this)">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+            <div class="content2" id="myContent">
+              <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="form-grid">
+                    <div class="form-group">
+                        <div class="label-group">
+                          <label>Nama</label>
+                        </div>
+                        <input type="text" name="nama" class="form-control" required>
+                    </div>
+
+                    <div class="form-group1">
+                        <div class="label-group">
+                          <label>NIK</label>
+                        </div>
+                        <input type="text" name="nik" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-group">
+                          <label>E-mail</label>
+                        </div>
+                        <input type="text" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group1">
+                        <div class="label-group">
+                          <label>Nomor Telepon</label>
+                        </div>
+                        <input type="text" name="telpon" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-group">
+                          <label>Nomor KTP</label>
+                        </div>
+                        <input type="text" name="ktp" class="form-control" required>
+                    </div>
+
+                    <div class="form-group1">
+                        <div class="label-group">
+                          <label>Nomor NPWP</label>
+                        </div>
+                        <input type="text" name="npwp" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-group">
+                          <label>Jenis Kelamin</label>
+                        </div>
+                        <select name="jenisKelamin" class="form-control1" required>
+                            <option disabled selected value=""></option>
+                            <option value="Laki Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group1">
+                        <div class="label-group">
+                          <label>Agama</label>
+                        </div>
+                        <select name="agama" class="form-control1" required>
+                            <option disabled selected value=""></option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-group">
+                          <label>Tempat, Tanggal Lahir</label>
+                        </div>
+                        <input type="text" name="ttl" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group1">
+                        <div class="label-group">
+                          <label>Status Perkawinan</label>
+                        </div>
+                        <select name="perkawinan" class="form-control1" required>
+                            <option disabled selected value=""></option>
+                            <option value="Belum Kawin">Belum Kawin</option>
+                            <option value="Kawin">Kawin</option>
+                            <option value="Cerai Hidup">Cerai Hidup</option>
+                            <option value="Cerai Mati">Cerai Mati</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-group">
+                          <label>Alamat Rumah Sesuai KTP</label>
+                        </div>
+                        <input type="text" name="alamatKTP" class="form-control" required>
+                    </div>
+
+                    <div class="form-group1">
+                        <div class="label-group">
+                          <label>Alamat Domisili</label>
+                        </div>
+                        <input type="text" name="alamatDom" class="form-control" required>
+                    </div>
+                </div>
+              </form>
+            </div>
         </div>
     </div>
 
     <hr class="divider">
 
-    <div class="content2" >
-        <div class="left-content2">
-            <h4 class="content-info2">Informasi Pekerjaan</h4>
-            <p class="info1">Nama Posisi</p>
-            <p class="info2">Health Care Staffs</p>
-            <p class="info1">Unit/Sub Direktorat</p>
-            <p class="info2">Health Care</p>
-            <p class="info1">BP Group</p>
-            <p class="info2">BP1234</p>
-            <p class="info1">DIT</p>
-            <p class="info2">DIT123</p>
-            <p class="info1">Status PJ</p>
-            <p class="info2">Bukan PJ</p>
-            <p class="info1">Lokasi Kerja</p>
-            <p class="info2">Yakes Jakarta</p>
-            <p class="info1">Tanggal Bergabung</p>
-            <p class="info2">8 April 2011</p>
-            <p class="info1">Kode DJM</p>
-            <p class="info2">12345678912</p>
+    <div class="content3" >
+        <div class="left-content1">
+            <h4 class="content-info">Informasi Pendidikan</h4>
         </div>
-        <div class="right-content2">
-            <h4 class="content-info2"></h4>
-            <p class="info1">Regional/Direktorat</p>
-            <p class="info2">Health Care</p>
-            <p class="info1">Direct Supervisor</p>
-            <p class="info2">OSM Healthcare</p>
-            <p class="info1">Posisi Band</p>
-            <p class="info2">VII - V</p>
-            <p class="info1">Sub-DIT</p>
-            <p class="info2">SUB123</p>
-            <p class="info1">Status Kepegawaian</p>
-            <p class="info2">Organik Yakes</p>
-            <p class="info1">Kota</p>
-            <p class="info2">Jakarta</p>
-            <p class="info1">Masa Kerja</p>
-            <p class="info2">14 Tahun 2 Bulan</p>
-            <p class="info1">Medis/Non-Medis</p>
-            <p class="info2">Non-Medis</p>
+        <div class="right-content1">
+          <div class="container">
+            <button class="arrowDown-btn" onclick="toggleContent('myContent1', this)">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+            <div class="content4" id="myContent1">
+              <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="form-grid">
+                    <div class="form-group">
+                        <div class="label-group">
+                          <label>Level Pendidikan</label>
+                        </div>
+                        <select name="levelPendidikan" class="form-control1" required>
+                            <option disabled selected value=""></option>
+                            <option value="D3">D3</option>
+                            <option value="D4">D4</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group1">
+                        <div class="label-group">
+                          <label>Jurusan</label>
+                        </div>
+                        <select name="jurusan" class="form-control1" required>
+                            <option disabled selected value=""></option>
+                            <option value="Public Health">Public Health</option>
+                            <option value="blablabla">blablabla</option>
+                            <option value="claclacla">claclacla</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-group">
+                          <label>Institut Pendidikan</label>
+                        </div>
+                        <select name="pendidikan" class="form-control1" required>
+                            <option disabled selected value=""></option>
+                            <option value="Universitas Indonesia">Universitas Indonesia</option>
+                            <option value="Institut Teknologi Bandung">Institut Teknologi Bandung</option>
+                            <option value="Universitas Gajah Mada">Universitas Gajah Mada</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group1">
+                        <div class="label-group">
+                          <label>Tahun Lulus</label>
+                        </div>
+                        <input type="month" name="tahunLulus" class="form-control" /><br><br>
+                    </div>
+                </div>
+              </form>
+            </div>
         </div>
     </div>
-    <div class="content3" >
-        <div class="left-content3">
-            <h4 class="content-info3">Informasi Pendidikan</h4>
-            <p class="info1">Level Pendidikan</p>
-            <p class="info2">Bachelor's Degree of Public Health</p>
-            <p class="info1">Tahun Lulus</p>
-            <p class="info2">2010</p>
-        </div>
-        <div class="right-content3">
-            <h4 class="content-info3"></h4>
-            <p class="info1">Institusi Pendidikan</p>
-            <p class="info2">Universitas Indonesia</p>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+        <div class="right-section2">
+          <a href="{{ route('employees.show', $employee->id) }}" class="cancel-btn">Cancel</a>
+          <button type="submit" class="btn save-btn">Save</button>
         </div>
     </div>
   </div>
 
   <div class="tab-content" id="keluarga" style="display: none;">
-    <div class="content4" >
-        <div class="left-content4">
-            <h4 class="content-info4">Informasi Pasangan</h4>
-            <p class="info1">Nama Lengkap</p>
-            <p class="info2">Arini Paramita</p>
-            <p class="info1">NIK</p>
-            <p class="info2">32748258800001</p>
-            <p class="info1">Status Pernikahan</p>
-            <p class="info2">Kawin</p>
-            <p class="info1">Pendidikan Terakhir</p>
-            <p class="info2">DIV/S1</p>
-            <p class="info1">Alamat Rumah Sesuai KTP</p>
-            <p class="info2">Puri 11 Blok Y-00 Jl. Boulevard Residential, RT.004/RW.001, Pd. Pucung, Karang Tengah, Tangerang Selatan, Banten</p>
-        </div>
-        <div class="right-content4">
-            <h4 class="content-info4"></h4>
-            <p class="info1">Tempat, Tanggal Lahir</p>
-            <p class="info2">Palembang, 30 November 1988</p>
-            <p class="info1">Agama</p>
-            <p class="info2">Islam</p>
-            <p class="info1">Pekerjaan Pasangan</p>
-            <p class="info2">Pegawai Swasta</p>
-            <p class="info1">Nomor Telepon</p>
-            <p class="info2">+62872847168092</p>
-            <p class="info1">Alamat Domisili</p>
-            <p class="info2">Sama dengan Alamat KTP</p>
-        </div>
+    <div class="content5" >
+      <div class="left-content">
+        <h4 class="content-info">Informasi Pasangan</h4>
+      </div>
+      <div class="right-content">
+        <button class="arrowDown-btn">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
     </div>
-    <table id="customers" style="margin-top: 10px;">
-      <tr>
-        <th>No</th>
-        <th>Nama Lengkap</th>
-        <th>Jenis Kelamin</th>
-        <th>Tempat, Tanggal Lahir</th>
-        <th>Pendidikan Saat Ini</th>
-        <th>Status Anak</th>
-        <th>Urutan Anak</th>
-        <th>Keterangan</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Rayan Arka</td>
-        <td>Laki-Laki</td>
-        <td>Jakarta, 18 Agustus 2009</td>
-        <td>SD</td>
-        <td>Kandung</td>
-        <td>Anak ke-1</td>
-        <td>Ditanggung</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Aurelia Zahra</td>
-        <td>Perempuan</td>
-        <td>Jakarta, 2 Juli 2013</td>
-        <td>SD</td>
-        <td>Kandung</td>
-        <td>Anak ke-2</td>
-        <td>Ditanggung</td>
-      </tr>
-    </table>
+      <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <div class="form-grid">
+          <div class="form-group">
+            <div class="label-group">
+              <label>Nama Lengkap</label>
+            </div>
+            <input type="text" name="namaPasangan" class="form-control"  required>
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Tempat, Tanggal Lahir</label>
+            </div>
+            <input type="text" name="ttlPasangan" class="form-control"  required>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>NIK</label>
+            </div>
+            <input type="text" name="nikPasangan" class="form-control"  required>
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Agama</label>
+            </div>
+            <select name="agamaPasangan" class="form-control1" required>
+              <option disabled selected value=""></option>
+              <option value="Islam">Islam</option>
+              <option value="Kristen">Kristen</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Buddha">Buddha</option>
+              <option value="Konghucu">Konghucu</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>Status Perkawinan</label>
+            </div>
+            <select name="perkawinanPasangan" class="form-control1" required>
+              <option disabled selected value=""></option>
+              <option value="Belum Kawin">Belum Kawin</option>
+              <option value="Kawin">Kawin</option>
+              <option value="Cerai Hidup">Cerai Hidup</option>
+              <option value="Cerai Mati">Cerai Mati</option>
+            </select>
+          </div>
+          
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Pekerjaan Pasangan</label>
+            </div>
+            <select name="pekerjaanPasangan" class="form-control1" required>
+              <option disabled selected value=""></option>
+              <option value="PNS">PNS</option>
+              <option value="Karyawan Swasta">Karyawan Swasta</option>
+              <option value="Wiraswasta">Wiraswasta</option>
+              <option value="Pekerjaan Lainnya">Pekerjaan Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>Pendidikan Terakhir</label>
+            </div>
+            <select name="agamaPasangan" class="form-control1" required>
+              <option disabled selected value=""></option>
+              <option value="Diploma">Diploma (D1, D2, D3, D4)</option>
+              <option value="Sarjana">Sarjana S1</option>
+              <option value="Magister">Magister (S2)</option>
+              <option value="Doktor">Doktor (S3)</option>
+            </select>
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Nomor Telepon</label>
+            </div>
+            <input type="text" name="telponPasangan" class="form-control"  required>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>Alamat Rumah Sesuai KTP</label>
+            </div>
+            <input type="text" name="alamatPasangan" class="form-control"  required>
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Alamat Sesuai Domisili</label>
+            </div>
+            <input type="text" name="domisiliPasangan" class="form-control"  required>
+          </div>
+        </div>
+      </form>
+
+      <hr class="divider">
+
+      <div class="content6" >
+        <div class="left-content">
+          <h4 class="content-info">Informasi Anak</h4>
+        </div>
+        <div class="right-content2">
+          <button class="add-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
+          <button class="arrowDown-btn1"><i class="fas fa-chevron-down"></i></button>
+        </div>
+      </div>
+      <table id="customers" style="margin-top: 20px;">
+        <tr>
+          <th>No</th>
+          <th>Nama Lengkap</th>
+          <th>Jenis Kelamin</th>
+          <th>Tempat, Tanggal Lahir</th>
+          <th>Pendidikan Saat Ini</th>
+          <th>Status Anak</th>
+          <th>Urutan Anak</th>
+          <th>Keterangan</th>
+          <th>Actions</th>
+        </tr>
+      </table>    
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+        <div class="right-section2">
+          <a href="{{ route('employees.show', $employee->id) }}" class="cancel-btn">Cancel</a>
+          <button type="submit" class="btn save-btn">Save</button>
+        </div>
+      </div>
   </div>
 
   <div class="tab-content" id="cluster" style="display: none;">
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-      <h2 class="left-section">Talent Cluster</h2>
-      <div class="right-section11">
-        <div class="search-container1">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" placeholder="Cari berdasarkan nama" class="search-bar" />
+    <div class="content5" >
+        <div class="left-content">
+          <h4 class="content-info">Talent Cluster</h4>
         </div>
-        <button class="filter-btn1" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
-        <button class="plus-btn1" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
-      </div>
+        <div class="right-content3">
+          <button class="add-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
+        </div>
     </div>
-    <table id="customers1" style="margin-top: 10px;">
-      <tr>
-        <th>No</th>
-        <th>Periode</th>
-        <th>Year</th>
-        <th>Cluster</th>
-      </tr>
-    </table>
+    <table id="customers" style="margin-top: 20px;">
+        <tr>
+          <th>No</th>
+          <th>Period</th>
+          <th>Year</th>
+          <th>Cluster</th>
+          <th>Actions</th>
+        </tr>
+      </table>   
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+        <div class="right-section2">
+          <a href="{{ route('employees.show', $employee->id) }}" class="cancel-btn">Cancel</a>
+          <button type="submit" class="btn save-btn">Save</button>
+        </div>
+      </div>
   </div>
 
-  
   <div class="tab-content" id="karir" style="display: none;">
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-        <h2 class="left-section9">Aktivitas Karir</h2>
-        <div class="right-section9">
-          <button class="plus-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
-        </div>
-    </div>
-    <div class="timeline-container">
-      <div class="timeline-group">
-        <div class="timeline-item new">
-          <div class="timeline-year">2023</div>
-            <div class="timeline-content">
-              <h4 class="role-title">Nama Role Sekarang</h4>
-              <p class="sub-info">Maret 2023 - Sekarang (3 Tahun 1 Bulan) • Nama Direktorat • Band Level V</p>
-              <p class="promo-date">Tanggal Promosi: 1 Maret 2023</p>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-            </div>
-        </div>
-        <div class="timeline-item old">
-          <div class="timeline-year1">2020</div>
-          <div class="timeline-content">
-            <h4 class="role-title1">PJ Role ABC</h4>
-            <p class="sub-info">Januari 2020 - Februari 2023 (3 Tahun 2 Bulan) • Nama Direktorat • Band Level V</p>
-            <p class="promo-date">Tanggal Menjadi PJ: 3 Feb 2021</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-          </div>
-        </div>
-        <div class="timeline-item old">
-          <div class="timeline-year1">2011</div>
-          <div class="timeline-content">
-            <h4 class="role-title1">Staff Posisi ABC</h4>
-            <p class="sub-info">Januari 2011 - Desember 2020 (8 Tahun 11 Bulan) • Nama Direktorat • Band Level V</p>
-            <p class="promo-date">Tanggal Karyawan Tetap: 1 Januari 2011</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-          </div>
-        </div>
+    <div class="content5" >
+      <div class="left-content">
+        <h4 class="content-info">Informasi Pasangan</h4>
       </div>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-        <h2 class="left-section10">Histori Pekerjaan Sebelumnya</h2>
-        <div class="right-section10">
-          <button class="plus-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
-        </div>
-    </div>
-    <div class="timeline-container1">
-      <div class="timeline-group">
-        <div class="timeline-item old">
-          <div class="timeline-year1">2010</div>
-          <div class="timeline-content">
-            <h4 class="role-title1">Role Pekerjaan Sebelumnya</h4>
-            <p class="sub-info">PT Nama Perusahaan</p>
-            <p class="promo-date">April 2010 - Desember 2010 (9 Bulan)</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-          </div>
-        </div>
-        <div class="timeline-item old">
-          <div class="timeline-year1">2010</div>
-          <div class="timeline-content">
-            <h4 class="role-title1">Role Pekerjaan Sebelumnya</h4>
-            <p class="sub-info">PT Nama Perusahaan</p>
-            <p class="promo-date">Januari 2010 - Maret 2010 (3 Bulan)</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-          </div>
-        </div>
+      <div class="right-content">
+        <button class="arrowDown-btn">
+          <i class="fas fa-chevron-down"></i>
+        </button>
       </div>
     </div>
   </div>
 
   <div class="tab-content" id="dokumen" style="display: none;">
-    <div class="content6" >
-      <div class="left-content6">
-        <h4 class="content-info6">Dokumen Personal</h4>
-        <p class="info1">KTP</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
-        <p class="info1">BPJS Kesehatan</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
-        <p class="info1">NPWP</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+    <div class="content5" >
+      <div class="left-content">
+        <h4 class="content-info">Informasi Pasangan</h4>
       </div>
-      <div class="right-content6">
-        <p class="info1">Kartu Keluarga</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
-        <p class="info1">BPJS Ketenagakerjaan</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
-        <p class="info1">Nota Dinas</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
-      </div>
-    </div>
-    <div class="content7" >
-      <div class="left-content7">
-        <h4 class="content-info7">Dokumen Lainnya</h4>
-        <p class="info1">Hasil Psikotest</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
-        <p class="info1">Hasil Assessment 02</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
-      </div>
-      <div class="right-content7">
-        <p class="info1">Hasil Assessment 01</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
-        <p class="info1">Hasil Assessment 03</p>
-        <a href="#" class="ktp-link">Klik untuk Melihat</a>
+      <div class="right-content">
+        <button class="arrowDown-btn">
+          <i class="fas fa-chevron-down"></i>
+        </button>
       </div>
     </div>
   </div>
 </div>
 @endsection
-
 <script>
 function showTab(tabId) {
   // Sembunyikan semua konten
@@ -1851,4 +1219,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+</script>
+
+
+
+<script>
+  function toggleContent(contentId, btn) {
+    const content = document.getElementById(contentId);
+    content.classList.toggle("show");
+
+    const icon = btn.querySelector('i');
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+  }
 </script>

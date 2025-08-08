@@ -424,7 +424,7 @@ ul li a:hover:not(.active) {
     gap: 3px;
     margin-left: 0;
     text-align: left;
-    padding-top: 15px;
+    padding-top: 27px;
 }
 
 .info1 {
@@ -1520,16 +1520,16 @@ input[type="radio"]:checked + .emoji-option {
     <img class="profile-photo" src="https://cdn0-production-images-kly.akamaized.net/-1pYFvsXgXGWz-U3Ybxqnc_mDfk=/1280x1706/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/5202248/original/037743300_1745894554-ChatGPT_Image_Apr_29__2025__09_26_56_AM.jpg" alt="profile_picture">
         <div class="left-profile">
             <div class="profile-employee">
-                <h3 class="employee-name">Satria Hadi</h3>
+                <h3 class="employee-name">{{ $employee->name }}</h3>
                 <span class="badge-status" id="badgeStatus">Karyawan Tetap</span>
             </div>
-            <p class="position">Health Care Staffs • 879002</p>
-            <p class="directorate">Directorate Health Care</p>
+            <p class="position">{{ $employee->posisi }} • {{ $employee->nik }}</p>
+            <p class="directorate">Directorate {{ $employee->direktorat }}</p>
         </div>
         <div class="right-profile">
             <div class="contact-info">
                 <p class="contact">Contacts</p>
-                <p class="email">E-mail : 879002@mail.com</p>
+                <p class="email">E-mail : {{ $employee->email }}</p>
                 <p class="telp">Nomor Telepon : +62821 8471 0490</p>
             </div>
         </div>
@@ -1553,24 +1553,24 @@ input[type="radio"]:checked + .emoji-option {
         <div class="left-content">
             <h4 class="content-info">Informasi Pribadi</h4>
             <p class="info1">Nomor KTP</p>
-            <p class="info2">3274819204900001</p>
+            <p class="info2">{{ $employee->no_ktp }}</p>
             <p class="info1">Jenis Kelamin</p>
-            <p class="info2">Laki-Laki</p>
+            <p class="info2">{{ $employee->jenis_kelamin }}</p>
             <p class="info1">Tempat, Tanggal Lahir</p>
-            <p class="info2">Blitar, 18 September 1987</p>
+            <p class="info2">{{ $employee->ttl }}</p>
             <p class="info1">Alamat Rumah Sesuai KTP</p>
-            <p class="info2">Puri 11 Blok Y-00 Jl. Boulevard Residential, RT.004/RW.001, Pd. Pucung, Karang Tengah, Tangerang Selatan, Banten</p>
+            <p class="info2">{{ $employee->alamat_ktp }}</p>
         </div>
         <div class="right-content">
             <h4 class="content-info"></h4>
             <p class="info1">Nomor NPWP</p>
-            <p class="info2">12.345.678.9.-012.000</p>
+            <p class="info2">{{ $employee->no_npwp }}</p>
             <p class="info1">Agama</p>
-            <p class="info2">Islam</p>
+            <p class="info2">{{ $employee->agama }}</p>
             <p class="info1">Status Perkawinan</p>
-            <p class="info2">Kawin</p>
+            <p class="info2">{{ $employee->status_perkawinan }}</p>
             <p class="info1">Alamat Domisili</p>
-            <p class="info2">Sama dengan Alamat KTP</p>
+            <p class="info2">{{ $employee->alamat_domisili }}</p>
         </div>
     </div>
 

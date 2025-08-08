@@ -22,11 +22,16 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            //return redirect()->intended('home');
             return view(view: 'home'); // lebih baik daripada view langsung
         }
 
-        Session::flash('error', 'Username atau Password salah.');
-        return redirect('/');
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ]);
+
+        //Session::flash('error', 'Username atau Password salah.');
+        //return redirect('/');
     }
 
     public function actionlogout()

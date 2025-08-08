@@ -17,5 +17,13 @@ class Employee extends Model
         'posisi',
         'direktorat', 
         'status_karyawan', 
+        'no_ktp',
+        'jenis_kelamin',
+        'ttl',
+        'alamat_ktp',
+        'no_npwp',
+        'agama',
+        'status_perkawinan',
+        'alamat_domisili',
     ];
 }

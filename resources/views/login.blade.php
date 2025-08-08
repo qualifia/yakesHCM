@@ -140,6 +140,9 @@ textarea.form-control {
 
 </style>
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 <div class="login-page">
     <div class="login-left">
         <img src="{{ asset('img/loginPage.svg') }}" alt="Login Illustration">
