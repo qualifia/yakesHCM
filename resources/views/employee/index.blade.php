@@ -631,7 +631,7 @@ ul li a:hover:not(.active) {
       <h1 class="main">Main Menu</h1>
       <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
       <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
-      <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
+      <li><a href="{{ route('recruitment.index') }}"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="{{ route('training.index') }}"><i class="fas fa-chart-line"></i>Training Management</a></li>
       <li><a href="{{ route('djm.index') }}"><i class="fas fa-folder"></i>DJM Management</a></li>
       <h2 class="config">Configuration</h2>
