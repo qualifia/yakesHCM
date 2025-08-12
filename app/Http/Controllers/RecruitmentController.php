@@ -9,8 +9,9 @@ class RecruitmentController extends Controller
 {
     public function index()
     {
-        $positions = Position::paginate(10); // sesuaikan model & fields
-        return view('recruitment.index', compact('positions'));
+        
+        // $positions = Position::paginate(10);  
+        // return view('recruitment.index', compact('recruitment'));
     }
 
     public function show($id)

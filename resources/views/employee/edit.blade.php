@@ -440,6 +440,16 @@ ul li a:hover:not(.active) {
   padding-top: 35px;
 }
 
+.form-grid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 360px);
+  gap: 24px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  padding-top: 35px;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -451,8 +461,27 @@ ul li a:hover:not(.active) {
   flex-direction: column;
   padding-left: 30px;
   margin-right: 30px;
-
 }
+
+.form-group2 {
+  display: flex;
+  flex-direction: column;
+  margin-right: 35px;
+}
+
+.form-group3 {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+  padding-left: -80px;
+}
+
+.fully-width {
+  grid-column: span 2;
+  gap: 6px; 
+  margin-top: -40px;
+}
+
 
 .label-group {
   display: flex;
@@ -704,6 +733,189 @@ label {
 
 .cancel-btn:hover {
   background-color: #A9A9A9;
+}
+
+/* Modal Wrapper */
+#addModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  font-family: Poppins, sans-serif;
+
+}
+
+/* Modal Box */
+#addModal .modal-content {
+  background: white;
+  top: 50px;
+  width: 760px;
+  height: 550px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+}
+
+#addModal .left-content6 {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+
+#addModal .full-width {
+  border-radius: 15px;
+  width: 635px;
+  height: 200px;
+}
+
+/* Close Button */
+#addModal .close-button {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  color: #696969;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+/* Form Layout */
+#addModal form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+#addModal .form-buttons {
+  margin-top: 230px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+#addModal .form-buttons button {
+  padding: 10px 140px;
+  border-radius: 10px;
+}
+
+#addModal .form-buttons .cancel {
+  border: 1px solid #ccc;
+  background: #eee;
+  background-color: #D3D3D3;
+  color: #696969;
+  font-weight: bold;
+}
+
+#addModal .form-buttons .submit {
+  border: none;
+  background-color: rgba(0, 0, 205, 0.7);
+  color: white;
+  font-weight: bold;
+}
+
+/* MODAL CLUSTER */
+/* Modal Wrapper */
+#addClusterModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  font-family: Poppins, sans-serif;
+
+}
+
+/* Modal Box */
+#addClusterModal .modal-content {
+  background: white;
+  top: 50px;
+  width: 760px;
+  height: 360px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+}
+
+#addClusterModal .left-content6 {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+
+#addClusterModal .full-width {
+  border-radius: 15px;
+  width: 635px;
+  height: 200px;
+}
+
+/* Close Button */
+#addClusterModal .close-button {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  color: #696969;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+/* Form Layout */
+#addClusterModal form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+#addClusterModal .form-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+#addClusterModal .form-buttons button {
+  padding: 10px 140px;
+  border-radius: 10px;
+}
+
+#addClusterModal .form-buttons .cancel {
+  border: 1px solid #ccc;
+  background: #eee;
+  background-color: #D3D3D3;
+  color: #696969;
+  font-weight: bold;
+}
+
+#addClusterModal .form-buttons .submit {
+  border: none;
+  background-color: rgba(0, 0, 205, 0.7);
+  color: white;
+  font-weight: bold;
+}
+
+.bintang {
+  color: red;
 }
 
 </style>
@@ -1095,7 +1307,7 @@ label {
           <h4 class="content-info">Informasi Anak</h4>
         </div>
         <div class="right-content2">
-          <button class="add-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
+          <a href="#" class="add-btn" onclick="openAddModal()"><i class="fas fa-plus"></i>Tambah</a>
           <button class="arrowDown-btn1"><i class="fas fa-chevron-down"></i></button>
         </div>
       </div>
@@ -1127,7 +1339,7 @@ label {
           <h4 class="content-info">Talent Cluster</h4>
         </div>
         <div class="right-content3">
-          <button class="add-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
+          <a href="#" class="add-btn" onclick="openAddClusterModal()"><i class="fas fa-plus"></i>Tambah</a>
         </div>
     </div>
     <table id="customers" style="margin-top: 20px;">
@@ -1173,6 +1385,171 @@ label {
       </div>
     </div>
   </div>
+
+  <!-- MODAL TAMBAH ANAK -->
+  <div id="addModal">
+    <div class="modal-content">
+      <div class="content6">
+        <div class="left-content6">
+          <h3>Tambah Informasi Anak</h3>
+        </div>
+      
+        <div class="right-content6">
+          <button onclick="closeAddModal()" class="close-button">
+            <i class="fas fa-circle-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="full-width">
+        <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+          @csrf
+          @method('PUT')
+          <div class="form-grid1">
+            <div class="form-group2">
+              <div class="label-group">
+                <label>Nama Lengkap</label>
+              </div>
+              <input type="text" name="namaPasangan" class="form-control"  required>
+            </div>
+
+            <div class="form-group3">
+              <div class="label-group">
+                <label>Jenis Kelamin</label>
+              </div>
+              <select name="jenisKelaminAnak" class="form-control1"  required>
+                <option disabled selected value=""></option>
+                <option value="Laki Laki">Laki-Laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+
+            <div class="form-group2">
+              <div class="label-group">
+                <label>Tempat, Tanggal Lahir</label>
+              </div>
+              <input type="text" name="namaPasangan" class="form-control"  required>
+            </div>
+
+            <div class="form-group3">
+              <div class="label-group">
+                <label>Pendidikan Saat Ini</label>
+              </div>
+              <select name="pendidikanAnak" class="form-control1"  required>
+                <option disabled selected value=""></option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMP">SMA</option>
+                <option value="Kuliah">Kuliah</option>
+              </select>            
+            </div>
+
+            <div class="form-group2">
+              <div class="label-group">
+                <label>Status Anak</label>
+              </div>
+              <select name="statusAnak" class="form-control1"  required>
+                <option disabled selected value=""></option>
+                <option value="Kandung">Kandung</option>
+                <option value="Tidak Kandung">Tidak Kandung</option>
+              </select>            
+            </div>
+
+            <div class="form-group3">
+              <div class="label-group">
+                <label>Urutan Anak</label>
+              </div>
+              <select name="urutanAnak" class="form-control1"  required>
+                <option disabled selected value=""></option>
+                <option value="satu">Anak ke-1</option>
+                <option value="dua">Anak ke-2</option>
+                <option value="tiga">Anak ke-3</option>
+              </select>             
+            </div>
+
+            <div class="form-group2">
+              <div class="label-group">
+                <label>Keterangan</label>
+              </div>
+              <select name="keteranganAnak" class="form-control1"  required>
+                <option disabled selected value=""></option>
+                <option value="Ditanggung">Ditanggung</option>
+                <option value="Tidak Ditanggung">Tidak Ditanggung</option>
+              </select> 
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <div class="form-buttons">
+          <button type="button" class="cancel" onclick="closeAddModal()">Cancel</button>
+          <button type="submit" class="submit">Tambah</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TAMBAH TALENT CLUSTER -->
+  <div id="addClusterModal">
+    <div class="modal-content">
+      <div class="content6">
+        <div class="left-content6">
+          <h3>Tambah Penilaian Talent Cluster</h3>
+        </div>
+      
+        <div class="right-content6">
+          <button onclick="closeAddClusterModal()" class="close-button">
+            <i class="fas fa-circle-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="full-width">
+        <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+          @csrf
+          @method('PUT')
+          <div class="form-grid1">
+            <div class="form-group2">
+              <div class="label-group">
+                <label>Periode</label>
+              </div>
+              <select name="periodeCluster" class="form-control1"  required>
+                <option disabled selected value=""></option>
+                <option value="Q1">Q1</option>
+                <option value="Q2">Q2</option>
+                <option value="Q3">Q3</option>
+                <option value="Q4">Q4</option>
+              </select>
+            </div>
+
+            <div class="form-group3">
+              <div class="label-group">
+                <label>Tahun</label>
+              </div>
+              <input type="month" name="tahunCluster" class="form-control" /><br><br>
+            </div>
+
+            <div class="form-group2 fully-width">
+              <div class="label-group">
+                <label>Talent Cluster</label>
+                <label class="bintang">*</label>
+              </div>
+              <select name="talentCluster" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="Potential Employee">Potential Employee</option>
+                <option value="Promotable Employee">Promotable Employee</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <div class="form-buttons">
+          <button type="button" class="cancel" onclick="closeAddClusterModal()">Cancel</button>
+          <button type="submit" class="submit">Tambah</button>
+      </div>
+    </div>
+  </div>
+
+
+
 </div>
 @endsection
 <script>
@@ -1221,8 +1598,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-
-
 <script>
   function toggleContent(contentId, btn) {
     const content = document.getElementById(contentId);
@@ -1231,5 +1606,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const icon = btn.querySelector('i');
     icon.classList.toggle('fa-chevron-down');
     icon.classList.toggle('fa-chevron-up');
+  }
+</script>
+
+<script>
+  function openAddModal() {
+    document.getElementById("addModal").style.display = "block";
+  }
+  function closeAddModal() {
+    document.getElementById("addModal").style.display = "none";
+  }
+</script>
+
+<script>
+  function openAddClusterModal() {
+    document.getElementById("addClusterModal").style.display = "block";
+  }
+  function closeAddClusterModal() {
+    document.getElementById("addClusterModal").style.display = "none";
   }
 </script>

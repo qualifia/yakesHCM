@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <style>
 /* SIDEBAR STYLE */
 body {
@@ -161,37 +162,37 @@ ul li a:hover:not(.active) {
 }
 
 /* TALENT MANAGEMENT STYLES */
-#customers {
+#djm-table {
   font-family: Poppins, sans-serif;  
   border-collapse: collapse;
   width: 100%;
   margin-top: 10px;
 }
 
-#customers td, #customers th {
+#djm-table td, #djm-table th {
   border: none;
   font-size: 12px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-#customers tr:hover {background-color: #ddd;}
+#djm-table tr:nth-child(even){background-color: #f2f2f2;}
+#djm-table tr:hover {background-color: #ddd;}
 
-#customers th {
+#djm-table th {
   border-bottom: 1px solid #A9A9A9;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 15px;
-  padding-right: 12px;
+  padding-right: 20px;
   text-align: left;
   background-color: #E6E6FA;
   color: #080808;
 }
 
-#customers td {
+#djm-table td {
   border-bottom: 1px solid #A9A9A9;
   padding: 1px;
   padding-left: 15px;
-  padding-right: 12px;
+  padding-right: 20px;
   color: #2F4F4F;
   background-color: white;
 }
@@ -214,27 +215,45 @@ ul li a:hover:not(.active) {
     display: none;
     position: absolute;
     background-color: white;
-    width: 100px;
-    height: 60px;
+    min-width: 100px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     z-index: 1;
     border: 1px solid #ccc;
+    padding: 5px;
     border-radius: 8px;
-    margin-left: -65px;
-    padding: 10px;
-    margin-top: -10px;
 }
 
-.dropdown-action-content a {
-  display: block;
+.dropdown-action-detail {
   font-family: Poppins, sans-serif;
   font-weight: normal;
   font-size: 12px;
   color: #555;
   text-decoration: none;
   margin-left: 8px;
-  margin-bottom: -13px; /* Atur jarak antar baris */
 }
+
+.dropdown-action-edit {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.dropdown-action-hapus {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: red;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+  margin-left: 8px;
+  padding: 0;
+  margin-bottom: -10px;
+}
+
 
 .page-title {
     font-size: 20px;
@@ -403,9 +422,77 @@ ul li a:hover:not(.active) {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-right: 18px;
   font-weight: bold;
 }
+
+.create-btn {
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid;
+  background-color: #0000CD;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 18px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+}
+
+.create-btn:hover {
+  background-color: #191970;
+}
+
+.dropdown-container {
+  position: relative; /* ini penting! agar dropdown posisi relatif terhadap tombol */
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* muncul tepat di bawah tombol */
+  right: 0; /* agar rata kanan jika perlu */
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 5px 10px;
+  min-width: 150px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.btn-upload {
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  min-width: 150px;
+  text-align: left;
+}
+
+.btn-upload:hover {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
 
 .export-btn:hover {
   background-color: #2F4F4F;
@@ -418,7 +505,6 @@ ul li a:hover:not(.active) {
 /* Filter Modal Styles */
 .filter-modal {
   display: none;
-  position: absolute;
   right: 40px;
   top: 80px;
   background: white;
@@ -427,8 +513,7 @@ ul li a:hover:not(.active) {
   padding: 20px;
   width: 400px;
   z-index: 999;
-  margin-right: 10px;
-  margin-top: 30px;
+  position: absolute; 
 }
 
 .filter-header {
@@ -529,10 +614,10 @@ ul li a:hover:not(.active) {
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 6px;
-  min-width: 100px;
+  min-width: 220px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   flex: 1;
-  max-width: 220px;
+  max-width: 240px;
   height: 80px;
 }
 
@@ -599,17 +684,149 @@ ul li a:hover:not(.active) {
   font-family: Poppins, sans-serif;
 }
 
+/* Modal Wrapper */
+#uploadModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  font-family: Poppins, sans-serif;
+
+}
+
+/* Modal Box */
+#uploadModal .modal-content {
+  background: white;
+  top: 90px;
+  width: 700px;
+  height: 380px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+}
+
+#uploadModal .left-content1 {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+
+#uploadModal .full-width {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: #D3D3D3;
+  margin-top: 40px;
+  border-radius: 15px;
+  width: 635px;
+  height: 200px;
+}
+
+/* Close Button */
+#uploadModal .close-button {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  color: #696969;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+/* Form Layout */
+#uploadModal form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+#uploadModal .form-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+#uploadModal .form-buttons button {
+  padding: 10px 125px;
+  border-radius: 10px;
+}
+
+#uploadModal .form-buttons .cancel {
+  border: 1px solid #ccc;
+  background: #eee;
+  background-color: #D3D3D3;
+  color: #696969;
+  font-weight: bold;
+}
+
+#uploadModal .form-buttons .submit {
+  border: none;
+  background-color: rgba(0, 0, 205, 0.7);
+  color: white;
+  font-weight: bold;
+}
+
+.upload-icon {
+  position: absolute;
+  top: 130px;
+  right: 330px;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 205, 0.7);
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.label1 {
+  position: absolute;
+  top: 175px;
+  right: 295px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+}
+
+.label2 {
+  position: absolute;
+  top: 200px;
+  right: 200px;
+  text-align: center;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  color: #696969;
+}
+
+.content7 {
+  display: flex;
+  width: 100%;
+  padding-right: 90px;
+  justify-content: space-between;
+  gap: 20px;
+}
 
 
 </style>
 
-
 <div class="navbar">
     <div class="left-info">
-        <div class="navbar-name" >Hello, Satria Hadi</div>
+        <div class="navbar-name" >Hello, Satria Hadi!</div>
         <div class="navbar-date">{{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}</div>
     </div>
 </div>
+
 
 <!-- SIDEBAR -->
 <div class="sidebar">
@@ -630,10 +847,10 @@ ul li a:hover:not(.active) {
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
       <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
-      <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
-      <li><a href="{{ route('recruitment.index') }}"><i class="fas fa-user"></i>Recruitment Management</a></li>
+      <li><a href="{{ route('employees.index') }}"><i class="fas fa-users"></i>Talent Management</a></li>
+      <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="{{ route('training.index') }}"><i class="fas fa-chart-line"></i>Training Management</a></li>
-      <li><a href="{{ route('djm.index') }}"><i class="fas fa-folder"></i>DJM Management</a></li>
+      <li><a class="active" href="#djm"><i class="fas fa-folder"></i>DJM Management</a></li>
       <h2 class="config">Configuration</h2>
       <li><a href="#user"><i class="fas fa-user"></i>User</a></li>
       <li><a href="#role"><i class="fas fa-gear"></i>Role</a></li>
@@ -655,10 +872,10 @@ ul li a:hover:not(.active) {
             <i class="fas fa-house"></i>
           </a>
           <i class="fas fa-chevron-right breadcrumb-arrow"></i>
-          <a href="{{ url()->current() }}" class="breadcrumb-text">Talent Management</a>
+          <a href="{{ url()->current() }}" class="breadcrumb-text">Recruitment Management</a>
         </div> 
       </div>
-      <h2 class="page-title">Talent Management</h2>
+      <h2 class="page-title">Recruitment Management</h2>
     </div>
     <div class="right-section">
       <div class="search-container">
@@ -666,9 +883,18 @@ ul li a:hover:not(.active) {
         <input type="text" placeholder="Search by Name" class="search-bar" />
       </div>
       <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
-      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filter</button>
+      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
+      <div class="dropdown-container">
+        <button class="create-btn" onclick="toggleCreate()"><i class="fas fa-plus"></i> Tambah</button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="{{ route('djm.create') }}">Forms</a>
+          <a href="#" onclick="openUploadModal()">Upload File</a>
+        </div>
+      </div>
     </div>
   </div>
+
+
   <!-- FILTER MODAL -->
   <div class="filter-modal" id="filterModal">
     <div class="filter-header">
@@ -698,94 +924,83 @@ ul li a:hover:not(.active) {
       <button class="apply-btn">Apply</button>
     </div>
   </div>
-
-  <!-- STATISTIK -->
-  <div class="stat-boxes">
-    <div class="stat-box">
-      <div class="icon-circle purple"><i class="fas fa-briefcase"></i></div>
-      <div class="stat-info">
-        <div class="stat-value">2.890</div>
-        <div class="stat-label">Total Karyawan</div>
-      </div>
-    </div>
-
-    <div class="stat-box">
-      <div class="icon-circle cyan"><i class="fas fa-user-tie"></i></div>
-      <div class="stat-info">
-        <div class="stat-value">Band V (302)</div>
-        <div class="stat-label">Top Band Posisi</div>
-      </div>
-    </div>
-
-    <div class="stat-box">
-      <div class="icon-circle purple"><i class="fas fa-building"></i></div>
-      <div class="stat-info">
-        <div class="stat-value">Yakes Jakarta (2.008)</div>
-        <div class="stat-label">Top Kantor Penempatan</div>
-      </div>
-    </div>
-
-    <div class="double-box">
-      <div class="sub-box">
-        <div class="icon-circle pink"><i class="fas fa-user"></i></div>
-        <div class="stat-info">
-          <div class="stat-value">30</div>
-          <div class="stat-label">On-Boarding 2025</div>
-        </div>
-      </div>
-      <div class="sub-box">
-        <div class="stat-info">
-          <div class="stat-value">20</div>
-          <div class="stat-label">Akan Pensiun 2026</div>
-        </div>
-    </div>
-</div>
-
-  <table id="customers" style="margin-top: 10px;">
+  
+  <table id="djm-table" class="display" style="margin-top: 10px;">
     <tr>
         <th>No</th>
-        <th>NIK</th>
-        <th>Nama</th>
-        <th>Tanggal Lahir</th>
+        <th>Kode DJM</th>
         <th>Nama Posisi</th>
-        <th>Email</th>
         <th>Regional/Direktorat</th>
-        <th>Nama Posisi</th>
+        <th>Band Posisi</th>
         <th>Actions</th>
     </tr>
-    @foreach($employees as $employee)
-    <tr>
-      <td>{{ $loop->iteration }}</td>
-      <td>{{ $employee->nik }}</td>
-      <td>{{ $employee->name }}</td>
-      <td>{{ \Carbon\Carbon::parse($employee->tanggal_lahir)->translatedFormat('d F Y') }}</td>
-      <td>{{ $employee->posisi }}</td> 
-      <td>{{ $employee->email }}</td>
-      <td>{{ $employee->direktorat }}</td> 
-      <td>
-        @if ($employee->status_karyawan == 'Karyawan Tetap')
-          <div class="first">{{ $employee->status_karyawan }}</div>
-        @elseif ($employee->status_karyawan == 'TKWT')
-          <div class="sec">{{ $employee->status_karyawan }}</div>
-        @else
-          <div class="third">{{ $employee->status_karyawan }}</div>
-        @endif
-      </td>
-      <td>
-        <div class="dropdown-action">
-          <button class="horizontal-dots" onclick="toggleActions()">&#x22EF;</button>
-          <div class="dropdown-action-content" id="dropdownActions">
-            <a href="{{ route('employees.show', $employee->id) }}" class="dropdown-action-detail">Detail</a><br>
-            <a href="{{ route('employees.edit', $employee->id) }}" class="dropdown-action-edit">Edit</a><br>
+    @foreach ($d_j_m_s as $djm)
+      <tr>
+        <td>{{ $loop->iteration }}</td>
+        <td>{{ $djm->kode_djm }}</td>
+        <td>{{ $djm->namaPosisi }}</td>
+        <td>{{ $djm->regionalDirektorat }}</td>
+        <td>{{ $djm->posisi }}</td>
+        <td>
+          <div class="dropdown-action">
+            <button class="horizontal-dots" onclick="toggleActions()">&#x22EF;</button>
+            <div class="dropdown-action-content" id="dropdownActions">
+              <a href="{{ route('djm.show', $djm->id) }}" class="dropdown-action-detail">Detail</a><br>
+              <a href="{{ route('djm.edit', $djm->id) }}" class="dropdown-action-edit">Edit</a><br>
+              <form action="{{ route('djm.destroy', $djm->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="dropdown-action-hapus">Delete</button>
+              </form>
+            </div>
           </div>
-        </div>
-      </td>
-    </tr>
+        </td>
+      </tr>
     @endforeach
-  </table>      
+  </table>
+
+  <!-- Modal Upload File -->
+  <div id="uploadModal">
+    <div class="modal-content">
+      <div class="content1">
+        <div class="left-content1">
+          <h3>Tambah Data DJM</h3>
+        </div>
+      
+        <div class="right-content1">
+          <button onclick="closeUploadModal()" class="close-button">
+            <i class="fas fa-circle-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="full-width">
+        <form action="{{ route('djm.upload') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+
+          <!-- Hidden file input -->
+          <input type="file" name="file" id="fileUpload" style="display: none;" required onchange="this.form.submit()">
+
+          <!-- Icon upload sebagai label -->
+          <label for="fileUpload" class="upload-icon">
+            <i class="fas fa-upload"></i>
+          </label>
+          <div class="label1">Upload Data DJM</div>
+          <div class="label2">Klik atau seret file ke area ini untuk mengunggah</div>
+        </form>
+      </div>
+
+      <div class="form-buttons">
+          <button type="button" class="cancel" onclick="closeUploadModal()">Cancel</button>
+          <button type="submit" class="submit">Tambah</button>
+      </div>
+    </div>
+  </div>
+
+  
+  
+
 </div>
 @endsection
-
 
 <script>
 function toggleFilter() {
@@ -795,8 +1010,52 @@ function toggleFilter() {
 </script>
 
 <script>
+function toggleCreate() {
+  const menu = document.getElementById("dropdownMenu");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
+
+<script>
 function toggleActions() {
   const menu = document.getElementById("dropdownActions");
   menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 </script>
+
+<script>
+$(document).ready(function () {
+    $('#djm-table').DataTable({
+        "pageLength": 10, // jumlah data per halaman
+        "lengthMenu": [10, 25, 50, 100],
+        "pagingType": "full_numbers", // ini penting agar muncul tombol: << < 1 2 3 > >>
+        "language": {
+            "lengthMenu": "Show _MENU_ entries of _TOTAL_ entries",
+            "zeroRecords": "Data tidak ditemukan",
+            "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+            "infoEmpty": "Tidak ada data tersedia",
+            "infoFiltered": "(difilter dari total _MAX_ entri)",
+            "search": "Search by Name:",
+            "paginate": {
+                "first": "<<",
+                "last": ">>",
+                "next": ">",
+                "previous": "<"
+            }
+        }
+    });
+});
+</script>
+
+<script>
+  function openUploadModal() {
+    document.getElementById("uploadModal").style.display = "block";
+  }
+  function closeUploadModal() {
+    document.getElementById("uploadModal").style.display = "none";
+  }
+</script>
+
+
+
+
