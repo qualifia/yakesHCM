@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <style>
 /* SIDEBAR STYLE */
 body {
@@ -171,37 +172,37 @@ ul li a:hover:not(.active) {
 }
 
 /* TALENT MANAGEMENT STYLES */
-#customers {
+#djm-table {
   font-family: Poppins, sans-serif;  
   border-collapse: collapse;
   width: 100%;
   margin-top: 10px;
 }
 
-#customers td, #customers th {
+#djm-table td, #djm-table th {
   border: none;
   font-size: 12px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-#customers tr:hover {background-color: #ddd;}
+#djm-table tr:nth-child(even){background-color: #f2f2f2;}
+#djm-table tr:hover {background-color: #ddd;}
 
-#customers th {
+#djm-table th {
   border-bottom: 1px solid #A9A9A9;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 15px;
-  padding-right: 12px;
+  padding-right: 20px;
   text-align: left;
   background-color: #E6E6FA;
   color: #080808;
 }
 
-#customers td {
+#djm-table td {
   border-bottom: 1px solid #A9A9A9;
   padding: 1px;
   padding-left: 15px;
-  padding-right: 12px;
+  padding-right: 20px;
   color: #2F4F4F;
   background-color: white;
 }
@@ -229,6 +230,7 @@ ul li a:hover:not(.active) {
     z-index: 1;
     border: 1px solid #ccc;
     padding: 5px;
+    border-radius: 8px;
 }
 
 .dropdown-action-detail {
@@ -237,14 +239,34 @@ ul li a:hover:not(.active) {
   font-size: 12px;
   color: #555;
   text-decoration: none;
+  margin-left: 8px;
 }
 
-.dropdown-action:hover .dropdown-action-content {
-    display: block;
+.dropdown-action-edit {
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+  margin-left: 8px;
 }
+
+.dropdown-action-hapus {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: red;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+  margin-left: 8px;
+  padding: 0;
+  margin-bottom: -10px;
+}
+
 
 .page-title {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 20px;
     margin-top: 10px;
     font-family: Poppins, sans-serif;
@@ -341,100 +363,48 @@ ul li a:hover:not(.active) {
   color: #808080;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 500px);
-  gap: 24px;
-  font-family: Poppins, sans-serif;
-  font-weight: normal;
-  font-size: 14px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.form-control {
-  padding: 12px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: white;
-}
-
-.form-control1 {
-  padding: 12px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: white;
-}
-
-.form-control-read {
-  padding: 12px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #eaeaea;
-}
-
-.form-control:read-only {
-  background-color: white;
-}
-
-textarea.form-control {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.divider {
-  margin: 30px 0;
-  border-top: 3px solid #A9A9A9;
-}
-
-.full-width {
-  grid-column: span 2;
-  gap: 6px; 
-  margin-bottom: 10px;
-}
 
 .left-section {
-    font-size: 16px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-family: Poppins, sans-serif;
-    font-weight: bolder;
-    margin-right: 20px;
-    margin-left: 1px;
+  flex: 1;
 }
 
-.right-section1 {
+.right-section {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  padding-left: 400px;
+  padding-top: 20px;
 }
 
-.right-section2 {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  padding-left: 800px;
-  margin-top: 40px;
+/* Toolbar (Search, Export, Filters) */
+.search-container {
+  position: relative;
 }
 
-.create-btn {
-  padding: 14px 30px;
+.search-icon {
+  position: absolute;
+  top: 8px;
+  left: 18px;
+  color: #888;
+}
+
+.search-bar {
+  padding: 8px 5px 5px 30px;
+  border: none;
   border-radius: 8px;
-  border: 1px solid;
-  background-color: #0000CD;
+  width: 300px;
+  background-color: #F5F5F5;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  padding-left: 40px;
+  padding-top: 7px;
+}
+
+.export-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #696969;
   color: white;
   cursor: pointer;
   font-size: 12px;
@@ -442,28 +412,23 @@ textarea.form-control {
   align-items: center;
   gap: 6px;
   font-weight: bold;
-  font-family: Poppins, sans-serif;
-  text-decoration: none;
 }
 
-.cancel-btn {
-  padding: 14px 30px;
+.filter-btn {
+  padding: 6px 12px;
   border-radius: 8px;
-  border: 1px solid #eaeaea;
-  background-color: #eaeaea;
-  color: #696969;
+  border: 1px solid #0000CD;
+  background-color: #FFFFFF;
+  color: mediumblue;
   cursor: pointer;
   font-size: 12px;
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-right: 18px;
   font-weight: bold;
-  font-family: Poppins, sans-serif;
-  text-decoration: none;
 }
 
-.add-btn {
+.create-btn {
   padding: 7px 12px;
   border-radius: 8px;
   border: 1px solid;
@@ -479,56 +444,161 @@ textarea.form-control {
   font-family: Poppins, sans-serif;
 }
 
-#customers {
-  font-family: Poppins, sans-serif;  
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 10px;
+.create-btn:hover {
+  background-color: #191970;
 }
 
-#customers td, #customers th {
-  border: none;
-  font-size: 12px;
+.dropdown-container {
+  position: relative; /* ini penting! agar dropdown posisi relatif terhadap tombol */
+  display: inline-block;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-  border-bottom: 1px solid #A9A9A9;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 15px;
-  padding-right: 12px;
-  text-align: left;
-  background-color: #E6E6FA;
-  color: #080808;
-}
-
-#customers td {
-  border-bottom: 1px solid #A9A9A9;
-  padding: 1px;
-  padding-left: 15px;
-  padding-right: 12px;
-  padding-bottom: 14px;
-  color: #2F4F4F;
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* muncul tepat di bawah tombol */
+  right: 0; /* agar rata kanan jika perlu */
   background-color: white;
-  padding-top: 14px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 5px 10px;
+  min-width: 150px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.btn-upload {
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  min-width: 150px;
+  text-align: left;
+}
+
+.btn-upload:hover {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+
+.export-btn:hover {
+  background-color: #2F4F4F;
+}
+
+.filter-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Filter Modal Styles */
+.filter-modal {
+  display: none;
+  right: 40px;
+  top: 80px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  z-index: 999;
+  position: absolute; 
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #A9A9A9;
+  font-family: Poppins, sans-serif;
+  color: #2F4F4F;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+  font-family: Poppins, sans-serif;
+  color: #2F4F4F;
 
 }
 
-.trash-btn {
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
+.filter-section label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.filter-section .clear-link {
+  float: right;
+  font-size: 12px;
+  color: blue;
+  text-decoration: none;
   cursor: pointer;
 }
 
-.trash-btn i {
-  color: red;
+.filter-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.filter-section select {
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+  color: #2F4F4F;
+}
+
+.reset-btn, .apply-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reset-btn {
+  background-color: white;
+  border: 1px solid #0000CD;
+  font-size: 12px;
+  color: mediumblue;
+  font-family: Poppins, sans-serif;
+}
+
+.apply-btn {
+  background-color: #0000CD;
+  color: white;
+  border: none;
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+}
+
+.close-btn {
+  background: none;
+  border: none;
   font-size: 18px;
-  text-align: center;
+  cursor: pointer;
+  color: #A9A9A9; 
+  padding: 0;
+  margin: 0;
+  line-height: 2;
 }
 
 
@@ -569,11 +639,11 @@ textarea.form-control {
   <nav>
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
-      <li><a href="{{ route('workforce.index') }}"><i class="fas fa-desktop"></i>Workforce Performance</a></li>
+      <li><a class="active" href="#wp"><i class="fas fa-desktop"></i>Workforce Performance</a></li>
       <li><a href="{{ route('dashboard.index') }}"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
       <li><a href="{{ route('employees.index') }}"><i class="fas fa-user-group"></i>Talent Management</a></li>
       <li><a href="{{ route('recruitment.index') }}"><i class="fas fa-user"></i>Recruitment Management</a></li>
-      <li><a class="active"><i class="fas fa-chart-line"></i>Training Management</a></li>
+      <li><a href="{{ route('training.index') }}"><i class="fas fa-chart-line"></i>Training Management</a></li>
       <li><a href="{{ route('djm.index') }}"><i class="fas fa-folder"></i>DJM Management</a></li>
       <h2 class="config">Configuration</h2>
       <li><a href="#user"><i class="fas fa-user"></i>User</a></li>
@@ -596,156 +666,32 @@ textarea.form-control {
             <i class="fas fa-house"></i>
           </a>
           <i class="fas fa-chevron-right breadcrumb-arrow"></i>
-          <a href="{{ route('training.index') }}" class="breadcrumb-text">Training Management</a>
-          <i class="fas fa-chevron-right breadcrumb-arrow"></i>
-          <a href="{{ url()->current() }}" class="breadcrumb-text">Create</a>
+          <a href="{{ url()->current() }}" class="breadcrumb-text">Workforce Performance</a>
         </div> 
       </div>
-      <h2 class="page-title">Create Training</h2>
+      <h2 class="page-title">Workforce Performance</h2>
+    </div>
+    <div class="right-section">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search by Name" class="search-bar" />
+      </div>
+      <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
+      <button class="filter-btn" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
+      <div class="dropdown-container">
+        <button class="create-btn" onclick="toggleCreate()"><i class="fas fa-plus"></i> Tambah</button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="{{ route('djm.create') }}">Forms</a>
+          <a href="#" onclick="openUploadModal()">Upload File</a>
+        </div>
+      </div>
     </div>
   </div>
-
-  @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Error:</strong>
-        <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-    </div>
-  @endif
-  <form action="{{ route('training.store') }}" method="POST">
-    @csrf
-        <div class="form-grid">
-        <div class="form-group">
-            <label>ID Training *</label>
-            <input type="text" name="id_training" class="form-control-read" required>
-        </div>
-
-        <div class="form-group">
-            <label>Nama Training *</label>
-            <input type="text" name="nama_training" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Deskripsi Training *</label>
-            <input type="text" name="deskripsi_training" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Tipe Training *</label>
-            <select name="tipe_training" class="form-control1" required>
-                <option disabled selected value=""></option>
-                <option value="Internal">Internal</option>
-                <option value="Eksternal">Eksternal</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Penyelenggara *</label>
-            <input type="text" name="penyelenggara" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Durasi *</label>
-            <input type="text" name="durasi" class="form-control-read" required>
-        </div>
-
-        <div class="form-group">
-            <label>Sertifikat Partisipasi</label>
-            <select name="sertifikat_partisipasi" class="form-control1" required>
-                <option disabled selected value=""></option>
-                <option value="Ada">Ada</option>
-                <option value="Tidak">Tidak Ada</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Sertifikat Pelatihan</label>
-            <select name="sertifikat_pelatihan" class="form-control1" required>
-                <option disabled selected value=""></option>
-                <option value="Ada">Ada</option>
-                <option value="Tidak">Tidak Ada</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label>Tanggal Mulai *</label>
-            <input type="datetime-local" name="tanggal_mulai" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Tanggal Selesai *</label>
-            <input type="datetime-local" name="tanggal_selesai" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Lokasi *</label>
-            <input type="text" name="lokasi" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Metode Pelatihan *</label>
-            <select name="metode_pelatihan" class="form-control1" required>
-                <option disabled selected value=""></option>
-                <option value="Online"> Online </option>
-                <option value="Offline"> Offline </option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Partisipan *</label>
-            <input type="int" name="partisipan" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label>Status *</label>
-            <input type="text" name="status" class="form-control-read" required>
-        </div>
-        </div>
-
-        <hr class="divider">
-
-        <div class="form-grid">
-            <div class="form-group">
-                <label>Biaya per Orang *</label>
-                <input type="text" name="biaya" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                <label>Total Biaya *</label>
-                <input type="text" name="total_biaya" class="form-control-read" required>
-            </div>
-        </div>
-    
-        <hr class="divider">
-
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-            <h2 class="left-section">List Of Participants</h2>
-            <div class="right-section1">
-                <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-            </div>
-        </div>
-        <table id="customers" style="margin-top: 10px;">
-            <tr>
-                <th>No</th>
-                <th>NIK</th>
-                <th>Nama</th>
-                <th>Regional/Direktorat</th>
-                <th>Nama Posisi</th>
-                <th>Email</th>
-                <th>No Telepon</th>
-                <th>Actions</th>
-            </tr>
-        </table>
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-            <div class="right-section2">
-                <a href="{{ route('training.index') }}" class="cancel-btn">Cancel</a>
-                <button type="submit" class="btn create-btn">Create</button>
-            </div>
-        </div>
-  </form>
-        
 </div>
 @endsection
+
+
+
+
+
+

@@ -48,13 +48,13 @@ body {
   top: 0;
   left: 0;
   padding: 20px;
-  height: 100%;
+  height: 100%
 }
 
 .sidebar ul {
   font-family: Poppins, sans-serif;
   font-size: 12px;
-  padding: 15px;
+  padding: 9px;
   list-style-type: none;
   margin: 0;
   width: 250px;
@@ -85,7 +85,7 @@ ul li a:hover:not(.active) {
 }
 
 .main {
-  margin-top: 15px;
+  margin-top: 25px;
   margin-bottom: 10px;
   color: #080808;
   font-size: 12px;
@@ -652,9 +652,9 @@ ul li a:hover:not(.active) {
   <nav>
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
-      <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
-      <li><a href="do"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
-      <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
+      <li><a href="{{ route('workforce.index') }}"><i class="fas fa-desktop"></i>Workforce Performance</a></li>
+      <li><a href="{{ route('dashboard.index') }}"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
+      <li><a class="active" href="#tlm"><i class="fas fa-user-group"></i>Talent Management</a></li>
       <li><a href="{{ route('recruitment.index') }}"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="{{ route('training.index') }}"><i class="fas fa-chart-line"></i>Training Management</a></li>
       <li><a href="{{ route('djm.index') }}"><i class="fas fa-folder"></i>DJM Management</a></li>

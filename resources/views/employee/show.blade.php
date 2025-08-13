@@ -1152,7 +1152,6 @@ ul li a:hover:not(.active) {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Highlight border saat dipilih */
 input[type="radio"]:checked + .emoji-option {
   border-color: #4e73df;
   background-color: #e7ecff;
@@ -1246,7 +1245,7 @@ input[type="radio"]:checked + .emoji-option {
 .timeline-group {
   position: relative;
   padding-left: 60px;
-  border-left: 3px solid #d1d5db; /* Warna garis abu */
+  border-left: 3px solid #d1d5db; 
   margin-bottom: 40px;
   margin-left: 30px;
 }
@@ -1262,7 +1261,7 @@ input[type="radio"]:checked + .emoji-option {
   position: absolute;
   left: -130px;
   top: 8px;
-  background-color: #4F46E5; /* biru ungu untuk 2023 */
+  background-color: #4F46E5; 
   color: white;
   padding: 2px 9px;
   border-radius: 10px;
@@ -1295,7 +1294,7 @@ input[type="radio"]:checked + .emoji-option {
 }
 
 .timeline-item.new::after {
-  border: 4px solid rgb(100, 149, 237); /* Sesuaikan warna per tahun */
+  border: 4px solid rgb(100, 149, 237); 
   background-color: #0000FF;
 
 }
@@ -1496,10 +1495,10 @@ input[type="radio"]:checked + .emoji-option {
   <nav>
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
-      <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
-      <li><a href="do"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
-      <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
-      <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
+      <li><a href="{{ route('workforce.index') }}"><i class="fas fa-desktop"></i>Workforce Performance</a></li>
+      <li><a href="{{ route('dashboard.index') }}"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
+      <li><a class="active" href="#tlm"><i class="fas fa-user-group"></i>Talent Management</a></li>
+      <li><a href="{{ route('recruitment.index') }}"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="#trm"><i class="fas fa-chart-line"></i>Training Management</a></li>
       <li><a href="#djm"><i class="fas fa-folder"></i>DJM Management</a></li>
       <h2 class="config">Configuration</h2>

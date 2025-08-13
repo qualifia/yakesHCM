@@ -9,9 +9,28 @@ class RecruitmentController extends Controller
 {
     public function index()
     {
-        $positions = Recruitment::all();
-        // $positions = Position::paginate(10);  
+        $positions = Position::paginate(10);
         return view('recruitment.index', compact('positions'));
+    }
+
+    public function create()
+    {
+        return view('recruitment.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'is_medical' => 'required|boolean',
+            'employment_status' => 'nullable|string',
+            'directorate' => 'nullable|string',
+            'vacancy_count' => 'required|integer',
+            'progress' => 'required|integer|min:0|max:5'
+        ]);
+
+        Position::create($request->all());
+        return redirect()->route('recruitment.index')->with('success', 'Posisi berhasil ditambahkan');
     }
 
     public function show($id)
@@ -20,8 +39,34 @@ class RecruitmentController extends Controller
         return view('recruitment.show', compact('p'));
     }
 
-    public function create()
+    public function edit($id)
     {
-        return view('recruitment.create');
+        $p = Position::findOrFail($id);
+        return view('recruitment.edit', compact('p'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'is_medical' => 'required|boolean',
+            'employment_status' => 'nullable|string',
+            'directorate' => 'nullable|string',
+            'vacancy_count' => 'required|integer',
+            'progress' => 'required|integer|min:0|max:5'
+        ]);
+
+        $p = Position::findOrFail($id);
+        $p->update($request->all());
+
+        return redirect()->route('recruitment.index')->with('success', 'Posisi berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+        $p = Position::findOrFail($id);
+        $p->delete();
+
+        return redirect()->route('recruitment.index')->with('success', 'Posisi berhasil dihapus');
     }
 }

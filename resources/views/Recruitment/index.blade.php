@@ -66,7 +66,8 @@ body {
   font-size: 12px;
   display: block;
   color: #2F4F4F;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  margin-bottom: 7px;
   text-decoration: none;
 }
 
@@ -101,6 +102,15 @@ ul li a:hover:not(.active) {
 }
 
 .menu i {
+  margin-right: 8px;
+}
+
+.home-profile {
+  border-bottom: 1px solid #A9A9A9;
+
+}
+
+.home-profile i {
   margin-right: 8px;
 }
 
@@ -366,13 +376,6 @@ ul li a:hover:not(.active) {
   padding-top: 20px;
 }
 
-.stat-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 1px;
-}
-
 /* Toolbar (Search, Export, Filters) */
 .search-container {
   position: relative;
@@ -598,224 +601,6 @@ ul li a:hover:not(.active) {
   line-height: 2;
 }
 
-.stat-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 1px;
-  margin-bottom: 10px;
-  justify-content: space-between;
-}
-
-.stat-box {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 6px;
-  min-width: 220px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  flex: 1;
-  max-width: 240px;
-  height: 80px;
-}
-
-.double-box {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 6px;
-  min-width: 300px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  flex: 1;
-  max-width: 400px;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.sub-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.icon-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 12px;
-  margin-right: 12px;
-}
-
-.purple {
-  background-color: #5c47fb;
-}
-
-.cyan {
-  background-color: #1cc7d0;
-}
-
-.pink {
-  background-color: #f73ab7;
-}
-
-.stat-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-value {
-  font-weight: bold;
-  font-size: 12px;
-  color: #222;
-  font-family: Poppins, sans-serif;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: #555;
-  font-family: Poppins, sans-serif;
-}
-
-/* Modal Wrapper */
-#uploadModal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2000;
-  font-family: Poppins, sans-serif;
-
-}
-
-/* Modal Box */
-#uploadModal .modal-content {
-  background: white;
-  top: 90px;
-  width: 700px;
-  height: 380px;
-  margin: 100px auto;
-  padding: 30px;
-  border-radius: 16px;
-  text-align: center;
-  position: relative;
-}
-
-#uploadModal .left-content1 {
-  font-family: Poppins, sans-serif;
-  font-weight: bold;
-  text-align: left;
-}
-
-#uploadModal .full-width {
-  border-style: dashed;
-  border-width: 1px;
-  border-color: #D3D3D3;
-  margin-top: 40px;
-  border-radius: 15px;
-  width: 635px;
-  height: 200px;
-}
-
-/* Close Button */
-#uploadModal .close-button {
-  position: absolute;
-  top: 30px;
-  right: 35px;
-  color: #696969;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: bold;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-}
-
-/* Form Layout */
-#uploadModal form input[type="file"] {
-  margin-bottom: 20px;
-}
-
-#uploadModal .form-buttons {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 14px;
-}
-
-#uploadModal .form-buttons button {
-  padding: 10px 125px;
-  border-radius: 10px;
-}
-
-#uploadModal .form-buttons .cancel {
-  border: 1px solid #ccc;
-  background: #eee;
-  background-color: #D3D3D3;
-  color: #696969;
-  font-weight: bold;
-}
-
-#uploadModal .form-buttons .submit {
-  border: none;
-  background-color: rgba(0, 0, 205, 0.7);
-  color: white;
-  font-weight: bold;
-}
-
-.upload-icon {
-  position: absolute;
-  top: 130px;
-  right: 330px;
-  text-align: center;
-  color: white;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 205, 0.7);
-  padding: 10px 10px;
-  cursor: pointer;
-}
-
-.label1 {
-  position: absolute;
-  top: 175px;
-  right: 295px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: Poppins, sans-serif;
-}
-
-.label2 {
-  position: absolute;
-  top: 200px;
-  right: 200px;
-  text-align: center;
-  font-size: 12px;
-  font-family: Poppins, sans-serif;
-  color: #696969;
-}
-
-.content7 {
-  display: flex;
-  width: 100%;
-  padding-right: 90px;
-  justify-content: space-between;
-  gap: 20px;
-}
 
 
 </style>
@@ -843,14 +628,23 @@ ul li a:hover:not(.active) {
       <div class="profile-email">879002@mail.com</div>
     </div>
   </div>
+
+  <nav>
+    <ul class="home-profile">
+      <li><a href="#home"><i class="fas fa-house"></i>Home</a></li>
+      <li><a href="#profile"><i class="fas fa-user"></i>My Profile</a></li>
+    </ul>
+  </nav>
+
   <nav>
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
-      <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
-      <li><a href="{{ route('employees.index') }}"><i class="fas fa-users"></i>Talent Management</a></li>
-      <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
+      <li><a href="{{ route('workforce.index') }}"><i class="fas fa-desktop"></i>Workforce Performance</a></li>
+      <li><a href="{{ route('dashboard.index') }}"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
+      <li><a href="{{ route('employees.index') }}"><i class="fas fa-user-group"></i>Talent Management</a></li>
+      <li><a class="active" href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="{{ route('training.index') }}"><i class="fas fa-chart-line"></i>Training Management</a></li>
-      <li><a class="active" href="#djm"><i class="fas fa-folder"></i>DJM Management</a></li>
+      <li><a href="{{ route('djm.index') }}"><i class="fas fa-folder"></i>DJM Management</a></li>
       <h2 class="config">Configuration</h2>
       <li><a href="#user"><i class="fas fa-user"></i>User</a></li>
       <li><a href="#role"><i class="fas fa-gear"></i>Role</a></li>
@@ -893,168 +687,10 @@ ul li a:hover:not(.active) {
       </div>
     </div>
   </div>
-
-
-  <!-- FILTER MODAL -->
-  <div class="filter-modal" id="filterModal">
-    <div class="filter-header">
-      <span>Filter</span>
-      <button class="close-btn" onclick="toggleFilter()">&times;</button>
-    </div>
-    <div class="filter-section">
-      <label>Filter Name</label>
-      <a href="#" class="clear-link">Clear</a>
-      <select>
-        <option>Select one from filter</option>
-        <option>Option A</option>
-        <option>Option B</option>
-      </select>
-    </div>
-    <div class="filter-section">
-      <label>Filter Name</label>
-      <a href="#" class="clear-link">Clear</a>
-      <select>
-        <option>Select one from filter</option>
-        <option>Option A</option>
-        <option>Option B</option>
-      </select>
-    </div>
-    <div class="filter-footer">
-      <button class="reset-btn">Reset</button>
-      <button class="apply-btn">Apply</button>
-    </div>
-  </div>
-  
-  <table id="djm-table" class="display" style="margin-top: 10px;">
-    <tr>
-        <th>No</th>
-        <th>Kode DJM</th>
-        <th>Nama Posisi</th>
-        <th>Regional/Direktorat</th>
-        <th>Band Posisi</th>
-        <th>Actions</th>
-    </tr>
-    @foreach ($d_j_m_s as $djm)
-      <tr>
-        <td>{{ $loop->iteration }}</td>
-        <td>{{ $djm->kode_djm }}</td>
-        <td>{{ $djm->namaPosisi }}</td>
-        <td>{{ $djm->regionalDirektorat }}</td>
-        <td>{{ $djm->posisi }}</td>
-        <td>
-          <div class="dropdown-action">
-            <button class="horizontal-dots" onclick="toggleActions()">&#x22EF;</button>
-            <div class="dropdown-action-content" id="dropdownActions">
-              <a href="{{ route('djm.show', $djm->id) }}" class="dropdown-action-detail">Detail</a><br>
-              <a href="{{ route('djm.edit', $djm->id) }}" class="dropdown-action-edit">Edit</a><br>
-              <form action="{{ route('djm.destroy', $djm->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="dropdown-action-hapus">Delete</button>
-              </form>
-            </div>
-          </div>
-        </td>
-      </tr>
-    @endforeach
-  </table>
-
-  <!-- Modal Upload File -->
-  <div id="uploadModal">
-    <div class="modal-content">
-      <div class="content1">
-        <div class="left-content1">
-          <h3>Tambah Data DJM</h3>
-        </div>
-      
-        <div class="right-content1">
-          <button onclick="closeUploadModal()" class="close-button">
-            <i class="fas fa-circle-xmark"></i>
-          </button>
-        </div>
-      </div>
-      <div class="full-width">
-        <form action="{{ route('djm.upload') }}" method="POST" enctype="multipart/form-data">
-          @csrf
-
-          <!-- Hidden file input -->
-          <input type="file" name="file" id="fileUpload" style="display: none;" required onchange="this.form.submit()">
-
-          <!-- Icon upload sebagai label -->
-          <label for="fileUpload" class="upload-icon">
-            <i class="fas fa-upload"></i>
-          </label>
-          <div class="label1">Upload Data DJM</div>
-          <div class="label2">Klik atau seret file ke area ini untuk mengunggah</div>
-        </form>
-      </div>
-
-      <div class="form-buttons">
-          <button type="button" class="cancel" onclick="closeUploadModal()">Cancel</button>
-          <button type="submit" class="submit">Tambah</button>
-      </div>
-    </div>
-  </div>
-
-  
-  
-
 </div>
 @endsection
 
-<script>
-function toggleFilter() {
-  const modal = document.getElementById("filterModal");
-  modal.style.display = modal.style.display === "block" ? "none" : "block";
-}
-</script>
 
-<script>
-function toggleCreate() {
-  const menu = document.getElementById("dropdownMenu");
-  menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-</script>
-
-<script>
-function toggleActions() {
-  const menu = document.getElementById("dropdownActions");
-  menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-</script>
-
-<script>
-$(document).ready(function () {
-    $('#djm-table').DataTable({
-        "pageLength": 10, // jumlah data per halaman
-        "lengthMenu": [10, 25, 50, 100],
-        "pagingType": "full_numbers", // ini penting agar muncul tombol: << < 1 2 3 > >>
-        "language": {
-            "lengthMenu": "Show _MENU_ entries of _TOTAL_ entries",
-            "zeroRecords": "Data tidak ditemukan",
-            "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
-            "infoEmpty": "Tidak ada data tersedia",
-            "infoFiltered": "(difilter dari total _MAX_ entri)",
-            "search": "Search by Name:",
-            "paginate": {
-                "first": "<<",
-                "last": ">>",
-                "next": ">",
-                "previous": "<"
-            }
-        }
-    });
-});
-</script>
-
-<script>
-  function openUploadModal() {
-    document.getElementById("uploadModal").style.display = "block";
-  }
-  function closeUploadModal() {
-    document.getElementById("uploadModal").style.display = "none";
-  }
-</script>
 
 
 
