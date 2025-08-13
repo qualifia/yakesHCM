@@ -25,5 +25,10 @@ class Employee extends Model
         'agama',
         'status_perkawinan',
         'alamat_domisili',
+        'no_telepon',
+        'level_pendidikan',
+        'jurusan',
+        'institusi_pendidikan',
+        'tahun_lulus',
     ];
 }

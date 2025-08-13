@@ -65,7 +65,8 @@ body {
   font-size: 12px;
   display: block;
   color: #2F4F4F;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  margin-bottom: 7px;
   text-decoration: none;
 }
 
@@ -100,6 +101,15 @@ ul li a:hover:not(.active) {
 }
 
 .menu i {
+  margin-right: 8px;
+}
+
+.home-profile {
+  border-bottom: 1px solid #A9A9A9;
+
+}
+
+.home-profile i {
   margin-right: 8px;
 }
 
@@ -504,10 +514,19 @@ ul li a:hover:not(.active) {
       <div class="profile-email">879002@mail.com</div>
     </div>
   </div>
+
+  <nav>
+    <ul class="home-profile">
+      <li><a href="#home"><i class="fas fa-house"></i>Home</a></li>
+      <li><a href="#profile"><i class="fas fa-user"></i>My Profile</a></li>
+    </ul>
+  </nav>
+
   <nav>
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
       <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
+      <li><a href="#do"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
       <li><a href="{{ route('employees.index') }}"><i class="fas fa-users"></i>Talent Management</a></li>
       <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="{{ route('training.index') }}"><i class="fas fa-chart-line"></i>Training Management</a></li>

@@ -66,7 +66,8 @@ body {
   font-size: 12px;
   display: block;
   color: #2F4F4F;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  margin-bottom: 7px;
   text-decoration: none;
 }
 
@@ -103,6 +104,16 @@ ul li a:hover:not(.active) {
 .menu i {
   margin-right: 8px;
 }
+
+.home-profile {
+  border-bottom: 1px solid #A9A9A9;
+
+}
+
+.home-profile i {
+  margin-right: 8px;
+}
+
 
 .sidebar .logo {
   display: flex; /* Mengaktifkan flexbox */
@@ -1476,9 +1487,17 @@ input[type="radio"]:checked + .emoji-option {
     </div>
   </div>
   <nav>
+    <ul class="home-profile">
+      <li><a href="#home"><i class="fas fa-house"></i>Home</a></li>
+      <li><a href="#profile"><i class="fas fa-user"></i>My Profile</a></li>
+    </ul>
+  </nav>
+
+  <nav>
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
       <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
+      <li><a href="do"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
       <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
       <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="#trm"><i class="fas fa-chart-line"></i>Training Management</a></li>
@@ -1530,7 +1549,7 @@ input[type="radio"]:checked + .emoji-option {
             <div class="contact-info">
                 <p class="contact">Contacts</p>
                 <p class="email">E-mail : {{ $employee->email }}</p>
-                <p class="telp">Nomor Telepon : +62821 8471 0490</p>
+                <p class="telp">Nomor Telepon : {{ $employee->no_telepon }}</p>
             </div>
         </div>
   </div>
@@ -1623,14 +1642,16 @@ input[type="radio"]:checked + .emoji-option {
         <div class="left-content3">
             <h4 class="content-info3">Informasi Pendidikan</h4>
             <p class="info1">Level Pendidikan</p>
-            <p class="info2">Bachelor's Degree of Public Health</p>
-            <p class="info1">Tahun Lulus</p>
-            <p class="info2">2010</p>
+            <p class="info2">{{ $employee->level_pendidikan }}</p>
+            <p class="info1">Institusi Pendidikan</p>
+            <p class="info2">{{ $employee->institusi_pendidikan }}</p>
         </div>
         <div class="right-content3">
             <h4 class="content-info3"></h4>
-            <p class="info1">Institusi Pendidikan</p>
-            <p class="info2">Universitas Indonesia</p>
+            <p class="info1">Jurusan</p>
+            <p class="info2">{{ $employee->jurusan }}</p>
+            <p class="info1">Tahun Lulus</p>
+            <p class="info2">{{ $employee->tahun_lulus }}</p>
         </div>
     </div>
   </div>

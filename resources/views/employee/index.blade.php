@@ -48,13 +48,13 @@ body {
   top: 0;
   left: 0;
   padding: 20px;
-  height: 100%
+  height: 100%;
 }
 
 .sidebar ul {
   font-family: Poppins, sans-serif;
   font-size: 12px;
-  padding: 9px;
+  padding: 15px;
   list-style-type: none;
   margin: 0;
   width: 250px;
@@ -65,7 +65,8 @@ body {
   font-size: 12px;
   display: block;
   color: #2F4F4F;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  margin-bottom: 7px;
   text-decoration: none;
 }
 
@@ -84,7 +85,7 @@ ul li a:hover:not(.active) {
 }
 
 .main {
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 10px;
   color: #080808;
   font-size: 12px;
@@ -100,6 +101,15 @@ ul li a:hover:not(.active) {
 }
 
 .menu i {
+  margin-right: 8px;
+}
+
+.home-profile {
+  border-bottom: 1px solid #A9A9A9;
+
+}
+
+.home-profile i {
   margin-right: 8px;
 }
 
@@ -606,7 +616,9 @@ ul li a:hover:not(.active) {
 
 <div class="navbar">
     <div class="left-info">
-        <div class="navbar-name" >Hello, Satria Hadi</div>
+      @foreach($employees as $employee)
+        <div class="navbar-name" >Hello, {{ $employee->name }}</div>
+      @endforeach
         <div class="navbar-date">{{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}</div>
     </div>
 </div>
@@ -622,14 +634,26 @@ ul li a:hover:not(.active) {
   <div class="profile">
     <img src="https://cdn0-production-images-kly.akamaized.net/-1pYFvsXgXGWz-U3Ybxqnc_mDfk=/1280x1706/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/5202248/original/037743300_1745894554-ChatGPT_Image_Apr_29__2025__09_26_56_AM.jpg" alt="profile_picture">
     <div class="profile-info">
-      <div class="profile-name">Satria Hadi</div>
-      <div class="profile-email">879002@mail.com</div>
+      @foreach($employees as $employee)
+        <div class="profile-name">{{ $employee->name }}</div>
+        <div class="profile-email">{{ $employee->email }}</div>
+      @endforeach
+
     </div>
   </div>
+
+  <nav>
+    <ul class="home-profile">
+      <li><a href="#home"><i class="fas fa-house"></i>Home</a></li>
+      <li><a href="#profile"><i class="fas fa-user"></i>My Profile</a></li>
+    </ul>
+  </nav>
+
   <nav>
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
       <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
+      <li><a href="do"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
       <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
       <li><a href="{{ route('recruitment.index') }}"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="{{ route('training.index') }}"><i class="fas fa-chart-line"></i>Training Management</a></li>

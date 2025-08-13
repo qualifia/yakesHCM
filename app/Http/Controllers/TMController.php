@@ -41,6 +41,10 @@ class TMController extends Controller
     public function update(Request $request, $id) {
 
         $validated = $request->validate([
+            'nik' => 'required',
+            'name'=> 'required', 
+            'tanggal_lahir' => 'required', 
+            'email' => 'required', 
             'no_ktp' => 'required',
             'jenis_kelamin' => 'required',
             'ttl' => 'required',
@@ -49,12 +53,17 @@ class TMController extends Controller
             'agama' => 'required',
             'status_perkawinan' => 'required',
             'alamat_domisili' => 'required',
+            'no_telepon' => 'required',
+            'level_pendidikan' => 'required',
+            'jurusan' => 'required',
+            'institusi_pendidikan' => 'required',
+            'tahun_lulus' => 'required',
         ]);
     
         $employee = Employee::findOrFail($id);
         $employee->update($validated);
     
-        return redirect()->route('employees.index')->with('success', 'Data berhasil diupdate!');   
+        return redirect()->route('employees.show')->with('success', 'Data berhasil diupdate!');   
     }
 
     public function downloadPayslip($filename) {

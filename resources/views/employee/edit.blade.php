@@ -66,7 +66,8 @@ body {
   font-size: 12px;
   display: block;
   color: #2F4F4F;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  margin-bottom: 7px;
   text-decoration: none;
 }
 
@@ -101,6 +102,15 @@ ul li a:hover:not(.active) {
 }
 
 .menu i {
+  margin-right: 8px;
+}
+
+.home-profile {
+  border-bottom: 1px solid #A9A9A9;
+
+}
+
+.home-profile i {
   margin-right: 8px;
 }
 
@@ -943,10 +953,19 @@ label {
       <div class="profile-email">879002@mail.com</div>
     </div>
   </div>
+
+  <nav>
+    <ul class="home-profile">
+      <li><a href="#home"><i class="fas fa-house"></i>Home</a></li>
+      <li><a href="#profile"><i class="fas fa-user"></i>My Profile</a></li>
+    </ul>
+  </nav>
+
   <nav>
     <ul class="menu">
       <h1 class="main">Main Menu</h1>
       <li><a href="#wp"><i class="fas fa-computer"></i>Workforce Performance</a></li>
+      <li><a href="do"><i class="fas fa-file-lines"></i>Dashboard Outsource</a></li>
       <li><a class="active" href="#tlm"><i class="fas fa-users"></i>Talent Management</a></li>
       <li><a href="#rm"><i class="fas fa-user"></i>Recruitment Management</a></li>
       <li><a href="#trm"><i class="fas fa-chart-line"></i>Training Management</a></li>
@@ -992,200 +1011,193 @@ label {
 
   </div>
 
-  <div class="tab-content" id="profile">
+  <div class="tab-content" id="profile" style="display: none;">
     <div class="content1" >
-        <div class="left-content">
-            <h4 class="content-info">Informasi Pribadi</h4>
-        </div>
-        <div class="right-content">
-          <div class="container">
-            <button class="arrowDown-btn" onclick="toggleContent('myContent', this)">
-              <i class="fas fa-chevron-down"></i>
-            </button>
-          </div>
-            <div class="content2" id="myContent">
-              <form action="{{ route('employees.update', $employee->id) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <div class="form-grid">
-                    <div class="form-group">
-                        <div class="label-group">
-                          <label>Nama</label>
-                        </div>
-                        <input type="text" name="nama" class="form-control" required>
-                    </div>
-
-                    <div class="form-group1">
-                        <div class="label-group">
-                          <label>NIK</label>
-                        </div>
-                        <input type="text" name="nik" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label-group">
-                          <label>E-mail</label>
-                        </div>
-                        <input type="text" name="email" class="form-control" required>
-                    </div>
-
-                    <div class="form-group1">
-                        <div class="label-group">
-                          <label>Nomor Telepon</label>
-                        </div>
-                        <input type="text" name="telpon" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label-group">
-                          <label>Nomor KTP</label>
-                        </div>
-                        <input type="text" name="ktp" class="form-control" required>
-                    </div>
-
-                    <div class="form-group1">
-                        <div class="label-group">
-                          <label>Nomor NPWP</label>
-                        </div>
-                        <input type="text" name="npwp" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label-group">
-                          <label>Jenis Kelamin</label>
-                        </div>
-                        <select name="jenisKelamin" class="form-control1" required>
-                            <option disabled selected value=""></option>
-                            <option value="Laki Laki">Laki-Laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group1">
-                        <div class="label-group">
-                          <label>Agama</label>
-                        </div>
-                        <select name="agama" class="form-control1" required>
-                            <option disabled selected value=""></option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Buddha">Buddha</option>
-                            <option value="Konghucu">Konghucu</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label-group">
-                          <label>Tempat, Tanggal Lahir</label>
-                        </div>
-                        <input type="text" name="ttl" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group1">
-                        <div class="label-group">
-                          <label>Status Perkawinan</label>
-                        </div>
-                        <select name="perkawinan" class="form-control1" required>
-                            <option disabled selected value=""></option>
-                            <option value="Belum Kawin">Belum Kawin</option>
-                            <option value="Kawin">Kawin</option>
-                            <option value="Cerai Hidup">Cerai Hidup</option>
-                            <option value="Cerai Mati">Cerai Mati</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label-group">
-                          <label>Alamat Rumah Sesuai KTP</label>
-                        </div>
-                        <input type="text" name="alamatKTP" class="form-control" required>
-                    </div>
-
-                    <div class="form-group1">
-                        <div class="label-group">
-                          <label>Alamat Domisili</label>
-                        </div>
-                        <input type="text" name="alamatDom" class="form-control" required>
-                    </div>
-                </div>
-              </form>
-            </div>
-        </div>
+      <div class="left-content">
+        <h4 class="content-info">Informasi Pribadi</h4>
+      </div>
+      <div class="right-content">
+        <button class="arrowDown-btn">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
     </div>
+    <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+      @csrf
+      @method('PUT')
+      <div class="form-grid">
+          <div class="form-group">
+            <div class="label-group">
+              <label>Nama</label>
+            </div>
+            <input type="text" name="name" class="form-control" value="{{ $employee->name }}" required>
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>NIK</label>
+            </div>
+            <input type="text" name="nik" class="form-control" value="{{ $employee->nik }}" required>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>E-mail</label>
+            </div>
+            <input type="text" name="email" class="form-control" value="{{ $employee->email }}" required>
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Nomor Telepon</label>
+            </div>
+            <input type="text" name="no_telepon" class="form-control" value="{{ $employee->no_telepon }}" required>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>Nomor KTP</label>
+            </div>
+            <input type="text" name="no_ktp" class="form-control" value="{{ $employee->no_ktp }}" required>
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Nomor NPWP</label>
+            </div>
+            <input type="text" name="no_npwp" class="form-control" value="{{ $employee->no_npwp }}" required>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>Jenis Kelamin</label>
+            </div>
+            <select name="jenis_kelamin" class="form-control1" value="{{ $employee->jenis_kelamin }}" required>
+              <option disabled selected value=""></option>
+              <option value="Laki Laki">Laki-Laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>          
+          </div>
+          
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Agama</label>
+            </div>
+            <select name="agama" class="form-control1" value="{{ $employee->agama }}" required>
+              <option disabled selected value=""></option>
+              <option value="Islam">Islam</option>
+              <option value="Kristen">Kristen</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Buddha">Buddha</option>
+              <option value="Konghucu">Konghucu</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>Tempat, Tanggal Lahir</label>
+            </div>
+            <input type="text" name="ttl" class="form-control" value="{{ $employee->ttl }}" required>
+          </div>
+          
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Status Perkawinan</label>
+            </div>
+            <select name="status_perkawinan" class="form-control1" value="{{ $employee->status_perkawinan }}" required>
+              <option disabled selected value=""></option>
+              <option value="Kawin">Kawin</option>
+              <option value="Belum Kawin">Belum Kawin</option>
+              <option value="Cerai Hidup">Cerai Hidup</option>
+              <option value="Cerai Mati">Cerai Mati</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>Alamat Rumah Sesuai KTP</label>
+            </div>
+            <textarea name="alamat_ktp" class="form-control" rows="2" value="{{ $employee->alamat_ktp }}" required></textarea>
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Alamat Domisili</label>
+            </div>
+            <textarea name="alamat_domisili" class="form-control" rows="2" value="{{ $employee->alamat_domisili }}" required></textarea>
+          </div>
+      </div>
+    </form>
 
     <hr class="divider">
 
-    <div class="content3" >
-        <div class="left-content1">
-            <h4 class="content-info">Informasi Pendidikan</h4>
-        </div>
-        <div class="right-content1">
-          <div class="container">
-            <button class="arrowDown-btn" onclick="toggleContent('myContent1', this)">
-              <i class="fas fa-chevron-down"></i>
-            </button>
-          </div>
-            <div class="content4" id="myContent1">
-              <form action="{{ route('employees.update', $employee->id) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <div class="form-grid">
-                    <div class="form-group">
-                        <div class="label-group">
-                          <label>Level Pendidikan</label>
-                        </div>
-                        <select name="levelPendidikan" class="form-control1" required>
-                            <option disabled selected value=""></option>
-                            <option value="D3">D3</option>
-                            <option value="D4">D4</option>
-                            <option value="S1">S1</option>
-                            <option value="S2">S2</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group1">
-                        <div class="label-group">
-                          <label>Jurusan</label>
-                        </div>
-                        <select name="jurusan" class="form-control1" required>
-                            <option disabled selected value=""></option>
-                            <option value="Public Health">Public Health</option>
-                            <option value="blablabla">blablabla</option>
-                            <option value="claclacla">claclacla</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label-group">
-                          <label>Institut Pendidikan</label>
-                        </div>
-                        <select name="pendidikan" class="form-control1" required>
-                            <option disabled selected value=""></option>
-                            <option value="Universitas Indonesia">Universitas Indonesia</option>
-                            <option value="Institut Teknologi Bandung">Institut Teknologi Bandung</option>
-                            <option value="Universitas Gajah Mada">Universitas Gajah Mada</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group1">
-                        <div class="label-group">
-                          <label>Tahun Lulus</label>
-                        </div>
-                        <input type="month" name="tahunLulus" class="form-control" /><br><br>
-                    </div>
-                </div>
-              </form>
-            </div>
-        </div>
+    <div class="content1" >
+      <div class="left-content">
+        <h4 class="content-info">Informasi Pendidikan</h4>
+      </div>
+      <div class="right-content">
+        <button class="arrowDown-btn">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
     </div>
+    <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+      @csrf
+      @method('PUT')
+      <div class="form-grid">
+          <div class="form-group">
+            <div class="label-group">
+              <label>Level Pendidikan</label>
+            </div>
+            <select name="level_pendidikan" class="form-control1" value="{{ $employee->level_pendidikan }}" required>
+              <option disabled selected value=""></option>
+              <option value="D3/D4">D3/D4</option>
+              <option value="S1">S1</option>
+              <option value="S2">S2</option>
+              <option value="S3">S3</option>
+            </select>          
+          </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Jurusan</label>
+            </div>
+            <select name="jurusan" class="form-control1" value="{{ $employee->jurusan }}" required>
+              <option disabled selected value=""></option>
+              <option value="Public Health">Public Health</option>
+              <option value="blablabla">blablabla</option>
+              <option value="claclacla">claclacla</option>
+              <option value="dladladla">dladladla</option>
+            </select>          
+          </div>
+
+          <div class="form-group">
+            <div class="label-group">
+              <label>Institusi Pendidikan</label>
+            </div>
+            <select name="institusi_pendidikan" class="form-control1" value="{{ $employee->institusi_pendidikan }}" required>
+              <option disabled selected value=""></option>
+              <option value="UI">Universitas Indonesia</option>
+              <option value="UGM">Universitas Gajah Mada</option>
+              <option value="ITB">Institut Teknologi Bandung</option>
+            </select>          
+          </div>
+
+          <div class="form-group1">
+            <div class="label-group">
+              <label>Tahun Lulus</label>
+            </div>
+            <input type="month" name="tahun_lulus" class="form-control" value="{{ $employee->tahun_lulus }}" required>
+          </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
         <div class="right-section2">
           <a href="{{ route('employees.show', $employee->id) }}" class="cancel-btn">Cancel</a>
           <button type="submit" class="btn save-btn">Save</button>
         </div>
-    </div>
+      </div>
+    </form>
+
   </div>
 
   <div class="tab-content" id="keluarga" style="display: none;">
