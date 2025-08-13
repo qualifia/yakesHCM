@@ -165,7 +165,7 @@ textarea.form-control {
                     <div class="label-group">
                         <label>NIK/Username</label>
                     </div>
-                    <input type="text" name="username" class="form-control" placeholder="Masukkan NIK/Username Anda" required>
+                    <input type="text" name="email" class="form-control" placeholder="Masukkan NIK/Username Anda" required>
                 </div>
 
                 <div class="form-group">
