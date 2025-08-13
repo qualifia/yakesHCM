@@ -1465,7 +1465,7 @@ input[type="radio"]:checked + .emoji-option {
 
 <div class="navbar">
     <div class="left-info">
-        <div class="navbar-name" >Hello, Satria Hadi!</div>
+        <div class="navbar-name" >Hello, {{ $employee->name }}</div>
         <div class="navbar-date">{{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}</div>
     </div>
 </div>
@@ -1482,8 +1482,8 @@ input[type="radio"]:checked + .emoji-option {
   <div class="profile">
     <img src="https://cdn0-production-images-kly.akamaized.net/-1pYFvsXgXGWz-U3Ybxqnc_mDfk=/1280x1706/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/5202248/original/037743300_1745894554-ChatGPT_Image_Apr_29__2025__09_26_56_AM.jpg" alt="profile_picture">
     <div class="profile-info">
-      <div class="profile-name">Satria Hadi</div>
-      <div class="profile-email">879002@mail.com</div>
+        <div class="profile-name">{{ $employee->name }}</div>
+        <div class="profile-email">{{ $employee->email }}</div>
     </div>
   </div>
   <nav>
