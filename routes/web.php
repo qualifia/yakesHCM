@@ -101,8 +101,10 @@ Route::get('/recruitment/{id}', [RecruitmentController::class, 'show'])->name('r
 /* DASHBOARD OUTSOURCE */
 
 //Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+
 Route::middleware(['auth'])->group(function(){
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 });
 
 
