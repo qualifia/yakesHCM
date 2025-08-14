@@ -14,7 +14,6 @@ class TMController extends Controller
     }
 
     public function show(Employee $employee) {
-
         $payslips = [
             ['filename' => '2024-Jan.pdf', 'date' => '28 Januari 2024'],
             ['filename' => '2024-Feb.pdf', 'date' => '28 Februari 2024'],
@@ -63,8 +62,9 @@ class TMController extends Controller
     
         $employee = Employee::findOrFail($id);
         $employee->update($validated);
-    
-        return redirect()->route('employees.show')->with('success', 'Data berhasil diupdate!');   
+
+        return redirect()->route('employee.show', $employee->id)
+                         ->with('success', 'Data berhasil diupdate!');    
     }
 
     public function downloadPayslip($filename) {
@@ -75,9 +75,5 @@ class TMController extends Controller
         return response()->download($file);
     }
     
-    // public function downloadPayslip($id) {
-        // $employee = Employee::findOrFail($id);
-        // $file = storage_path('app/payslips/'. $employee->payslip_file);
-        // return response()->download($file);
-    // }
+    
 }

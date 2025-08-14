@@ -697,10 +697,25 @@ label {
 
 .right-section2 {
   display: flex;
+  justify-content: flex-end; /* dorong ke kanan */
+  margin-top: 40px;
+  width: 100%;
+  padding-left: 820px;
+
+  /*
+  display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding-left: 820px;
-  margin-top: 40px;
+  margin-top: 40px; */
+}
+
+.right-section3 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 820px;
+  margin-top: 40px; 
 }
 
 .save-btn {
@@ -1127,23 +1142,20 @@ label {
             <textarea name="alamat_domisili" class="form-control" rows="2" value="{{ $employee->alamat_domisili }}" required></textarea>
           </div>
       </div>
-    </form>
 
-    <hr class="divider">
+      <hr class="divider">
 
-    <div class="content1" >
-      <div class="left-content">
-        <h4 class="content-info">Informasi Pendidikan</h4>
+      <div class="content1" >
+        <div class="left-content">
+          <h4 class="content-info">Informasi Pendidikan</h4>
+        </div>
+        <div class="right-content">
+          <button class="arrowDown-btn">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
       </div>
-      <div class="right-content">
-        <button class="arrowDown-btn">
-          <i class="fas fa-chevron-down"></i>
-        </button>
-      </div>
-    </div>
-    <form action="{{ route('employees.update', $employee->id) }}" method="POST">
-      @csrf
-      @method('PUT')
+    
       <div class="form-grid">
           <div class="form-group">
             <div class="label-group">
@@ -1188,16 +1200,14 @@ label {
               <label>Tahun Lulus</label>
             </div>
             <input type="month" name="tahun_lulus" class="form-control" value="{{ $employee->tahun_lulus }}" required>
-          </div>
+          </div>   
       </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-        <div class="right-section2">
-          <a href="{{ route('employees.show', $employee->id) }}" class="cancel-btn">Cancel</a>
-          <button type="submit" class="btn save-btn">Save</button>
-        </div>
+      
+      <div class="right-section2">
+        <a href="{{ route('employees.show', $employee->id) }}" class="cancel-btn">Cancel</a>
+        <button type="submit" class="btn save-btn">Save</button>
       </div>
     </form>
-
   </div>
 
   <div class="tab-content" id="keluarga" style="display: none;">
@@ -1338,7 +1348,7 @@ label {
       </table>    
       
       <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-        <div class="right-section2">
+        <div class="right-section3">
           <a href="{{ route('employees.show', $employee->id) }}" class="cancel-btn">Cancel</a>
           <button type="submit" class="btn save-btn">Save</button>
         </div>
@@ -1366,7 +1376,7 @@ label {
       </table>   
       
       <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
-        <div class="right-section2">
+        <div class="right-section3">
           <a href="{{ route('employees.show', $employee->id) }}" class="cancel-btn">Cancel</a>
           <button type="submit" class="btn save-btn">Save</button>
         </div>
@@ -1375,14 +1385,12 @@ label {
 
   <div class="tab-content" id="karir" style="display: none;">
     <div class="content5" >
-      <div class="left-content">
-        <h4 class="content-info">Informasi Pasangan</h4>
-      </div>
-      <div class="right-content">
-        <button class="arrowDown-btn">
-          <i class="fas fa-chevron-down"></i>
-        </button>
-      </div>
+        <div class="left-content">
+          <h4 class="content-info">Aktivitas Karir</h4>
+        </div>
+        <div class="right-content3">
+          <a href="#" class="add-btn" onclick="openAddClusterModal()"><i class="fas fa-plus"></i>Tambah</a>
+        </div>
     </div>
   </div>
 

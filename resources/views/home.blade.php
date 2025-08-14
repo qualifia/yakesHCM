@@ -277,7 +277,7 @@ ul li a:hover:not(.active) {
 
   <nav>
     <ul class="home-profile">
-      <li><a href="#home"><i class="fas fa-house"></i>Home</a></li>
+      <li><a class="active" href="#home"><i class="fas fa-house"></i>Home</a></li>
       <li><a href="#profile"><i class="fas fa-user"></i>My Profile</a></li>
     </ul>
   </nav>

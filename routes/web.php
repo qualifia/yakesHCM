@@ -69,6 +69,8 @@ Route::put('/employees/{id}', [TMController::class, 'update'])->name('employees.
 Route::get('/employees/payslip/download/{filename}', [TMController::class, 'downloadPayslip'])->name('employees.payslip.download');
 
 
+
+
 /* TRAINING MANAGEMENT */
 
 Route::get('/training', [TrainingController::class, 'index'])->name('training.index');
