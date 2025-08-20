@@ -1458,6 +1458,157 @@ input[type="radio"]:checked + .emoji-option {
 .plus-btn1:hover {
   background-color: #191970;
 }
+
+/* MODAL CLUSTER */
+/* Modal Wrapper */
+#addClusterModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  font-family: Poppins, sans-serif;
+
+}
+
+/* Modal Box */
+#addClusterModal .modal-content {
+  background: white;
+  top: 50px;
+  width: 760px;
+  height: 360px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+}
+
+#addClusterModal .left-content11 {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+
+#addClusterModal .full-width {
+  border-radius: 15px;
+  width: 635px;
+  height: 200px;
+}
+
+/* Close Button */
+#addClusterModal .close-button {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  color: #696969;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+/* Form Layout */
+#addClusterModal form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+#addClusterModal .form-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+#addClusterModal .form-buttons button {
+  padding: 10px 140px;
+  border-radius: 10px;
+}
+
+#addClusterModal .form-buttons .cancel {
+  border: 1px solid #ccc;
+  background: #eee;
+  background-color: #D3D3D3;
+  color: #696969;
+  font-weight: bold;
+}
+
+#addClusterModal .form-buttons .submit {
+  border: none;
+  background-color: rgba(0, 0, 205, 0.7);
+  color: white;
+  font-weight: bold;
+}
+
+.bintang {
+  color: red;
+}
+
+.form-grid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 360px);
+  gap: 24px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  padding-top: 35px;
+}
+
+.form-group2 {
+  display: flex;
+  flex-direction: column;
+  margin-right: 35px;
+}
+
+.form-group3 {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+  padding-left: -80px;
+}
+
+.fully-width {
+  grid-column: span 2;
+  gap: 6px; 
+  margin-top: -40px;
+}
+
+.label-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.form-control1 {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
   
 
 </style>
@@ -1730,7 +1881,7 @@ input[type="radio"]:checked + .emoji-option {
           <input type="text" placeholder="Cari berdasarkan nama" class="search-bar" />
         </div>
         <button class="filter-btn1" onclick="toggleFilter()"><i class="fas fa-sliders"></i> Filters</button>
-        <button class="plus-btn1" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
+        <button class="plus-btn1" onclick="openAddClusterModal()"><i class="fas fa-plus"></i>Tambah</button>
       </div>
     </div>
     <table id="customers1" style="margin-top: 10px;">
@@ -1974,6 +2125,68 @@ input[type="radio"]:checked + .emoji-option {
       </div>
     </div>
   </div>
+
+
+  <!-- CLUSTER MODAL -->
+  <div id="addClusterModal">
+    <div class="modal-content">
+      <div class="content11">
+        <div class="left-content11">
+          <h3>Tambah Penilaian Talent Cluster</h3>
+        </div>
+      
+        <div class="right-content11">
+          <button onclick="closeAddClusterModal()" class="close-button">
+            <i class="fas fa-circle-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="full-width">
+        <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+          @csrf
+          @method('PUT')
+          <div class="form-grid1">
+            <div class="form-group2">
+              <div class="label-group">
+                <label>Periode</label>
+              </div>
+              <select name="periodeCluster" class="form-control1"  required>
+                <option disabled selected value=""></option>
+                <option value="Q1">Q1</option>
+                <option value="Q2">Q2</option>
+                <option value="Q3">Q3</option>
+                <option value="Q4">Q4</option>
+              </select>
+            </div>
+
+            <div class="form-group3">
+              <div class="label-group">
+                <label>Tahun</label>
+              </div>
+              <input type="month" name="tahunCluster" class="form-control" /><br><br>
+            </div>
+
+            <div class="form-group2 fully-width">
+              <div class="label-group">
+                <label>Talent Cluster</label>
+                <label class="bintang">*</label>
+              </div>
+              <select name="talentCluster" class="form-control1" required>
+                <option disabled selected value=""></option>
+                <option value="Potential Employee">Potential Employee</option>
+                <option value="Promotable Employee">Promotable Employee</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <div class="form-buttons">
+          <button type="button" class="cancel" onclick="closeAddClusterModal()">Cancel</button>
+          <button type="submit" class="submit">Tambah</button>
+      </div>
+    </div>
+  </div>
   
   <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -2171,3 +2384,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 </script>
 
+<script>
+  function openAddClusterModal() {
+    document.getElementById("addClusterModal").style.display = "block";
+  }
+  function closeAddClusterModal() {
+    document.getElementById("addClusterModal").style.display = "none";
+  }
+</script>

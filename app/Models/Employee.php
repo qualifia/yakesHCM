@@ -31,4 +31,9 @@ class Employee extends Model
         'institusi_pendidikan',
         'tahun_lulus',
     ];
+
+    public function CareerActivity() {
+        return $this->hasMany(CareerActivity::class, 'employee_id');
+    }
+
 }

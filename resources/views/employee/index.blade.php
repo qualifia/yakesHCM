@@ -37,8 +37,8 @@ body {
 }
 
 .navbar-date {
-  font-size: 0.7em; /* Memperkecil ukuran email */
-  color: #2F4F4F; /* Mengubah warna email */
+  font-size: 0.7em; 
+  color: #2F4F4F; 
 }
 
 .sidebar {

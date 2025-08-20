@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\CareerActivity;
+
 
 class TMController extends Controller
 {
@@ -34,8 +36,10 @@ class TMController extends Controller
 
     public function edit($id) {
         $employee = Employee::findOrFail($id);
-        return view('employee.edit', compact ('employee'));
-    
+        $career = CareerActivity::where('employee_id', $id)->get();
+
+        return view('employee.edit', compact('employee', 'career'));
+
     }
 
     public function update(Request $request, $id) {
@@ -75,5 +79,59 @@ class TMController extends Controller
         return response()->download($file);
     }
     
-    
+
+    public function getCareerActivities($employee_id) {
+        $employee = Employee::with('careerActivities')->findOrFail($employee_id);
+        return view('employee.career', compact('employee'));
+    }
+
+    public function storeCareerActivity(Request $request, $employee_id) {
+        $validated = $request->validate([
+            'role_name' => 'required',
+            'unit' => 'required',
+            'band' => 'required',
+            'description' => 'required',
+            'start_date' => 'required|date',
+            'document_sk' => 'nullable|file|mimes:pdf,jpg,png|max:2048'
+        ]);
+
+        if ($request->hasFile('document_sk')) {
+            $validated['document_sk'] = $request->file('document_sk')->store('career_docs');
+        }
+
+        $validated['employee_id'] = $employee_id;
+
+        CareerActivity::create($validated);
+
+        return back()->with('success', 'Aktivitas Karir berhasil ditambahkan');
+    }
+
+    public function updateCareerActivity(Request $request, $id) {
+        $career = CareerActivity::findOrFail($id);
+
+        $validated = $request->validate([
+            'role_name' => 'required',
+            'unit' => 'required',
+            'band' => 'required',
+            'description' => 'required',
+            'start_date' => 'required|date',
+            'document_sk' => 'nullable|file|mimes:pdf,jpg,png|max:2048'
+        ]);
+
+        if ($request->hasFile('document_sk')) {
+            $validated['document_sk'] = $request->file('document_sk')->store('career_docs');
+        }
+
+        $career->update($validated);
+
+        return back()->with('success', 'Aktivitas Karir berhasil diupdate');
+    }
+
+    public function deleteCareerActivity($id) {
+        $career = CareerActivity::findOrFail($id);
+        $career->delete();
+
+        return back()->with('success', 'Aktivitas Karir berhasil dihapus');
+    }
+
 }

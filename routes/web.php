@@ -68,6 +68,12 @@ Route::get('/employees/{employee}/edit', [TMController::class, 'edit'])->name('e
 Route::put('/employees/{id}', [TMController::class, 'update'])->name('employees.update');
 Route::get('/employees/payslip/download/{filename}', [TMController::class, 'downloadPayslip'])->name('employees.payslip.download');
 
+Route::get('/employee/{id}/career', [TMController::class, 'getCareerActivities'])->name('employee.career');
+Route::post('/employee/{id}/career', [TMController::class, 'storeCareerActivity'])->name('employee.career.store');
+Route::put('/career/{id}', [TMController::class, 'updateCareerActivity'])->name('career.update');
+Route::delete('/career/{id}', [TMController::class, 'deleteCareerActivity'])->name('career.delete');
+
+
 
 
 

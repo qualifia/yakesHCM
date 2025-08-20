@@ -3,6 +3,7 @@
 
 @section('content')
 
+
 <style>
 /* SIDEBAR STYLE */
 body {
@@ -943,6 +944,187 @@ label {
   color: red;
 }
 
+.timeline {
+  border-left: 2px solid #ccc;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.timeline-item {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background-color: #0d6efd;
+  border-radius: 50%;
+}
+
+#tambahAktivitasModal {
+  display: none;
+  position: fixed;
+  top: -50px;
+  left: -150px;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  font-family: Poppins, sans-serif;
+}
+
+#tambahAktivitasModal .modal-content {
+  background: white;
+  top: 50px;
+  width: 780px;
+  height: 700px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+}
+
+#tambahAktivitasModal .left-content6 {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+
+#tambahAktivitasModal .full-width {
+  border-radius: 15px;
+  width: 635px;
+  height: 200px;
+}
+
+/* Close Button */
+#tambahAktivitasModal .close-button {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  color: #696969;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+/* Form Layout */
+#tambahAktivitasModal form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+#tambahAktivitasModal .form-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+#tambahAktivitasModal .form-buttons button {
+  padding: 10px 140px;
+  border-radius: 10px;
+}
+
+#tambahAktivitasModal .form-buttons .cancel {
+  border: 1px solid #ccc;
+  background: #eee;
+  background-color: #D3D3D3;
+  color: #696969;
+  font-weight: bold;
+}
+
+#tambahAktivitasModal .form-buttons .submit {
+  border: none;
+  background-color: rgba(0, 0, 205, 0.7);
+  color: white;
+  font-weight: bold;
+}
+
+#tambahAktivitasModal .form-grid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 360px);
+  gap: 15px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+#tambahAktivitasModal .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#tambahAktivitasModal .label-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#tambahAktivitasModal .label {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+
+#tambahAktivitasModal .form-control {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+#tambahAktivitasModal .form-control1 {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+#tambahAktivitasModal .right-section2 {
+  display: flex;
+  justify-content: flex-end; /* dorong ke kanan */
+  margin-top: 100px;
+  width: 100%;
+  padding-left: 620px;
+}
+
+.edit-btn {
+  padding: 6px 20px;
+  border-radius: 8px;
+  border: 1px solid #0000CD;
+  background-color: #FFFFFF;
+  color: mediumblue;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  height: 35px;
+  width: 90px;
+}
+
+.export-btn:hover {
+  background-color: #2F4F4F;
+}
+
+.edit-btn:hover {
+  background-color: #f0f0f0;
+}
+
 </style>
 
 <div class="navbar">
@@ -1372,8 +1554,7 @@ label {
           <th>Cluster</th>
           <th>Actions</th>
         </tr>
-        
-      </table>   
+    </table>   
       
       <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
         <div class="right-section3">
@@ -1384,6 +1565,10 @@ label {
   </div>
 
   <div class="tab-content" id="karir" style="display: none;">
+    @include('employee.partials.aktivitas_karir', ['career' => $career, 'employee' => $employee])
+
+
+    <!--
     <div class="content5" >
         <div class="left-content">
           <h4 class="content-info">Aktivitas Karir</h4>
@@ -1391,7 +1576,8 @@ label {
         <div class="right-content3">
           <a href="#" class="add-btn" onclick="openAddClusterModal()"><i class="fas fa-plus"></i>Tambah</a>
         </div>
-    </div>
+    </div> 
+    -->
   </div>
 
   <div class="tab-content" id="dokumen" style="display: none;">
