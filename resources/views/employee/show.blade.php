@@ -179,14 +179,9 @@ ul li a:hover:not(.active) {
   font-family: Poppins, sans-serif;
 }
 
-.badge-profile, .badge-keluarga, .badge-cluster {
+.badge-profile, .badge-keluarga, .badge-cluster, .badge-pelatihan, .badge-payroll, .badge-karir, .badge-dokumen {
   background-color: rgba(245, 40, 145, 0.15);
   color: deeppink;
-}
-
-.badge-pelatihan, .badge-payroll, .badge-karir, .badge-dokumen {
-  background-color: rgb(124, 252, 0, 0.15); 
-  color: LimeGreen;
 }
 
 .position, .directorate {
@@ -501,7 +496,7 @@ ul li a:hover:not(.active) {
     padding-top: 20px;
 }
 
-.left-content2, .left-content3, .left-content6, .left-content8 {
+.left-content2, .left-content3, .left-content8 {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -555,7 +550,7 @@ ul li a:hover:not(.active) {
     padding-left: 80px;
 }
 
-.left-content7 {
+.left-content6, .left-content7 {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -2030,7 +2025,7 @@ label {
               <h4 class="role-title">Nama Role Sekarang</h4>
               <p class="sub-info">Maret 2023 - Sekarang (3 Tahun 1 Bulan) • Nama Direktorat • Band Level V</p>
               <p class="promo-date">Tanggal Promosi: 1 Maret 2023</p>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+              <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus error eveniet culpa eos cupiditate doloribus impedit aliquid saepe aut nobis, consequuntur ex fuga consectetur quasi dolorum eum. Blanditiis, quibusdam incidunt?</p>
             </div>
         </div>
         <div class="timeline-item old">
@@ -2039,7 +2034,7 @@ label {
             <h4 class="role-title1">PJ Role ABC</h4>
             <p class="sub-info">Januari 2020 - Februari 2023 (3 Tahun 2 Bulan) • Nama Direktorat • Band Level V</p>
             <p class="promo-date">Tanggal Menjadi PJ: 3 Feb 2021</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium illo alias ut impedit nihil eum molestias cupiditate eligendi numquam! Quae ex non quis autem esse! Eveniet nemo culpa porro nisi!</p>
           </div>
         </div>
         <div class="timeline-item old">
@@ -2048,7 +2043,7 @@ label {
             <h4 class="role-title1">Staff Posisi ABC</h4>
             <p class="sub-info">Januari 2011 - Desember 2020 (8 Tahun 11 Bulan) • Nama Direktorat • Band Level V</p>
             <p class="promo-date">Tanggal Karyawan Tetap: 1 Januari 2011</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ad reprehenderit nesciunt cumque iste accusantium, eligendi quidem dolorum. Impedit facilis molestias quibusdam. Earum laborum ea, eligendi molestias in eos error.</p>
           </div>
         </div>
       </div>
@@ -2070,7 +2065,7 @@ label {
             <h4 class="role-title1">Role Pekerjaan Sebelumnya</h4>
             <p class="sub-info">PT Nama Perusahaan</p>
             <p class="promo-date">April 2010 - Desember 2010 (9 Bulan)</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id adipisci eligendi animi ad ipsa alias officiis veritatis! Perferendis veniam voluptates, omnis porro, architecto mollitia laudantium laborum rerum rem vel assumenda.</p>
           </div>
         </div>
         <div class="timeline-item old">
@@ -2079,7 +2074,7 @@ label {
             <h4 class="role-title1">Role Pekerjaan Sebelumnya</h4>
             <p class="sub-info">PT Nama Perusahaan</p>
             <p class="promo-date">Januari 2010 - Maret 2010 (3 Bulan)</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum soluta quaerat at accusamus repudiandae consequatur eum ut perferendis blanditiis dicta laboriosam rem incidunt hic iste itaque quidem vitae, deleniti possimus.</p>
           </div>
         </div>
       </div>
@@ -2298,19 +2293,19 @@ function showTab(tabId) {
         badge.classList.add('badge-keluarga');
         break;
       case 'pelatihan':
-        badge.textContent = 'Permanent';
+        badge.textContent = 'Karyawan Tetap';
         badge.classList.add('badge-pelatihan');
         break;
       case 'payroll':
-        badge.textContent = 'Permanent';
+        badge.textContent = 'Karyawan Tetap';
         badge.classList.add('badge-payroll');
         break;
       case 'karir':
-        badge.textContent = 'Permanent';
+        badge.textContent = 'Karyawan Tetap';
         badge.classList.add('badge-karir');
         break;
       case 'dokumen':
-        badge.textContent = 'Permanent';
+        badge.textContent = 'Karyawan Tetap';
         badge.classList.add('badge-dokumen');
         break;
       default:

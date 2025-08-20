@@ -370,7 +370,7 @@ ul li a:hover:not(.active) {
   display: flex;
 }
 
-.content1, .content3, .content5, .content6 {
+.content1, .content3, .content5, .content6, .content7{
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -387,6 +387,18 @@ ul li a:hover:not(.active) {
     word-break: break-word;
     word-wrap: break-word;
     width: 50%; 
+}
+
+.left-content7 {
+    margin-top: 5px;
+    display: flex;
+    gap: 3px;
+    align-items: left;
+    flex-direction: column;
+    font-family: Poppins, sans-serif;
+    word-break: break-word;
+    word-wrap: break-word;
+    width: 250px;
 }
 
 .left-content1 {
@@ -432,6 +444,14 @@ ul li a:hover:not(.active) {
     gap: 3px;
     padding-top: 20px;
     margin-left: 820px;
+}
+
+.right-content7 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 20px;
+    margin-left: 650px;
 }
 
 .content-info {
@@ -972,9 +992,10 @@ label {
   top: -50px;
   left: -150px;
   width: 100%;
-  height: 100%;
   z-index: 2000;
   font-family: Poppins, sans-serif;
+  min-height: unset; /* Biar tetap tinggi meski tanpa isi */
+  max-width: 100%;
 }
 
 #tambahAktivitasModal .modal-content {
@@ -993,6 +1014,7 @@ label {
   font-family: Poppins, sans-serif;
   font-weight: bold;
   text-align: left;
+  margin-top: 10px;
 }
 
 #tambahAktivitasModal .full-width {
@@ -1004,7 +1026,8 @@ label {
 /* Close Button */
 #tambahAktivitasModal .close-button {
   position: absolute;
-  top: 30px;
+  display: flex;
+  top: 35px;
   right: 35px;
   color: #696969;
   border-radius: 50%;
@@ -1023,8 +1046,49 @@ label {
   margin-bottom: 20px;
 }
 
+#tambahAktivitasModal .form-grid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 370px);
+  gap: 25px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+}
+
+#tambahAktivitasModal .form-group {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+}
+
+#tambahAktivitasModal .label-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#tambahAktivitasModal .form-grid1 .label {
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+
+#tambahAktivitasModal .form-control {
+  padding: 12px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+#tambahAktivitasModal .form-control1 {
+  padding: 12px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
 #tambahAktivitasModal .form-buttons {
-  margin-top: 40px;
+  margin-top: 230px;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -1051,79 +1115,24 @@ label {
   font-weight: bold;
 }
 
-#tambahAktivitasModal .form-grid1 {
-  display: grid;
-  grid-template-columns: repeat(2, 360px);
-  gap: 15px;
-  font-family: Poppins, sans-serif;
-  font-weight: normal;
-  font-size: 14px;
-}
-
-#tambahAktivitasModal .form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-#tambahAktivitasModal .label-group {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-#tambahAktivitasModal .label {
-  font-size: 14px;
-  font-weight: normal;
-  margin-bottom: 6px;
-}
-
-#tambahAktivitasModal .form-control {
-  padding: 12px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: white;
-}
-
-#tambahAktivitasModal .form-control1 {
-  padding: 12px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: white;
-}
-
-#tambahAktivitasModal .right-section2 {
-  display: flex;
-  justify-content: flex-end; /* dorong ke kanan */
-  margin-top: 100px;
-  width: 100%;
-  padding-left: 620px;
-}
-
-.edit-btn {
+#tambahAktivitasModal .addInfo-btn {
   padding: 6px 20px;
   border-radius: 8px;
-  border: 1px solid #0000CD;
-  background-color: #FFFFFF;
-  color: mediumblue;
+  border: 1px solid #0000FF;
+  background-color: white;
+  color: #0000FF;
   cursor: pointer;
-  font-size: 12px;
   display: flex;
   align-items: center;
   gap: 6px;
-  font-weight: bold;
-  height: 35px;
-  width: 90px;
+  font-weight: 500;
+  height: 32px;
+  width: 230px;
+  font-size: 14px;
+  margin-right: 50px;
+  
 }
 
-.export-btn:hover {
-  background-color: #2F4F4F;
-}
-
-.edit-btn:hover {
-  background-color: #f0f0f0;
-}
 
 </style>
 
@@ -1567,29 +1576,22 @@ label {
   <div class="tab-content" id="karir" style="display: none;">
     @include('employee.partials.aktivitas_karir', ['career' => $career, 'employee' => $employee])
 
+    <hr class="divider">
 
-    <!--
-    <div class="content5" >
-        <div class="left-content">
-          <h4 class="content-info">Aktivitas Karir</h4>
+    <div class="content7" >
+        <div class="left-content7">
+          <h4 class="content-info">Histori Pekerjaan Sebelumnya</h4>
         </div>
-        <div class="right-content3">
-          <a href="#" class="add-btn" onclick="openAddClusterModal()"><i class="fas fa-plus"></i>Tambah</a>
+        <div class="right-content7">
+          <a href="#" class="add-btn"><i class="fas fa-plus"></i>Tambah</a>
         </div>
     </div> 
-    -->
+   
   </div>
 
   <div class="tab-content" id="dokumen" style="display: none;">
     <div class="content5" >
-      <div class="left-content">
-        <h4 class="content-info">Informasi Pasangan</h4>
-      </div>
-      <div class="right-content">
-        <button class="arrowDown-btn">
-          <i class="fas fa-chevron-down"></i>
-        </button>
-      </div>
+        <h4 class="content-info">Dokumen Personal</h4>
     </div>
   </div>
 
@@ -1832,4 +1834,34 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeAddClusterModal() {
     document.getElementById("addClusterModal").style.display = "none";
   }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      let count = 0;
+
+      document.getElementById("addFieldBtn").addEventListener("click", function () {
+          count++;
+
+          let field = `
+              <div class="mb-3" id="field_${count}">
+                  <label>Informasi Lain ${count}</label>
+                  <input type="text" name="informasi_lain[]" class="form-control" placeholder="Masukkan informasi lain">
+                  <button type="button" class="btn btn-sm btn-danger mt-2 remove-field" data-id="${count}">
+                      Hapus
+                  </button>
+              </div>
+          `;
+
+          document.getElementById("extraFields").insertAdjacentHTML("beforeend", field);
+      });
+
+      // Event delegation untuk hapus field
+      document.getElementById("extraFields").addEventListener("click", function(e) {
+          if (e.target.classList.contains("remove-field")) {
+              let id = e.target.getAttribute("data-id");
+              document.getElementById("field_" + id).remove();
+          }
+      });
+  });
 </script>

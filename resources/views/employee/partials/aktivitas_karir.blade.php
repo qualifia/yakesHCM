@@ -85,6 +85,9 @@
                 </div>
                 
                 <div class="right-content6">
+                    <div id="extraFields"></div>
+                    <a href="#" class="addInfo-btn" id="addFieldBtn"><i class="fas fa-plus"></i>Tambah Informasi Lain</a>
+
                     <button data-bs-dismiss="modal" class="close-button">
                         <i class="fas fa-circle-xmark"></i>
                     </button>
@@ -94,6 +97,7 @@
                 <div class="form-group">
                     <div class="label-group">
                         <label>Nama Role</label>
+                        <label class="bintang">*</label>
                     </div>
                     <input type="text" name="name" class="form-control" required>
                 </div>
@@ -101,8 +105,56 @@
                 <div class="form-group">
                     <div class="label-group">
                         <label>Regional/Direktorat</label>
+                        <label class="bintang">*</label>
                     </div>
                     <select name="regional_direktorat" class="form-control1"  required>
+                        <option disabled selected value=""></option>
+                        <option value="blablabla">blablabla</option>
+                        <option value="claclacla">claclacla</option>
+                        <option value="dladladla">dladladla</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-group">
+                        <label>Unit/Sub Direktorat</label>
+                        <label class="bintang">*</label>
+                    </div>
+                    <select name="unitSub" class="form-control1"  required>
+                        <option disabled selected value=""></option>
+                        <option value="blablabla">blablabla</option>
+                        <option value="claclacla">claclacla</option>
+                        <option value="dladladla">dladladla</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-group">
+                        <label>Band</label>
+                        <label class="bintang">*</label>
+                    </div>
+                    <select name="band" class="form-control1"  required>
+                        <option disabled selected value=""></option>
+                        <option value="blablabla">blablabla</option>
+                        <option value="claclacla">claclacla</option>
+                        <option value="dladladla">dladladla</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-group">
+                        <label>Deskripsi</label>
+                        <label class="bintang">*</label>
+                    </div>
+                    <input type="text" name="deskripsi" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-group">
+                        <label>Status PJ</label>
+                        <label class="bintang">*</label>
+                    </div>
+                    <select name="statusPJ" class="form-control1"  required>
                         <option disabled selected value=""></option>
                         <option value="blablabla">blablabla</option>
                         <option value="claclacla">claclacla</option>
@@ -121,10 +173,44 @@
                 </div>
                 -->
             </div>
-            <div class="right-section2">
-                <button class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn save-btn">Save</button>
+            <div class="form-buttons">
+                <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="submit">Tambah</button>
             </div>
+            
         </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="infoLainModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Pilih Informasi Tambahan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <form id="extraInfoForm">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="kdmp" id="infoKdmp">
+                <label class="form-check-label" for="infoKdmp">Tanggal KDMP</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="bandTerakhir" id="infoBand">
+                <label class="form-check-label" for="infoBand">Tanggal Band Posisi Terakhir</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="dokumenSk" id="infoSk">
+                <label class="form-check-label" for="infoSk">Dokumen SK</label>
+            </div>
+            <!-- tambahkan pilihan lain sesuai kebutuhan -->
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" id="saveExtraInfo" class="btn btn-primary">Simpan</button>
+        </div>
+        </div>
     </div>
 </div>
