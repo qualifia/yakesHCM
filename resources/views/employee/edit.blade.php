@@ -904,11 +904,6 @@ label {
   text-align: left;
 }
 
-#addClusterModal .full-width {
-  border-radius: 15px;
-  width: 635px;
-  height: 200px;
-}
 
 /* Close Button */
 #addClusterModal .close-button {
@@ -933,7 +928,7 @@ label {
 }
 
 #addClusterModal .form-buttons {
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -989,25 +984,25 @@ label {
 #tambahAktivitasModal {
   display: none;
   position: fixed;
-  top: -50px;
-  left: -150px;
-  width: 100%;
+  top: 80px;
+  left: -170px;
   z-index: 2000;
   font-family: Poppins, sans-serif;
-  min-height: unset; /* Biar tetap tinggi meski tanpa isi */
-  max-width: 100%;
+  width: 100%;  /*Atau width: max-content; */
+  max-width: 100%;  /*Batasi lebar maksimum */
 }
 
 #tambahAktivitasModal .modal-content {
   background: white;
-  top: 50px;
   width: 780px;
-  height: 700px;
-  margin: 100px auto;
+  max-height: 90vh; /* biar responsif */
+  overflow-y: auto; /* bisa scroll kalau konten banyak */
+  margin: auto;
   padding: 30px;
   border-radius: 16px;
-  text-align: center;
-  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 #tambahAktivitasModal .left-content6 {
@@ -1088,15 +1083,16 @@ label {
 }
 
 #tambahAktivitasModal .form-buttons {
-  margin-top: 230px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   gap: 20px;
   font-size: 14px;
+  position: sticky;
 }
 
 #tambahAktivitasModal .form-buttons button {
-  padding: 10px 140px;
+  padding: 10px 145px;
   border-radius: 10px;
 }
 
@@ -1130,7 +1126,116 @@ label {
   width: 230px;
   font-size: 14px;
   margin-right: 50px;
-  
+}
+
+#extraFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 kolom */
+  gap: 25px; /* jarak antar kolom */
+  margin-top: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 370px);
+  gap: 25px;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+}
+
+
+#infoModal {
+  z-index: 2100; /* modal popup kecil di atas modal utama */
+  position: fixed; 
+  top: 525px; 
+  left: 920px; 
+  transform: translate(-50%, -50%);
+  width: 230px; /* kecil saja */
+}
+
+#infoModal .modal-content {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2); /* shadow di sini */
+}
+
+#infoModal .form-check-label {
+  font-family: Poppins, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  margin-top: 4px;
+}
+
+#infoModal .info-option {
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+}
+
+#infoModal .buttons1 {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  position: sticky;
+  gap: 5px;
+}
+
+#infoModal .buttons1 button {
+  padding: 6px 25px;
+  border-radius: 8px;
+}
+
+#infoModal .buttons1 .cancel1 {
+  border: 1px solid #ccc;
+  background: #eee;
+  background-color: #D3D3D3;
+  color: #696969;
+  font-weight: bold;
+}
+
+#infoModal  .buttons1 .simpan1 {
+  border: none;
+  background-color: rgba(0, 0, 205, 0.7);
+  color: white;
+  font-weight: bold;
+}
+
+.file-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  padding: 5px 15px;
+}
+
+.file-text {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 12px;
+  color: #666;
+  font-weight: normal;
+  margin-left: -10px;
+}
+
+.file-text:focus {
+  outline: none;
+}
+
+.file-btn {
+  background-color: rgba(0, 0, 205, 0.7);
+  color: #fff;
+  padding: 5px 8px;
+  font-size: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 6px;
+  margin-top: 5px;
+  margin-left: 80px;
+}
+
+.file-btn:hover {
+  background-color: rgba(0, 0, 205);
 }
 
 
@@ -1836,32 +1941,154 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 </script>
 
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-      let count = 0;
+      const saveBtn = document.getElementById("saveInfo");
+      const openInfoBtn = document.getElementById("openInfo");
+      const infoModalEl = document.getElementById('infoModal');
+      const infoModal = new bootstrap.Modal(infoModalEl, { backdrop: false });
 
-      document.getElementById("addFieldBtn").addEventListener("click", function () {
-          count++;
+      openInfoBtn.addEventListener("click", function () {
+            infoModal.show();
+      });
 
-          let field = `
-              <div class="mb-3" id="field_${count}">
-                  <label>Informasi Lain ${count}</label>
-                  <input type="text" name="informasi_lain[]" class="form-control" placeholder="Masukkan informasi lain">
-                  <button type="button" class="btn btn-sm btn-danger mt-2 remove-field" data-id="${count}">
-                      Hapus
-                  </button>
+      // Mapping checkbox value ke field input
+      const fieldTemplates = {
+          "Tanggal KDMP": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal KDMP <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_kdmp" class="form-control" required>
               </div>
-          `;
+          `,
 
-          document.getElementById("extraFields").insertAdjacentHTML("beforeend", field);
-      });
+          "Tanggal TKWT": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal TKWT <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_tkwt" class="form-control" required>
+              </div>
+          `,
 
-      // Event delegation untuk hapus field
-      document.getElementById("extraFields").addEventListener("click", function(e) {
-          if (e.target.classList.contains("remove-field")) {
-              let id = e.target.getAttribute("data-id");
-              document.getElementById("field_" + id).remove();
-          }
+          "Tanggal Akhir TKWT": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal Akhir TKWT <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_akhir_tkwt" class="form-control" required>
+              </div>
+          `,
+
+          "Tanggal Mutasi": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal Mutasi <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_mutasi" class="form-control" required>
+              </div>
+          `,
+
+          "Tanggal PJ": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal PJ <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_pj" class="form-control" required>
+              </div>
+          `,
+
+          "Tanggal Lepas PJ": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal Lepas PJ <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_lepas_pj" class="form-control" required>
+              </div>
+          `,
+
+          "Tanggal Band Posisi Terakhir": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal Band Posisi Terakhir <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_band_terakhir" class="form-control" required>
+              </div>
+          `,
+
+          "Tanggal Pensiun": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal Pensiun <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_pensiun" class="form-control" required>
+              </div>
+          `,
+
+          "Tanggal Akhir Kontrak": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Tanggal Akhir Kontrak <span class="bintang">*</span></label>
+                  </div>
+                  <input type="date" name="tanggal_akhir_kontrak" class="form-control" required>
+              </div>
+          `,
+
+          "Dokumen SK": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Dokumen SK <span class="bintang">*</span></label>
+                  </div>
+                  <div class="file-input">
+                    <input type="file" name="dokumen_sk" id="dokumen_sk" hidden>
+                    <input type="text" class="file-text" id="dokumen_sk_text" placeholder="Tambahkan file" readonly>
+                    <label for="dokumen_sk" class="file-btn">Select File</label>
+                  </div>
+
+              </div>
+          `,
+
+          "Dokumen Nota Dinas": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Dokumen Nota Dinas <span class="bintang">*</span></label>
+                  </div>
+                  <input type="file" name="dokumen_nota_dinas" class="form-control">
+              </div>
+          `,
+
+          "Dokumen Lainnya": `
+              <div class="form-group">
+                  <div class="label-group">
+                      <label>Dokumen Lainnya <span class="bintang">*</span></label>
+                  </div>
+                  <input type="file" name="dokumen_lainnya" class="form-control">
+              </div>
+          `
+      };
+
+      saveBtn.addEventListener("click", function () {
+          const extraFields = document.getElementById("extraFields");
+          extraFields.innerHTML = ""; // reset dulu
+
+          document.querySelectorAll(".info-option:checked").forEach((checkbox) => {
+              if (fieldTemplates[checkbox.value]) {
+                  extraFields.insertAdjacentHTML("beforeend", fieldTemplates[checkbox.value]);
+              }
+          });
+
+          infoModal.hide(); // tutup popup kecil
       });
+  });
+</script>
+
+
+<script>
+  document.getElementById("dokumen_sk").addEventListener("change", function() {
+      const fileName = this.files.length ? this.files[0].name : "";
+      document.getElementById("dokumen_sk_text").value = fileName;
   });
 </script>

@@ -1185,14 +1185,9 @@ input[type="radio"]:checked + .emoji-option {
     margin-left: 20px;
     margin-bottom: 30px;
     font-size: 14px;
+    font-weight: bold;
 }
 
-.right-section9 {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-left: 400px;
-}
 
 .content9 {
   display: flex;
@@ -1213,14 +1208,10 @@ input[type="radio"]:checked + .emoji-option {
     margin-left: 20px;
     margin-bottom: 30px;
     font-size: 14px;
+    font-weight: bold;
+
 }
 
-.right-section10 {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-left: 100px;
-}
 
 .timeline-container {
   position: relative;
@@ -2013,9 +2004,6 @@ label {
   <div class="tab-content" id="karir" style="display: none;">
     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
         <h2 class="left-section9">Aktivitas Karir</h2>
-        <div class="right-section9">
-          <button class="plus-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
-        </div>
     </div>
     <div class="timeline-container">
       <div class="timeline-group">
@@ -2053,9 +2041,6 @@ label {
 
     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
         <h2 class="left-section10">Histori Pekerjaan Sebelumnya</h2>
-        <div class="right-section10">
-          <button class="plus-btn" onclick="toggleFilter()"><i class="fas fa-plus"></i>Tambah</button>
-        </div>
     </div>
     <div class="timeline-container1">
       <div class="timeline-group">

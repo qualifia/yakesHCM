@@ -16,9 +16,12 @@
             <div class="timeline">
                 @foreach($career as $item)
                     <div class="timeline-item">
-                        <h6>{{ $item->judul }}</h6>
+                        <h6>{{ $item->nama_role }}</h6>
+                        <small>{{ $item->tanggalBand }}</small>
+                        <small>{{ $item->regional_direktorat }}</small>
+                        <small>{{ $item->band_posisi }}</small>
+                        <small>{{ $item->tanggalKDMP }}</small>
                         <p>{{ $item->deskripsi }}</p>
-                        <small>{{ $item->tanggal }}</small>
                         <div class="mt-2">
                             <a  data-bs-toggle="modal" data-bs-target="#editAktivitasModal{{ $item->id }}" class="edit-btn"><i class="fas fa-pen"></i>Edit</a>
                             <form action="{{ route('career.delete', $item->id) }}" method="POST" class="d-inline">
@@ -85,8 +88,10 @@
                 </div>
                 
                 <div class="right-content6">
-                    <div id="extraFields"></div>
-                    <a href="#" class="addInfo-btn" id="addFieldBtn"><i class="fas fa-plus"></i>Tambah Informasi Lain</a>
+
+                    <a href="javascript:void(0)" class="addInfo-btn" id="openInfo">
+                        <i class="fas fa-plus"></i>Tambah Informasi Lain
+                    </a>
 
                     <button data-bs-dismiss="modal" class="close-button">
                         <i class="fas fa-circle-xmark"></i>
@@ -99,7 +104,7 @@
                         <label>Nama Role</label>
                         <label class="bintang">*</label>
                     </div>
-                    <input type="text" name="name" class="form-control" required>
+                    <input type="text" name="nama_role" class="form-control" required>
                 </div>
 
                 <div class="form-group">
@@ -133,9 +138,9 @@
                         <label>Band</label>
                         <label class="bintang">*</label>
                     </div>
-                    <select name="band" class="form-control1"  required>
+                    <select name="band_posisi" class="form-control1"  required>
                         <option disabled selected value=""></option>
-                        <option value="blablabla">blablabla</option>
+                        <option value="band level V">Band Level V</option>
                         <option value="claclacla">claclacla</option>
                         <option value="dladladla">dladladla</option>
                     </select>
@@ -161,17 +166,9 @@
                         <option value="dladladla">dladladla</option>
                     </select>
                 </div>
-                
-                <!--
-                <div class="mb-3">
-                    <label for="tanggal" class="form-label">Tanggal</label>
-                    <input type="date" name="tanggal" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="sk_file" class="form-label">Upload SK</label>
-                    <input type="file" name="sk_file" class="form-control">
-                </div>
-                -->
+
+                <div id="extraFields"></div>
+
             </div>
             <div class="form-buttons">
                 <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
@@ -183,34 +180,62 @@
 </div>
 
 
-<div class="modal fade" id="infoLainModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">Pilih Informasi Tambahan</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-            <form id="extraInfoForm">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="kdmp" id="infoKdmp">
-                <label class="form-check-label" for="infoKdmp">Tanggal KDMP</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="bandTerakhir" id="infoBand">
-                <label class="form-check-label" for="infoBand">Tanggal Band Posisi Terakhir</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="dokumenSk" id="infoSk">
-                <label class="form-check-label" for="infoSk">Dokumen SK</label>
-            </div>
-            <!-- tambahkan pilihan lain sesuai kebutuhan -->
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" id="saveExtraInfo" class="btn btn-primary">Simpan</button>
-        </div>
-        </div>
+<div class="modal fade" id="infoModal">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggalKDMP" value="Tanggal KDMP" id="info1">
+        <label class="form-check-label" for="info1">Tanggal KDMP</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggalTKWT" value="Tanggal TKWT" id="info2">
+        <label class="form-check-label" for="info2">Tanggal TKWT</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggal_akhirTKWT" value="Tanggal Akhir TKWT" id="info3">
+        <label class="form-check-label" for="info3">Tanggal Akhir TKWT</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggal_mutasi" value="Tanggal Mutasi" id="info4">
+        <label class="form-check-label" for="info4">Tanggal Mutasi</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggalPJ" value="Tanggal PJ" id="info5">
+        <label class="form-check-label" for="info5">Tanggal PJ</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggal_lepasPJ" value="Tanggal Lepas PJ" id="info6">
+        <label class="form-check-label" for="info6">Tanggal Lepas PJ</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggalBand" value="Tanggal Band Posisi Terakhir" id="info7">
+        <label class="form-check-label" for="info7">Tanggal Band Posisi Terakhir</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggal_pensiun" value="Tanggal Pensiun" id="info8">
+        <label class="form-check-label" for="info8">Tanggal Pensiun</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="tanggal_akhir_kontrak" value="Tanggal Akhir Kontrak" id="info9">
+        <label class="form-check-label" for="info9">Tanggal Akhir Kontrak</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="dokumenSK" value="Dokumen SK" id="info10">
+        <label class="form-check-label" for="info10">Dokumen SK</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="dokumen_nota_dinas" value="Dokumen Nota Dinas" id="info11">
+        <label class="form-check-label" for="info11">Dokumen Nota Dinas</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input info-option" type="checkbox" name="dokumen_lainnya" value="Dokumen Lainnya" id="info12">
+        <label class="form-check-label" for="info12">Dokumen Lainnya</label>
+      </div>
+
+      <div class="buttons1">
+        <button type="button" class="cancel1" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="simpan1" id="saveInfo">Simpan</button>
+      </div>
     </div>
+  </div>
 </div>

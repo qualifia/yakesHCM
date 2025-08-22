@@ -87,16 +87,32 @@ class TMController extends Controller
 
     public function storeCareerActivity(Request $request, $employee_id) {
         $validated = $request->validate([
-            'role_name' => 'required',
-            'unit' => 'required',
-            'band' => 'required',
-            'description' => 'required',
-            'start_date' => 'required|date',
-            'document_sk' => 'nullable|file|mimes:pdf,jpg,png|max:2048'
+            'nama_role' => 'required',
+            'unitSub' => 'required',
+            'band_posisi' => 'required',
+            'regional_direktorat' => 'required',
+            'deskripsi' => 'required',
+            'statusPJ' => 'required',
+            'tanggalKDMP' => 'required|date',
+            'tanggalBand' => 'required|date',
+            'tanggalTKWT' => 'required|date',
+            'tanggal_akhirTKWT' => 'required|date',
+            'tanggal_mutasi' => 'required|date',
+            'tanggalPJ' => 'required|date',
+            'tanggal_lepasPJ' => 'required|date',
+            'tanggal_pensiun' => 'required|date',
+            'tanggal_akhir_kontrak' => 'required|date',
+            'dokumenSK' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+            'dokumen_nota_dinas' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+            'dokumen_lainnya' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+
         ]);
 
         if ($request->hasFile('document_sk')) {
-            $validated['document_sk'] = $request->file('document_sk')->store('career_docs');
+            $validated['dokumenSK'] = $request->file('dokumenSK')->store('career_docs');
+            $validated['dokumen_nota_dinas'] = $request->file('dokumen_nota_dinas')->store('career_docs');
+            $validated['dokumen_lainnya'] = $request->file('dokumen_lainnya')->store('career_docs');
+
         }
 
         $validated['employee_id'] = $employee_id;
@@ -110,16 +126,31 @@ class TMController extends Controller
         $career = CareerActivity::findOrFail($id);
 
         $validated = $request->validate([
-            'role_name' => 'required',
-            'unit' => 'required',
-            'band' => 'required',
-            'description' => 'required',
-            'start_date' => 'required|date',
-            'document_sk' => 'nullable|file|mimes:pdf,jpg,png|max:2048'
+            'nama_role' => 'required',
+            'unitSub' => 'required',
+            'band_posisi' => 'required',
+            'regional_direktorat' => 'required',
+            'deskripsi' => 'required',
+            'statusPJ' => 'required',
+            'tanggalKDMP' => 'required|date',
+            'tanggalBand' => 'required|date',
+            'tanggalTKWT' => 'required|date',
+            'tanggal_akhirTKWT' => 'required|date',
+            'tanggal_mutasi' => 'required|date',
+            'tanggalPJ' => 'required|date',
+            'tanggal_lepasPJ' => 'required|date',
+            'tanggal_pensiun' => 'required|date',
+            'tanggal_akhir_kontrak' => 'required|date',
+            'dokumenSK' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+            'dokumen_nota_dinas' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+            'dokumen_lainnya' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
         ]);
 
         if ($request->hasFile('document_sk')) {
-            $validated['document_sk'] = $request->file('document_sk')->store('career_docs');
+            $validated['dokumenSK'] = $request->file('dokumenSK')->store('career_docs');
+            $validated['dokumen_nota_dinas'] = $request->file('dokumen_nota_dinas')->store('career_docs');
+            $validated['dokumen_lainnya'] = $request->file('dokumen_lainnya')->store('career_docs');
+
         }
 
         $career->update($validated);
